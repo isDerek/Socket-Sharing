@@ -28,7 +28,7 @@
 .\debug\magic.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\magic.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\magic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\magic.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\magic.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\magic.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\magic.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\magic.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

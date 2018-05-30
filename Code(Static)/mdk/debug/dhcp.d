@@ -27,7 +27,7 @@
 .\debug\dhcp.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\dhcp.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\dhcp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\dhcp.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\dhcp.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\dhcp.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\dhcp.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\dhcp.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

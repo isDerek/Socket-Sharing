@@ -27,7 +27,7 @@
 .\debug\ping.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\ping.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\ping.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\ping.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\ping.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\ping.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\ping.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\ping.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

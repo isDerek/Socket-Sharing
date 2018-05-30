@@ -1,8 +1,8 @@
 .\debug\i2c_api.o: I2C\i2c_api.c
 .\debug\i2c_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\debug\i2c_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-.\debug\i2c_api.o: ..\..\Code\board.h
-.\debug\i2c_api.o: ..\..\Code\clock_config.h
+.\debug\i2c_api.o: ..\..\Code(Static)\board.h
+.\debug\i2c_api.o: ..\..\Code(Static)\clock_config.h
 .\debug\i2c_api.o: ..\devices\LPC54608\drivers\fsl_common.h
 .\debug\i2c_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 .\debug\i2c_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
@@ -24,4 +24,4 @@
 .\debug\i2c_api.o: ..\devices\LPC54608\drivers\fsl_i2c.h
 .\debug\i2c_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\debug\i2c_api.o: .\API\lpc54608_api.h
-.\debug\i2c_api.o: ..\..\Code\pin_mux.h
+.\debug\i2c_api.o: ..\..\Code(Static)\pin_mux.h

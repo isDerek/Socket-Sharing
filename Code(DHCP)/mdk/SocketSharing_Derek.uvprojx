@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -274,7 +274,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000</StartAddress>
-                <Size>0x40000</Size>
+                <Size>0x78000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -340,7 +340,7 @@
 </MiscControls>
               <Define>DEBUG, CPU_LPC54608, CPU_LPC54608J512ET180=1, USE_RTOS=1, PRINTF_ADVANCED_ENABLE=1, FSL_RTOS_FREE_RTOS</Define>
               <Undefine></Undefine>
-              <IncludePath>..\lwip_2.0.0\src\include\lwip;..\mdk;..\lwip_2.0.0\port;..\lwip_2.0.0\src\include\lwip;..\devices\LPC54608\utilities;..\devices\LPC54608\drivers;..\devices\LPC54608;.\rtos\freertos_9.0.0\Source\include;..\..\Ev_Charger_Net;.\rtos\freertos_9.0.0\Source\portable\GCC\ARM_CM4F;..\lwip_2.0.0\contrib\apps\tcpecho;..\lwip_2.0.0\src\include\lwip;..\lwip_2.0.0\src\include\lwip\priv;..\lwip_2.0.0\src\include\netif;..\lwip_2.0.0\src\include\lwip\prot;..\lwip_2.0.0\src\netif\ppp;..\devices\LPC54608\arm;..\lwip_2.0.0\contrib\apps\ping;.\API;.\cJSON;.\crc16;.\EVCharger;.\FreeScaleIAP;.\OTA;.\rtos\freertos_9.0.0\Source\include;..\mdk;.\Socket Sharing;.\output;..\..\Socket_Sharing_2018.2.7;.\MD5;..\..\SDK_2.2_LPCXpresso54608\middleware\lwip_2.0.0\src\include\netif\ppp\polarss</IncludePath>
+              <IncludePath>..\lwip_2.0.0\src\include\lwip;..\mdk;..\lwip_2.0.0\port;..\lwip_2.0.0\src\include\lwip;..\devices\LPC54608\utilities;..\devices\LPC54608\drivers;..\devices\LPC54608;.\rtos\freertos_9.0.0\Source\include;..\..\Ev_Charger_Net;.\rtos\freertos_9.0.0\Source\portable\GCC\ARM_CM4F;..\lwip_2.0.0\contrib\apps\tcpecho;..\lwip_2.0.0\src\include\lwip;..\lwip_2.0.0\src\include\lwip\priv;..\lwip_2.0.0\src\include\netif;..\lwip_2.0.0\src\include\lwip\prot;..\lwip_2.0.0\src\netif\ppp;..\devices\LPC54608\arm;..\lwip_2.0.0\contrib\apps\ping;.\API;.\cJSON;.\crc16;.\EVCharger;.\FreeScaleIAP;.\OTA;.\rtos\freertos_9.0.0\Source\include;..\mdk;.\Socket Sharing;.\output;..\..\Code(DHCP);.\MD5;..\..\SDK_2.2_LPCXpresso54608\middleware\lwip_2.0.0\src\include\netif\ppp\polarss</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

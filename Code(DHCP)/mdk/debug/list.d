@@ -3,7 +3,7 @@
 .\debug\list.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\debug\list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\debug\list.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\list.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\list.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\list.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\list.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

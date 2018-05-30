@@ -2,7 +2,7 @@
 .\debug\croutine.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\debug\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\debug\croutine.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\croutine.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\croutine.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\croutine.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\croutine.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

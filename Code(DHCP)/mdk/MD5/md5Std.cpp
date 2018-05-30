@@ -162,13 +162,13 @@ void md5Transform(unsigned int state[4],unsigned char block[64])
      state[3] += d;  
 }
 
-void md5Calculate(unsigned char* binStartAddress, int totalsize)
+void md5Calculate(unsigned char* binStartAddress, int totalsize, unsigned char* buffer)
 {
 	MD5_STD_CTX md5;
 //	int i;
 	md5Init(&md5); 
 	md5Update(&md5,binStartAddress,totalsize);
-	md5Final(&md5,(unsigned char*)otaInfo.versionSN); 
+	md5Final(&md5,buffer); 
 //	printf("º”√‹∫Û32Œª:");  
 //    for(i=0;i<16;i++)  
 //    {  

@@ -2,7 +2,7 @@
 .\debug\port.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\debug\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\debug\port.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\port.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\port.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\port.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\port.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

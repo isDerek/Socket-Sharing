@@ -28,6 +28,7 @@ void OTAInit(void)
 		unsigned char* appStartAddress = (unsigned char*) CODE_START_ADDRESS;
     codechecksum = (cdata[0]<<8)|cdata[1];
 //		printf("app calculate codecrc16 =%x codechecksum = %x\n\r",codecrc16,codechecksum);
+//	printf("cdata10 = %x \n\r",cdata[10]);
     if((codechecksum==0xFFFF)||(codechecksum==0x0)) {
 
         printf("first boot, recover ota partition!\r\n");
@@ -37,7 +38,7 @@ void OTAInit(void)
             program_flash(OTA_CODE_START_ADDRESS+i*SECTOR_SIZE,codePartition+i*SECTOR_SIZE, SECTOR_SIZE);
         }
 				binTotalSize = calculateBinSize(codePartition,20);
-				md5Calculate(appStartAddress,binTotalSize);
+				md5Calculate(appStartAddress,binTotalSize,(unsigned char*)otaInfo.versionSN);
 //				printf("binTotalSize = %d\n\r",binTotalSize);
 				codecrc16 = calculate_crc16(codePartition,binTotalSize);
         otacodecrc16 = calculate_crc16(OTACodePartition, binTotalSize);
@@ -61,8 +62,9 @@ void OTAInit(void)
 				updateCode(); 
     } else {		
 						binTotalSize = calculateBinSize(codePartition,20);
-						md5Calculate(appStartAddress,binTotalSize);
+						md5Calculate(appStartAddress,binTotalSize,(unsigned char*)otaInfo.versionSN);
 						sprintf(versionSN,"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",otaInfo.versionSN[0],otaInfo.versionSN[1],otaInfo.versionSN[2],otaInfo.versionSN[3],otaInfo.versionSN[4],otaInfo.versionSN[5],otaInfo.versionSN[6],otaInfo.versionSN[7],otaInfo.versionSN[8],otaInfo.versionSN[9],otaInfo.versionSN[10],otaInfo.versionSN[11],otaInfo.versionSN[12],otaInfo.versionSN[13],otaInfo.versionSN[14],otaInfo.versionSN[15]);
+						
 						printf("Current APP checksum: %2X%2X OTA checksum: %2X%2X  otaBintotal: %d  appBintotal: %d  versionSN:  %s \n\r",cdata[0],cdata[1],cdata[2],cdata[3],(cdata[4]<<16)|(cdata[5]<<8)|(cdata[6]),(cdata[7]<<16)|(cdata[8]<<8)|(cdata[9]),cdata+11);
 						sprintf(otaInfo.versionSN,"%s",versionSN);	
 //						printf("otaInfo.versionSN =  %s\n\r",otaInfo.versionSN);

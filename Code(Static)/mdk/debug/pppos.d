@@ -28,7 +28,7 @@
 .\debug\pppos.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\pppos.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\pppos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\pppos.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\pppos.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\pppos.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\pppos.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\pppos.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

@@ -2,7 +2,7 @@
 .\debug\fsl_tickless_systick.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\fsl_tickless_systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\debug\fsl_tickless_systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\debug\fsl_tickless_systick.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\fsl_tickless_systick.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\fsl_tickless_systick.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\fsl_tickless_systick.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\fsl_tickless_systick.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

@@ -27,7 +27,7 @@
 .\debug\netbuf.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\netbuf.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\netbuf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\netbuf.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\netbuf.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\netbuf.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\netbuf.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\netbuf.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

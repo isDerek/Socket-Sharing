@@ -27,7 +27,7 @@
 .\debug\inet6.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\inet6.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\inet6.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\inet6.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\inet6.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\inet6.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\inet6.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\inet6.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

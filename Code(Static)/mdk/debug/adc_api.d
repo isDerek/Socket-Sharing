@@ -18,8 +18,8 @@
 .\debug\adc_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 .\debug\adc_api.o: ..\devices\LPC54608\drivers\fsl_reset.h
 .\debug\adc_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\debug\adc_api.o: ..\..\Code\board.h
-.\debug\adc_api.o: ..\..\Code\clock_config.h
+.\debug\adc_api.o: ..\..\Code(Static)\board.h
+.\debug\adc_api.o: ..\..\Code(Static)\clock_config.h
 .\debug\adc_api.o: ..\devices\LPC54608\drivers\fsl_gpio.h
 .\debug\adc_api.o: ..\devices\LPC54608\drivers\fsl_adc.h
 .\debug\adc_api.o: ..\devices\LPC54608\drivers\fsl_power.h

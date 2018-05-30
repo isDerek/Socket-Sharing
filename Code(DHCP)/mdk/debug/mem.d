@@ -27,7 +27,7 @@
 .\debug\mem.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\mem.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\mem.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\mem.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\mem.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\mem.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\mem.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\mem.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

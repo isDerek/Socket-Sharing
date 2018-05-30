@@ -18,8 +18,8 @@
 .\debug\sctimer_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 .\debug\sctimer_api.o: ..\devices\LPC54608\drivers\fsl_reset.h
 .\debug\sctimer_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\debug\sctimer_api.o: ..\..\Socket_Sharing_2018.2.7\board.h
-.\debug\sctimer_api.o: ..\..\Socket_Sharing_2018.2.7\clock_config.h
+.\debug\sctimer_api.o: ..\..\Code(DHCP)\board.h
+.\debug\sctimer_api.o: ..\..\Code(DHCP)\clock_config.h
 .\debug\sctimer_api.o: ..\devices\LPC54608\drivers\fsl_gpio.h
 .\debug\sctimer_api.o: ..\devices\LPC54608\drivers\fsl_sctimer.h
-.\debug\sctimer_api.o: ..\..\Socket_Sharing_2018.2.7\pin_mux.h
+.\debug\sctimer_api.o: ..\..\Code(DHCP)\pin_mux.h

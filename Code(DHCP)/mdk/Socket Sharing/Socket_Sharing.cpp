@@ -125,6 +125,7 @@ void notifyMsgSendHandle(MSGID msgid)
 		else if(msgid == notifyUpdateVersion) 
 		{
 			uint16_t upDateBinCounter;
+			uint16_t timeout;
 			int upDateCount;
 			int otacrc16,codecrc16;			
 			char* cdata = (char*)VERSION_STR_ADDRESS;
@@ -140,6 +141,9 @@ void notifyMsgSendHandle(MSGID msgid)
       len = strlen(socketInfo.outBuffer);
 			printf("notifyMsgSendHandle,send %d bytes: %s\r\n",len,socketInfo.outBuffer);
 			netconn_write(tcpsocket,socketInfo.outBuffer,len,NETCONN_COPY); 
+			timeout = 10000;
+			while(timeout--){
+			}
     	recvMsgHandle();	
 
 			}
@@ -161,6 +165,7 @@ void notifyMsgSendHandle(MSGID msgid)
 			printf("otadownloadfinshedtotalsize = %d  appdownloadfinshedtotalsize = %d\n\r",otaBinTotalSize,appBinTotalSize);
 			sprintf(tempBuffer+11,"%s",otaInfo.versionSN);
 			__disable_irq();
+			printf("tempbuff = %d \n\r", strlen(tempBuffer));
 			erase_sector(VERSION_STR_ADDRESS);
 			program_flash(VERSION_STR_ADDRESS,tempBuffer, 256);
 			msgid = invalidID;

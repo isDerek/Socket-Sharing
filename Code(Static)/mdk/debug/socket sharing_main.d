@@ -27,7 +27,7 @@
 .\debug\socket sharing_main.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\socket sharing_main.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\socket sharing_main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\socket sharing_main.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\socket sharing_main.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\socket sharing_main.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\socket sharing_main.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\socket sharing_main.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h
@@ -60,10 +60,10 @@
 .\debug\socket sharing_main.o: ..\lwip_2.0.0\src\include\lwip\prot/ethernet.h
 .\debug\socket sharing_main.o: ..\lwip_2.0.0\port\ethernetif.h
 .\debug\socket sharing_main.o: ..\devices\LPC54608\drivers\fsl_enet.h
-.\debug\socket sharing_main.o: ..\..\Code\board.h
-.\debug\socket sharing_main.o: ..\..\Code\clock_config.h
+.\debug\socket sharing_main.o: ..\..\Code(Static)\board.h
+.\debug\socket sharing_main.o: ..\..\Code(Static)\clock_config.h
 .\debug\socket sharing_main.o: ..\devices\LPC54608\drivers\fsl_gpio.h
-.\debug\socket sharing_main.o: ..\..\Code\pin_mux.h
+.\debug\socket sharing_main.o: ..\..\Code(Static)\pin_mux.h
 .\debug\socket sharing_main.o: .\API\lpc54608_api.h
 .\debug\socket sharing_main.o: ..\devices\LPC54608\drivers\fsl_adc.h
 .\debug\socket sharing_main.o: ..\devices\LPC54608\drivers\fsl_power.h

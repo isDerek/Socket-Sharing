@@ -3,7 +3,7 @@
 .\debug\timers.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\debug\timers.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\debug\timers.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\timers.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\timers.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\timers.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\timers.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

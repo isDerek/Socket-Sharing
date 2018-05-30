@@ -32,7 +32,7 @@
 .\debug\socket_sharing.o: ..\lwip_2.0.0\src\include\lwip\opt.h
 .\debug\socket_sharing.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\socket_sharing.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
-.\debug\socket_sharing.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\socket_sharing.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\socket_sharing.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\socket_sharing.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\socket_sharing.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

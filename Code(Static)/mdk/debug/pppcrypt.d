@@ -28,7 +28,7 @@
 .\debug\pppcrypt.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\pppcrypt.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\pppcrypt.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\pppcrypt.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\pppcrypt.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\pppcrypt.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\pppcrypt.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\pppcrypt.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

@@ -1696,7 +1696,8 @@ int main(void)
 	  eeprom_init();		 
     initServer(); 
     initEventHandle(); 
-    OTAInit();  
+    OTAInit();
+		printf("OTA V1.0!!!\n\r");
 		if(sys_thread_new("timerOneSecondThread", timerOneSecondThread, NULL, /*1024 512*/512 , INIT_THREAD_PRIO) == NULL)
         LWIP_ASSERT("timerOneSecondThread(): Task creation failed.", 0);
 		if(sys_thread_new("heartbeatThread", heartbeatThread, NULL, /*1024 512*/512 , INIT_THREAD_PRIO) == NULL)

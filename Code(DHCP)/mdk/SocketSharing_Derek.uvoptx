@@ -117,6 +117,11 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>DLGUARM</Key>
+          <Name>o</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
           <Name>-L70 -Z18 -C0 -M0 -T1</Name>
         </SetRegEntry>
@@ -129,11 +134,6 @@
           <Number>0</Number>
           <Key>ARMDBGFLAGS</Key>
           <Name></Name>
-        </SetRegEntry>
-        <SetRegEntry>
-          <Number>0</Number>
-          <Key>DLGUARM</Key>
-          <Name>/</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -151,7 +151,7 @@
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>0</SubType>
-          <ItemText>0X40000</ItemText>
+          <ItemText>0X48000</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
@@ -3595,7 +3595,7 @@
 
   <Group>
     <GroupName>API</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -3787,7 +3787,7 @@
 
   <Group>
     <GroupName>Socket_Sharing</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -3843,7 +3843,7 @@
 
   <Group>
     <GroupName>OTA</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -3875,7 +3875,7 @@
 
   <Group>
     <GroupName>MD5_Source</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

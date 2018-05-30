@@ -4,7 +4,7 @@
 .\debug\tasks.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\tasks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\debug\tasks.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\debug\tasks.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\tasks.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\tasks.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\tasks.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\tasks.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

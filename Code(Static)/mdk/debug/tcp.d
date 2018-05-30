@@ -27,7 +27,7 @@
 .\debug\tcp.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\tcp.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\tcp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\tcp.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\tcp.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\tcp.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\tcp.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\tcp.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

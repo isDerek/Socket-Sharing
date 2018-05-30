@@ -18,8 +18,8 @@
 .\debug\adc_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 .\debug\adc_api.o: ..\devices\LPC54608\drivers\fsl_reset.h
 .\debug\adc_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
-.\debug\adc_api.o: ..\..\Socket_Sharing_2018.2.7\board.h
-.\debug\adc_api.o: ..\..\Socket_Sharing_2018.2.7\clock_config.h
+.\debug\adc_api.o: ..\..\Code(DHCP)\board.h
+.\debug\adc_api.o: ..\..\Code(DHCP)\clock_config.h
 .\debug\adc_api.o: ..\devices\LPC54608\drivers\fsl_gpio.h
 .\debug\adc_api.o: ..\devices\LPC54608\drivers\fsl_adc.h
 .\debug\adc_api.o: ..\devices\LPC54608\drivers\fsl_power.h

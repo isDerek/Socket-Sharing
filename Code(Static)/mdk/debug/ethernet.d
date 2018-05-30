@@ -27,7 +27,7 @@
 .\debug\ethernet.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\ethernet.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\ethernet.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\ethernet.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\ethernet.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\ethernet.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\ethernet.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\ethernet.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

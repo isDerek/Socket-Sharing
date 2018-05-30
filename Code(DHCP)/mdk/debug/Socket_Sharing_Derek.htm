@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\debug\Socket_Sharing_Derek.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\debug\Socket_Sharing_Derek.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu May 24 15:07:23 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed May 30 08:35:14 2018
 <BR><P>
 <H3>Maximum Stack Usage =       2384 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2132,8 +2132,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> socket sharing_main.o(i.main)
 </UL>
-<P><STRONG><a name="[167]"></a>md5Calculate(unsigned char*, int)</STRONG> (Thumb, 36 bytes, Stack size 104 bytes, md5std.o(i._Z12md5CalculatePhi))
-<BR><BR>[Stack]<UL><LI>Max Depth = 468<LI>Call Chain = md5Calculate(unsigned char*, int) &rArr; md5Final(_md5_std_ctx*, unsigned char*) &rArr; md5Update(_md5_std_ctx*, unsigned char*, unsigned) &rArr; md5Transform(unsigned*, unsigned char*) &rArr; md5Decode(unsigned*, unsigned char*, unsigned)
+<P><STRONG><a name="[167]"></a>md5Calculate(unsigned char*, int, unsigned char*)</STRONG> (Thumb, 38 bytes, Stack size 104 bytes, md5std.o(i._Z12md5CalculatePhiS_))
+<BR><BR>[Stack]<UL><LI>Max Depth = 468<LI>Call Chain = md5Calculate(unsigned char*, int, unsigned char*) &rArr; md5Final(_md5_std_ctx*, unsigned char*) &rArr; md5Update(_md5_std_ctx*, unsigned char*, unsigned) &rArr; md5Transform(unsigned*, unsigned char*) &rArr; md5Decode(unsigned*, unsigned char*, unsigned)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Update(_md5_std_ctx*, unsigned char*, unsigned)
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Final(_md5_std_ctx*, unsigned char*)
@@ -2361,7 +2361,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;workHandle(void*)
 </UL>
 
-<P><STRONG><a name="[175]"></a>notifyMsgSendHandle(MSGID)</STRONG> (Thumb, 670 bytes, Stack size 112 bytes, socket_sharing.o(i._Z19notifyMsgSendHandle5MSGID))
+<P><STRONG><a name="[175]"></a>notifyMsgSendHandle(MSGID)</STRONG> (Thumb, 706 bytes, Stack size 112 bytes, socket_sharing.o(i._Z19notifyMsgSendHandle5MSGID))
 <BR><BR>[Stack]<UL><LI>Max Depth = 992 + In Cycle
 <LI>Call Chain = notifyMsgSendHandle(MSGID) &rArr;  notifyMsgSendHandle(MSGID) (Cycle)
 </UL>
@@ -2452,7 +2452,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_crc16_A001(unsigned short, char)
 </UL>
 
-<P><STRONG><a name="[191]"></a>OTAInit()</STRONG> (Thumb, 514 bytes, Stack size 96 bytes, ota.o(i._Z7OTAInitv))
+<P><STRONG><a name="[191]"></a>OTAInit()</STRONG> (Thumb, 572 bytes, Stack size 96 bytes, ota.o(i._Z7OTAInitv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 768<LI>Call Chain = OTAInit() &rArr; program_flash &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertFloatRadixNumToString &rArr; __hardfp_pow &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate_crc16(char*, unsigned)
@@ -2462,14 +2462,14 @@ Global Symbols
 <LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Calculate(unsigned char*, int)
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Calculate(unsigned char*, int, unsigned char*)
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateBinSize(char*, int)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[168]"></a>md5Init(_md5_std_ctx*)</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, md5std.o(i._Z7md5InitP12_md5_std_ctx))
-<BR><BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Calculate(unsigned char*, int)
+<BR><BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Calculate(unsigned char*, int, unsigned char*)
 </UL>
 
 <P><STRONG><a name="[16a]"></a>md5Final(_md5_std_ctx*, unsigned char*)</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, md5std.o(i._Z8md5FinalP12_md5_std_ctxPh))
@@ -2478,7 +2478,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Update(_md5_std_ctx*, unsigned char*, unsigned)
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Encode(unsigned char*, unsigned*, unsigned)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Calculate(unsigned char*, int)
+<BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Calculate(unsigned char*, int, unsigned char*)
 </UL>
 
 <P><STRONG><a name="[15c]"></a>apiHandle()</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, socket sharing_main.o(i._Z9apiHandlev))
@@ -2513,7 +2513,7 @@ Global Symbols
 <LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Transform(unsigned*, unsigned char*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Final(_md5_std_ctx*, unsigned char*)
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Calculate(unsigned char*, int)
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;md5Calculate(unsigned char*, int, unsigned char*)
 </UL>
 
 <P><STRONG><a name="[196]"></a>__0printf</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
@@ -2529,6 +2529,7 @@ Global Symbols
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;notifyMsgSendHandle(MSGID)
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmdMsgRespHandle(MSGID)
 <LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recvMsgHandle()
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;apiHandle()
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkNetworkAvailable()
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkChargingFinish()
@@ -3363,7 +3364,7 @@ Global Symbols
 <LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inet_cksum_pseudo_base
 </UL>
 
-<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 294 bytes, Stack size 72 bytes, socket sharing_main.o(i.main))
+<P><STRONG><a name="[46]"></a>main</STRONG> (Thumb, 300 bytes, Stack size 72 bytes, socket sharing_main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1336<LI>Call Chain = main &rArr; Internet_init() &rArr; netif_add &rArr; netif_set_addr &rArr; netif_set_ipaddr &rArr; tcp_netif_ip_addr_changed &rArr; tcp_netif_ip_addr_changed_pcblist &rArr; tcp_abort &rArr; tcp_abandon &rArr; tcp_pcb_remove &rArr; tcp_output &rArr; tcp_output_segment &rArr; ip4_output_if &rArr; ip4_output_if_src &rArr; ip4_frag &rArr; pbuf_alloc &rArr; pbuf_free &rArr; memp_free &rArr; do_memp_free_pool &rArr; sys_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertFloatRadixNumToString &rArr; __hardfp_pow &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_AttachClk
@@ -3384,6 +3385,7 @@ Global Symbols
 <LI><a href="#[241]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initEventHandle()
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Internet_init()
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initServer()
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[244]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)

@@ -3,7 +3,7 @@
 .\debug\heap_3.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\heap_3.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\debug\heap_3.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\debug\heap_3.o: ..\..\Code\FreeRTOSConfig.h
+.\debug\heap_3.o: ..\..\Code(Static)\FreeRTOSConfig.h
 .\debug\heap_3.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\heap_3.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\heap_3.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h

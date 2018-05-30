@@ -1,0 +1,27 @@
+--cpu=Cortex-M4.fp
+".\debug\startup_lpc54608.o"
+".\debug\system_lpc54608.o"
+".\debug\fsl_clock.o"
+".\debug\fsl_common.o"
+".\debug\fsl_emc.o"
+".\debug\fsl_enet.o"
+".\debug\fsl_flashiap.o"
+".\debug\fsl_flexcomm.o"
+".\debug\fsl_gpio.o"
+".\debug\fsl_inputmux.o"
+".\debug\fsl_power.o"
+".\debug\fsl_reset.o"
+".\debug\fsl_usart.o"
+".\debug\bootloader.o"
+".\debug\main.o"
+".\debug\pin_mux.o"
+".\debug\board.o"
+".\debug\clock_config.o"
+".\debug\fsl_debug_console.o"
+".\debug\flash_api.o"
+".\debug\lib_crc16.o"
+".\debug\md5std.o"
+--library_type=microlib --diag_suppress 6314 --strict --scatter "LPC54608J512_flash.scf"
+../devices/LPC54608/arm/keil_lib_power.lib --remove --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\output\Bootloader_LPC54606.map" -o .\debug\Bootloader_LPC54606.icf

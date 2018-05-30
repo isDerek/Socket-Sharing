@@ -27,7 +27,7 @@
 .\debug\ethernetif.o: ..\lwip_2.0.0\port\arch/cc.h
 .\debug\ethernetif.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
 .\debug\ethernetif.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\ethernetif.o: ..\..\Socket_Sharing_2018.2.7\FreeRTOSConfig.h
+.\debug\ethernetif.o: ..\..\Code(DHCP)\FreeRTOSConfig.h
 .\debug\ethernetif.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\ethernetif.o: .\rtos\freertos_9.0.0\Source\include\portable.h
 .\debug\ethernetif.o: .\rtos\freertos_9.0.0\Source\include\deprecated_definitions.h
@@ -67,4 +67,4 @@
 .\debug\ethernetif.o: .\rtos\freertos_9.0.0\Source\include\timers.h
 .\debug\ethernetif.o: ..\lwip_2.0.0\port\ethernetif.h
 .\debug\ethernetif.o: ..\devices\LPC54608\drivers\fsl_enet.h
-.\debug\ethernetif.o: ..\..\Socket_Sharing_2018.2.7\fsl_phy.h
+.\debug\ethernetif.o: ..\..\Code(DHCP)\fsl_phy.h
