@@ -109,7 +109,6 @@
 ".\debug\gpio_api.o"
 ".\debug\sctimer_api.o"
 ".\debug\usart_api.o"
-".\debug\tcp_socket_api.o"
 ".\debug\flash_api.o"
 ".\debug\i2c_api.o"
 ".\debug\cjson.o"
