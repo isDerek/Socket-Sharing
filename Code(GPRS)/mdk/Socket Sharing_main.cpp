@@ -225,10 +225,7 @@ bool getLatestFWFromServerFlag;
 /*******************************************************************************
  * Code
  ******************************************************************************/
-uint8_t buffer[]="";
-bool respondATCommand = false;
-bool selectATCommand = true;
-bool jsonDataCommand = false;
+
 extern "C"
 {
 /****************************************************************************/
@@ -239,7 +236,14 @@ extern "C"
 	bool eValidFlag = false;
 	bool tValidFlag = false;
 	bool changeTCPMode = false;
+	bool bufferStart = false;
 	bool gprsConnectServerFlag = false;
+	bool respondATCommand = false;
+	bool respondATConnect = false;
+	bool selectATCommand = true;
+	uint8_t buffer[]="";
+	char uart2Buffer [255];
+	int jsonSize = 0;
 	void DEMO_USART2_IRQHandler(void)
 {
 	  if(selectATCommand == true){
@@ -254,41 +258,63 @@ extern "C"
 				kValidFlag = true;
 				printf(" K is here!\n\r");
 			}
-//			if(buffer[0]=='C'){
-//				cValidFlag = true;
-////				printf(" C is here!\n\r");
-//			}
-//			if(buffer[0]=='O'){
-//				oValidFlag = true;
-////				printf(" O is here!\n\r");
-//			}
-//			if(buffer[0]=='N'){
-//				nValidFlag = true;
-////				printf(" N is here!\n\r");
-//			}
-//			if(buffer[0]=='E'){
-//				eValidFlag = true;
-////				printf(" E is here!\n\r");
-//			}
-//			if(buffer[0]=='T'){
-//				tValidFlag = true;
-////				printf(" T is here!\n\r");
-//			}		
+			if(buffer[0]=='C'){
+				cValidFlag = true;
+//				printf(" C is here!\n\r");
+			}
+			if(buffer[0]=='O'){
+				oValidFlag = true;
+//				printf(" O is here!\n\r");
+			}
+			if(buffer[0]=='N'){
+				nValidFlag = true;
+//				printf(" N is here!\n\r");
+			}
+			if(buffer[0]=='E'){
+				eValidFlag = true;
+//				printf(" E is here!\n\r");
+			}
+			if(buffer[0]=='T'){
+				tValidFlag = true;
+//				printf(" T is here!\n\r");
+			}		
         if(oValidFlag == true && kValidFlag == true){			
 //			if(oValidFlag == true && kValidFlag == true && cValidFlag == true && nValidFlag == true && eValidFlag == true && tValidFlag == true){
 				respondATCommand = true;
-				printf("valid successfull!\n\r");
+				printf("valid ok successfull!\n\r");
 				kValidFlag = false;
 				oValidFlag = false;
-//			  cValidFlag = false;
-//	      nValidFlag = false;
-//	      eValidFlag = false;
-//	      tValidFlag = false;
+				changeTCPMode = true;
+			  cValidFlag = false;
+	      nValidFlag = false;
+	      eValidFlag = false;
+	      tValidFlag = false;
 			}
+				if(cValidFlag == true && oValidFlag == true && nValidFlag == true && eValidFlag == true && tValidFlag == true && changeTCPMode == true){
+				respondATConnect = true;
+				printf("valid connect successfull!\n\r");
+				oValidFlag = false;
+			  cValidFlag = false;
+	      nValidFlag = false;
+	      eValidFlag = false;
+	      tValidFlag = false;
+				}
 		}
 		else{
-				usart2_readbyByte(DEMO_USART2);
-//			  PRINTF("UART2 \n\r");
+			USART_ReadBlocking(DEMO_USART2, buffer, sizeof(buffer) / sizeof(buffer[0]));
+//			USART_WriteBlocking(DEMO_USART7, buffer, sizeof(buffer) / sizeof(buffer[0])); 
+			if(buffer[0]=='{' || bufferStart == true){
+						bufferStart = true;
+						uart2Buffer[jsonSize] = buffer[0];
+				    jsonSize++;
+				if(buffer[0]=='}'){
+					  parseRecvMsgInfo(uart2Buffer);
+//					  printf("\n\r receive Data = %s\n\r",uart2Buffer);
+					  memset(uart2Buffer,0,255);
+					  jsonSize = 0;
+						bufferStart = false;
+				}
+			}
 		}
 		
 }
@@ -397,7 +423,7 @@ void checkNetworkAvailable(void)
 		uint8_t tcpMode[] = "AT+CIPMODE=1\n\r";	
 		uint8_t connectServer[] = "AT+CIPSTART=\"TCP\",\"112.74.170.197\",\"44441\"\r\n";		
     bool resendFlag = false;
-	  int timeout = 50000;
+	  int timeout = 10000;
     if(chargerException.serverConnectedFlag == true) 
 			{						
 			} 
@@ -408,11 +434,19 @@ void checkNetworkAvailable(void)
         if(netconn_connect(tcpsocket,&SERVERADDRESS, ECHO_SERVER_PORT) != ERR_OK) 
 				{
 					while(!changeTCPMode){
+//					respondATCommand = false;
+//					oValidFlag = false;
+//					kValidFlag = false;
 					USART_WriteBlocking(DEMO_USART2, tcpMode, sizeof(tcpMode) / sizeof(tcpMode[0]));
 					break;
 					}
 					if(respondATCommand == true|| gprsConnectServerFlag == true){
 						changeTCPMode = true;
+						oValidFlag = false;
+						cValidFlag = false;
+	          nValidFlag = false;
+	          eValidFlag = false;
+	          tValidFlag = false;
 						respondATCommand = false;
 						gprsConnectServerFlag = true;
 						USART_WriteBlocking(DEMO_USART2, connectServer, sizeof(connectServer) / sizeof(connectServer[0]));
@@ -421,11 +455,10 @@ void checkNetworkAvailable(void)
 							timeout --;
 						}
 						/********************************************************************8*******************/
-						if(respondATCommand == true){
-						respondATCommand = false;
+						if(respondATConnect == true){
+						respondATConnect = false;
 						chargerException.serverConnectedFlag = true;	
-//					selectATCommand = false;						
-
+					  selectATCommand = false;						
 				}						
 					}
 
@@ -513,7 +546,7 @@ void heartbeatThread(void *arg)
 /*************************************respond  api*****************************************************/
 void apiRespond()
 {
-			if(respond == 1)
+			if(respond == 1)  // device handle success
 		{
 		respond = 0;
 		switch(chargerInfo.apiId)
@@ -719,7 +752,7 @@ void openPortSwitch()
 					{			
 						chargerInfo.allPortStatus[chargerInfo.index] = CP_ON();			
 						respcode = RESP_OK;
-						apiRespond();	
+						apiRespond();						
 						chargerInfo.portStatus[0][0] = chargerInfo.index;
 						chargerInfo.portStatus[0][1] = CP_ON();	
 						notifyMsgSendHandle(notifygetPortStatus);			

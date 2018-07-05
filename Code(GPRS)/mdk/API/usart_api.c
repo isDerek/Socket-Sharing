@@ -8,10 +8,8 @@ extern char regvalue[DEMO_RING_BUFFER_SIZE];
 extern volatile uint16_t txIndex; /* Index of the data to send out. */
 extern volatile uint16_t i; /* Index of the memory to save new arrived data. */
 extern uint8_t demoRingBuffer[DEMO_RING_BUFFER_SIZE];
-extern uint8_t g_tipString[256];
 void usart_writebyByte(USART_Type *base)
 {
-
 	        while ((kUSART_TxFifoNotFullFlag & USART_GetStatusFlags(base)) && (i != txIndex))
         {
             USART_WriteByte(base, regvalue[txIndex]);

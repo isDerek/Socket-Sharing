@@ -32,18 +32,16 @@ typedef struct _SocketInfo {
     char outBuffer[SOCKET_OUT_BUFFER_SIZE];
 } SocketInfo;
 
-typedef struct _GPRSBuffer {
-	char outBuffer[SOCKET_OUT_BUFFER_SIZE];
-	
-} GPRSBuffer;
-
 
 
 /* ------------------------ Global variables and functions ------------------------ */
 
 extern char versionSN [];
+
 extern int systemTimer;
+
 extern SystemEventHandle eventHandle;
+
 extern SocketInfo socketInfo;
 
 extern char tempBuffer[];  // crc16 Buffer
@@ -68,11 +66,6 @@ extern bool upDateBinFlag;
 
 extern int otaBinTotalSize;
 
-extern bool respondATCommand;
-
-extern bool selectATCommand;
-
-extern bool jsonDataCommand;
 
 
 #endif
