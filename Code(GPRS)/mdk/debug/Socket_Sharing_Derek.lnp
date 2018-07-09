@@ -111,6 +111,7 @@
 ".\debug\usart_api.o"
 ".\debug\flash_api.o"
 ".\debug\i2c_api.o"
+".\debug\gprs_api.o"
 ".\debug\cjson.o"
 ".\debug\lib_crc16.o"
 ".\debug\socket_sharing.o"

@@ -145,6 +145,8 @@ extern "C"
 #define CP_PIN 10
 #define PWM_PORT 0
 #define PWM_PIN 17
+#define I2C1_CLK_PORT 0
+#define I2C1_CLK_PIN 14
 
 #define sourceClock         			CLOCK_GetFreq(kCLOCK_CoreSysClk)
 
@@ -159,9 +161,12 @@ struct netbuf *buf;
 SocketInfo socketInfo;
 int systemTimer = 0;
 int resetTimer = 0;
-
-volatile bool tcpwriteFlag = false;
-
+int gprsConnectServerTimer = 0;
+/*************gprs parm****************/
+int gprsPWRTimer = 0;
+bool gprsOpenFlag = true;
+bool gprsCloseFlag = false;
+/*************************************/
 char tempBuffer[256];//need to be fixed, save data flash use this buffer;
 /*! @brief Ring buffer to save received data. */
 
@@ -229,13 +234,19 @@ bool getLatestFWFromServerFlag;
 extern "C"
 {
 /****************************************************************************/
+/*****dataValid*************/
 	bool oValidFlag = false;
 	bool kValidFlag = false;
 	bool cValidFlag = false;
 	bool nValidFlag = false;
 	bool eValidFlag = false;
 	bool tValidFlag = false;
+	bool lValidFlag = false;
+	bool sValidFlag = false;
+	bool dValidFlag = false;
+/**************************/	
 	bool changeTCPMode = false;
+	bool connectServerClose = false;
 	bool bufferStart = false;
 	bool gprsConnectServerFlag = false;
 	bool respondATCommand = false;
@@ -244,27 +255,28 @@ extern "C"
 	uint8_t buffer[]="";
 	char uart2Buffer [255];
 	int jsonSize = 0;
-	void DEMO_USART2_IRQHandler(void)
-{
-	  if(selectATCommand == true){
-		USART_ReadBlocking(DEMO_USART2, buffer, sizeof(buffer) / sizeof(buffer[0]));
-//	  printf("%s\n\r",buffer);
-		USART_WriteBlocking(DEMO_USART7, buffer, sizeof(buffer) / sizeof(buffer[0])); 
+	void clearDataValid(void){
+		oValidFlag = false;
+		kValidFlag = false;
+		cValidFlag = false;
+		nValidFlag = false;
+		eValidFlag = false;
+		tValidFlag = false;
+		lValidFlag = false;
+		sValidFlag = false;
+	}
+	void DataParsingForFirstConnectServer(void){
 			if(buffer[0]=='O'){
 				oValidFlag = true;
 //				printf(" O is here!\n\r");
 			}
 			if(buffer[0]=='K'){
 				kValidFlag = true;
-				printf(" K is here!\n\r");
+//				printf(" K is here!\n\r");
 			}
 			if(buffer[0]=='C'){
 				cValidFlag = true;
 //				printf(" C is here!\n\r");
-			}
-			if(buffer[0]=='O'){
-				oValidFlag = true;
-//				printf(" O is here!\n\r");
 			}
 			if(buffer[0]=='N'){
 				nValidFlag = true;
@@ -279,7 +291,6 @@ extern "C"
 //				printf(" T is here!\n\r");
 			}		
         if(oValidFlag == true && kValidFlag == true){			
-//			if(oValidFlag == true && kValidFlag == true && cValidFlag == true && nValidFlag == true && eValidFlag == true && tValidFlag == true){
 				respondATCommand = true;
 				printf("valid ok successfull!\n\r");
 				kValidFlag = false;
@@ -298,7 +309,45 @@ extern "C"
 	      nValidFlag = false;
 	      eValidFlag = false;
 	      tValidFlag = false;
-				}
+				}		
+	}
+	void checkDataForGPRSConnectClose(void){
+			if(buffer[0]=='C'){
+				cValidFlag = true;
+//				printf("C is here!\n\r");
+			}
+			if(buffer[0]=='L'){
+				lValidFlag = true;
+//				printf("L is here!\n\r");
+			}
+			if(buffer[0]=='O'){
+				oValidFlag = true;
+//				printf("O is here!\n\r");
+			}
+			if(buffer[0]=='S'){
+				sValidFlag = true;
+//				printf("S is here!\n\r");
+			}
+			if(buffer[0]=='E'){
+				eValidFlag = true;
+//				printf("E is here!\n\r");
+			}
+			if(buffer[0]=='D'){
+				dValidFlag = true;
+//				printf("D is here!\n\r");
+			}
+			if(cValidFlag == true && lValidFlag == true && oValidFlag == true && sValidFlag == true && eValidFlag == true && dValidFlag == true){
+					connectServerClose = true;
+				  selectATCommand = true;
+			}
+	}
+	void DEMO_USART2_IRQHandler(void)
+{
+	  if(selectATCommand == true){
+		USART_ReadBlocking(DEMO_USART2, buffer, sizeof(buffer) / sizeof(buffer[0]));
+//	  printf("%s\n\r",buffer);
+		USART_WriteBlocking(DEMO_USART7, buffer, sizeof(buffer) / sizeof(buffer[0]));
+		DataParsingForFirstConnectServer();			
 		}
 		else{
 			USART_ReadBlocking(DEMO_USART2, buffer, sizeof(buffer) / sizeof(buffer[0]));
@@ -314,7 +363,8 @@ extern "C"
 					  jsonSize = 0;
 						bufferStart = false;
 				}
-			}
+			}			
+			checkDataForGPRSConnectClose();
 		}
 		
 }
@@ -373,6 +423,9 @@ void usart_interrupt_init(void)
     gpio_pin_config_t gpio_config = {
         kGPIO_DigitalOutput, 0,
     };
+    gpio_pin_config_t gpio_config1 = {
+        kGPIO_DigitalOutput, 1,
+    };
 		GPIO_PinInit(GPIO, LED_W_PORT, LED_W_PIN, &gpio_config);
 		GPIO_PinInit(GPIO, LED_B_PORT, LED_B_PIN, &gpio_config);
 		GPIO_PinInit(GPIO, LED_G_PORT, LED_G_PIN, &gpio_config);
@@ -389,6 +442,7 @@ void usart_interrupt_init(void)
 		GPIO_PinInit(GPIO, RS485_RX_PORT, RS485_RX_PIN, &gpio_config);
 		GPIO_PinInit(GPIO, CP_PORT, CP_PIN, &gpio_config);
 		GPIO_PinInit(GPIO, PWM_PORT, PWM_PIN, &gpio_config);
+		GPIO_PinInit(GPIO, I2C1_CLK_PORT, I2C1_CLK_PIN, &gpio_config1);		//  GPRS MODE INITIAL
 	}
 
 /* ADC INIT*/
@@ -424,15 +478,23 @@ void checkNetworkAvailable(void)
 		uint8_t connectServer[] = "AT+CIPSTART=\"TCP\",\"112.74.170.197\",\"44441\"\r\n";		
     bool resendFlag = false;
 	  int timeout = 10000;
+	/**********************gprs connect Server******************/
+	  if(connectServerClose == true){
+		  chargerException.serverConnectedFlag = false;
+      connectServerClose = false;	
+			changeTCPMode = false; 			
+		}
+	/***********************************************************/
     if(chargerException.serverConnectedFlag == true) 
 			{						
 			} 
 		else 
-			{				
+			{
 			  netconn_delete(tcpsocket);              //added by derek 2017.11.15
 				tcpsocket = netconn_new(NETCONN_TCP);   // added by derek 2017.11.15 
         if(netconn_connect(tcpsocket,&SERVERADDRESS, ECHO_SERVER_PORT) != ERR_OK) 
 				{
+/********************************gprs mode***************************************/
 					while(!changeTCPMode){
 //					respondATCommand = false;
 //					oValidFlag = false;
@@ -454,14 +516,16 @@ void checkNetworkAvailable(void)
 						while(timeout != 0){
 							timeout --;
 						}
-						/********************************************************************8*******************/
+						/***************************************************************************************/
 						if(respondATConnect == true){
 						respondATConnect = false;
 						chargerException.serverConnectedFlag = true;	
-					  selectATCommand = false;						
+					  selectATCommand = false;	
+						if(eventHandle.firstConnectFlag != true)
+            resendFlag = true;	
 				}						
 					}
-
+/*******************************************************************************/
 					//printf("network unavailable!\r\n");
             //     printf("Unable to connect 2 to (%s) on port (%d)\r\n", ECHO_SERVER_ADDRESS, ECHO_SERVER_PORT);
         } 
@@ -506,6 +570,11 @@ void timerOneSecondThread(void *arg)
 					}
         vTaskDelay(1000);
         systemTimer++;  // retry msg parm
+				if(systemTimer % 30== 0){
+//					printf("clear data!\n\r");
+					clearDataValid(); // gprs clear dataValid
+				}
+			/******************** calculate time for gpio*****************************/
 				for(portIndex = 0;portIndex < 16;portIndex ++)
 					{
 						if(chargerInfo.allPortStatus[portIndex] == 1)
@@ -517,6 +586,10 @@ void timerOneSecondThread(void *arg)
 							chargerInfo.duration[portIndex] = 0;
 						}
 					}
+			/*************************************************************************/
+				if(gprsOpenFlag == true || gprsCloseFlag == true){
+					gprsPWRTimer++;
+				}										
     }
 } 
 /***********************************30s timer thread***************************/
@@ -1610,7 +1683,7 @@ switch(chargerInfo.index)
 }
 void apiHandle()
 {
-			if(chargerInfo.apiId == 21)
+		if(chargerInfo.apiId == 21)
 		{
 			openPortSwitch();
 		}
@@ -1628,8 +1701,7 @@ void apiHandle()
 			for(portStatusIndex = 0 ; portStatusIndex<16 ; portStatusIndex++)
 			{
 				if(chargerInfo.allPortStatusBuffer[portStatusIndex]==1)
-				{
-				
+				{				
 					chargerInfo.setDuration[portStatusIndex] = 1;  // 1 minutes test 
 					chargerInfo.index = portStatusIndex;
 					switchAllPortStatusFlag = true;
@@ -1698,7 +1770,10 @@ void netWorkThread(void *arg)
 {
 	LWIP_UNUSED_ARG(arg);			
 	while(1)
-{						
+{				
+				if(gprsOpenFlag == true){
+					PWROpenToggle(); // GPRS START
+				}
         checkNetworkAvailable();  			
         if(chargerException.serverConnectedFlag == false) 
 					{
@@ -1787,7 +1862,6 @@ void Internet_init()
 
 int main(void)
 {
-//		uint8_t tcpMode[] = "AT+CIPMODE=1\n\r";	
 	  CLOCK_EnableClock(kCLOCK_InputMux);
 		CLOCK_EnableClock(kCLOCK_Iocon);   
 	  CLOCK_EnableClock(kCLOCK_Gpio0);
@@ -1809,7 +1883,6 @@ int main(void)
     initServer(); 
     initEventHandle(); 
     OTAInit();
-//		USART_WriteBlocking(DEMO_USART2, tcpMode, sizeof(tcpMode) / sizeof(tcpMode[0]));
 		printf("OTA V1.0!!!\n\r");
 		if(sys_thread_new("timerOneSecondThread", timerOneSecondThread, NULL, /*1024 512*/512 , INIT_THREAD_PRIO) == NULL)
 				LWIP_ASSERT("timerOneSecondThread(): Task creation failed.", 0);

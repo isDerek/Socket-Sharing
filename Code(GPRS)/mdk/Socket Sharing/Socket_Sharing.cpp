@@ -53,13 +53,11 @@ void recvMsgHandle(void)   //designed by derek 2017.11.17
 		else 
 		{
 			netbuf_delete(buf);
-		}
-         
-	
-	
+		}	
 }
 void cmdMsgRespHandle(MSGID msgid)
 {
+		int gprsTimeOut = 5000000; // gprs uart interval time
     int len;
     if((msgid == invalidID)||(msgid >= unknownMsgID))
         return;
@@ -103,6 +101,9 @@ void cmdMsgRespHandle(MSGID msgid)
     netconn_write(tcpsocket,socketInfo.outBuffer, len,NETCONN_COPY);	
 		USART_WriteBlocking(DEMO_USART2, (uint8_t*)socketInfo.outBuffer, len);  // GPRS MODE
 		printf("cmdMsgRespHandle,send %d bytes: %s\r\n",len,socketInfo.outBuffer);
+		while(gprsTimeOut != 0){
+			gprsTimeOut --;
+		}
 }
 void notifyMsgSendHandle(MSGID msgid)
 {
@@ -188,6 +189,7 @@ void notifyMsgSendHandle(MSGID msgid)
     }  
 		else if(msgid == notifygetPortStatus)
 		{
+//				int gprsTimeOut = 5000000; // gprs uart interval time
         chargerInfo.apiId = 3;			
 				chargerInfo.deviceStatus = 1;
 				sprintf(socketInfo.outBuffer,NOTIFY_REQ_deviceStatus,chargerInfo.apiId,chargerInfo.deviceStatus,chargerInfo.portStatus[chargerInfo.index][0],chargerInfo.portStatus[chargerInfo.index][1]);
@@ -195,6 +197,9 @@ void notifyMsgSendHandle(MSGID msgid)
 				printf("notifyMsgSendHandle,send %d bytes: %s\r\n",len,socketInfo.outBuffer);
 				netconn_write(tcpsocket,socketInfo.outBuffer,len,NETCONN_COPY);
 				USART_WriteBlocking(DEMO_USART2, (uint8_t*)socketInfo.outBuffer, len); // GPRS MODE
+//			  while(gprsTimeOut != 0){
+//					gprsTimeOut --;
+//				}		
 		}
 		else if(msgid == notifyOTAResult)
 		{
@@ -344,7 +349,7 @@ void parseBincodeBuffer(char *text)
     int blockSize = 0;
     int checksum = 0;
     int crc16 = NULL;
-	  int reWrite = 0;  //orangecai
+	  int reWrite = 0;  
 	
     if(strncmp(text, SOCKET_OTA_HEADER, strlen(SOCKET_OTA_HEADER))== NULL) {
         blockOffset = ((text[BLOCKOFFSET_POS] << 24) | (text[BLOCKOFFSET_POS+1] << 16) |(text[BLOCKOFFSET_POS+2] << 8)|text[BLOCKOFFSET_POS+3]);

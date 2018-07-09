@@ -1989,6 +1989,11 @@
               <FileType>1</FileType>
               <FilePath>.\I2C\i2c_api.c</FilePath>
             </File>
+            <File>
+              <FileName>gprs_api.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\API\gprs_api.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4027,6 +4032,11 @@
               <FileName>i2c_api.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\I2C\i2c_api.c</FilePath>
+            </File>
+            <File>
+              <FileName>gprs_api.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\API\gprs_api.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -66,6 +66,11 @@ extern bool upDateBinFlag;
 
 extern int otaBinTotalSize;
 
+extern int gprsPWRTimer;
+
+extern bool gprsOpenFlag;
+
+extern bool gprsCloseFlag;
 
 
 #endif

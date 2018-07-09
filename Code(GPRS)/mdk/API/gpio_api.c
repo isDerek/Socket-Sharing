@@ -38,6 +38,8 @@
 #define CP_PIN 10
 #define PWM_PORT 0
 #define PWM_PIN 17
+#define I2C1_CLK_PORT 0
+#define I2C1_CLK_PIN 14
 int LED_W_ON(void)
 {
 	GPIO_WritePinOutput(GPIO, LED_W_PORT, LED_W_PIN, 1);

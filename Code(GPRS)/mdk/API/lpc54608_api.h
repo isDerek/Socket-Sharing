@@ -100,3 +100,9 @@ int program_flash(int address,char *data,unsigned int length);
 void i2c_config(void);
 int	i2c_write(uint16_t addr);
 int i2c_read(uint16_t addr);
+
+/************************************/
+/*gprs api added by derek 2018.07.06*/
+/************************************/
+void PWROpenToggle(void);
+void PWRCloseToggle(void);
