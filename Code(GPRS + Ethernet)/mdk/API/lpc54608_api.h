@@ -106,3 +106,4 @@ int i2c_read(uint16_t addr);
 /************************************/
 void PWROpenToggle(void);
 void PWRCloseToggle(void);
+void gprsReset(void);

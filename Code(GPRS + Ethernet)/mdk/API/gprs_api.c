@@ -22,4 +22,24 @@ void PWRCloseToggle(void){
 	gprsPWRTimer = 0;
 	GPIO_TogglePinsOutput(GPIO,I2C1_CLK_PORT,1<<I2C1_CLK_PIN);
 }
-
+void gprsReset(void){
+	GPIO_TogglePinsOutput(GPIO,I2C1_CLK_PORT,1<<I2C1_CLK_PIN);
+	gprsCloseFlag = true;
+	while(gprsPWRTimer!=3){
+	}
+	gprsCloseFlag = false;
+	gprsPWRTimer = 0;
+	GPIO_TogglePinsOutput(GPIO,I2C1_CLK_PORT,1<<I2C1_CLK_PIN);
+	gprsOpenFlag = true;
+	while(gprsPWRTimer!=1){
+	}
+	gprsOpenFlag = false;
+	gprsPWRTimer = 0;
+	GPIO_TogglePinsOutput(GPIO,I2C1_CLK_PORT,1<<I2C1_CLK_PIN);
+	gprsOpenFlag = true;
+	while(gprsPWRTimer!=3){
+	}		
+	gprsOpenFlag = false;
+	gprsPWRTimer = 0;
+	GPIO_TogglePinsOutput(GPIO,I2C1_CLK_PORT,1<<I2C1_CLK_PIN);		
+}

@@ -501,6 +501,7 @@ void checkNetworkAvailable(void)
 	  int timeout = 10000;
 	/**********************gprs connect Server******************/
 	  if(connectServerClose == true){
+			clearDataValid();
 		  chargerException.serverConnectedFlag = false;
       connectServerClose = false;	
 			changeTCPMode = false; 			
@@ -539,12 +540,13 @@ void checkNetworkAvailable(void)
 						}
 						/*****************************************************************************/
 						if(respondATConnect == true){
+						printf("connected to server!\r\n");
 						respondATConnect = false;
 						chargerException.serverConnectedFlag = true;	
 					  selectATCommand = false;	
 						if(eventHandle.firstConnectFlag != true)
             resendFlag = true;	
-				}						
+						}						
 					}
 /**********************************************************************************************************/
 					//printf("network unavailable!\r\n");
@@ -552,21 +554,17 @@ void checkNetworkAvailable(void)
         } 
 				else
 				{	                                           
-						printf("connected to server!\r\n");
-            chargerException.serverConnectedFlag = true;
-						printf("resetTimer = %d\r\n",resetTimer);
-            if(eventHandle.firstConnectFlag != true)
-            resendFlag = true;						
-						else
-							{
-								// no action because download otaBin error has reported after recevie OTA BIN
-							}
+					printf("connected to server!\r\n");
+          chargerException.serverConnectedFlag = true;
+				  printf("resetTimer = %d\r\n",resetTimer);
+          if(eventHandle.firstConnectFlag != true)
+          resendFlag = true;						
         }
 			}
     if(resendFlag == true) 
 		{
-        notifyMsgSendHandle(notifyNewDevice);
-        resendFlag = false;
+      notifyMsgSendHandle(notifyNewDevice);
+      resendFlag = false;
     }
 }
 
@@ -2013,7 +2011,7 @@ while(1)
 
 
 
-#define EEPROM_TEST
+//#define EEPROM_TEST
 #ifdef EEPROM_ENABLE
 #ifdef EEPROM_TEST
 

@@ -5,3 +5,4 @@ Function:
 3. JSON
 4. MD5 CRC16 Check
 5. OTA
+6. GPRS
