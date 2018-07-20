@@ -162,9 +162,9 @@ void notifyMsgSendHandle(MSGID msgid)
 			netconn_write(tcpsocket,socketInfo.outBuffer,len,NETCONN_COPY);
 		  USART_WriteBlocking(DEMO_USART2, (uint8_t*)socketInfo.outBuffer, len); // GPRS MODE 
 			/******************* waiting gprs notify end***********************/
-			while(gprsOTAReceiveSingleBufferFlag != true){
-			}
-			gprsOTAReceiveSingleBufferFlag = false;
+//			while(gprsOTAReceiveSingleBufferFlag != true){
+//			}
+//			gprsOTAReceiveSingleBufferFlag = false;
 			/************************************************************/
 			while(timeout--){
 			}

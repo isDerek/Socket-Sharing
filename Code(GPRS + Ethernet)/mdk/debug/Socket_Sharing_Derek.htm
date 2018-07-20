@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\debug\Socket_Sharing_Derek.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\debug\Socket_Sharing_Derek.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Jul 13 09:55:45 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Jul 19 11:28:34 2018
 <BR><P>
 <H3>Maximum Stack Usage =       2384 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1949,6 +1949,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_TogglePinsOutput
 </UL>
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netWorkThread(void*)
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateCode()
 </UL>
 
 <P><STRONG><a name="[14e]"></a>PWROpenToggle</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, gprs_api.o(i.PWROpenToggle))
@@ -2146,10 +2147,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[160]"></a>updateCode()</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ota.o(i._Z10updateCodev))
+<P><STRONG><a name="[160]"></a>updateCode()</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, ota.o(i._Z10updateCodev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = updateCode() &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWRCloseToggle
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OTAInit()
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;notifyMsgSendHandle(MSGID)
@@ -2397,7 +2399,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;workHandle(void*)
 </UL>
 
-<P><STRONG><a name="[17a]"></a>notifyMsgSendHandle(MSGID)</STRONG> (Thumb, 764 bytes, Stack size 112 bytes, socket_sharing.o(i._Z19notifyMsgSendHandle5MSGID))
+<P><STRONG><a name="[17a]"></a>notifyMsgSendHandle(MSGID)</STRONG> (Thumb, 748 bytes, Stack size 112 bytes, socket_sharing.o(i._Z19notifyMsgSendHandle5MSGID))
 <BR><BR>[Stack]<UL><LI>Max Depth = 928 + In Cycle
 <LI>Call Chain = notifyMsgSendHandle(MSGID) &rArr;  notifyMsgSendHandle(MSGID) (Cycle)
 </UL>
@@ -2432,7 +2434,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> socket sharing_main.o(i.main)
 </UL>
-<P><STRONG><a name="[179]"></a>checkNetworkAvailable()</STRONG> (Thumb, 292 bytes, Stack size 80 bytes, socket sharing_main.o(i._Z21checkNetworkAvailablev))
+<P><STRONG><a name="[179]"></a>checkNetworkAvailable()</STRONG> (Thumb, 304 bytes, Stack size 80 bytes, socket sharing_main.o(i._Z21checkNetworkAvailablev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1008<LI>Call Chain = checkNetworkAvailable() &rArr; notifyMsgSendHandle(MSGID) &rArr;  notifyMsgSendHandle(MSGID) (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_WriteBlocking

@@ -498,7 +498,7 @@ void checkNetworkAvailable(void)
 		uint8_t tcpMode[] = "AT+CIPMODE=1\n\r";	
 		uint8_t connectServer[] = "AT+CIPSTART=\"TCP\",\"112.74.170.197\",\"44441\"\r\n";		
     bool resendFlag = false;
-	  int timeout = 10000;
+	  int timeout = 100000;
 	/**********************gprs connect Server******************/
 	  if(connectServerClose == true){
 			clearDataValid();
@@ -518,9 +518,9 @@ void checkNetworkAvailable(void)
 				{
 /********************************gprs mode*******************************************************************/
 					while(!changeTCPMode){
-//					respondATCommand = false;
-//					oValidFlag = false;
-//					kValidFlag = false;
+					respondATCommand = false;
+					oValidFlag = false;
+					kValidFlag = false;
 					USART_WriteBlocking(DEMO_USART2, tcpMode, sizeof(tcpMode) / sizeof(tcpMode[0]));
 					break;
 					}
@@ -1896,7 +1896,7 @@ int main(void)
 		CLOCK_EnableClock(kCLOCK_Iocon);   
 	  CLOCK_EnableClock(kCLOCK_Gpio0);
     CLOCK_EnableClock(kCLOCK_Gpio1);
-		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH2);  //added by derek 2018.1.29 for NB-IOT
+		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH2);  //added by derek 2018.7.19 for GPRS
 		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH4);  //added by derek 2018.1.29 for bluetooth 
 		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH7);  //added by derek 2018.1.29 for debug uart
 	    /* attach 12 MHz clock to FLEXCOMM0 (I2C in EEPROM) */
@@ -1913,7 +1913,7 @@ int main(void)
     initServer(); 
     initEventHandle(); 
     OTAInit();
-		printf("OTA TESTV2.0!!!\n\r");
+		printf("OTA NOW!!!\n\r");
 		if(sys_thread_new("timerOneSecondThread", timerOneSecondThread, NULL, /*1024 512*/512 , INIT_THREAD_PRIO) == NULL)
 				LWIP_ASSERT("timerOneSecondThread(): Task creation failed.", 0);
 		if(sys_thread_new("heartbeatThread", heartbeatThread, NULL, /*1024 512*/512 , INIT_THREAD_PRIO) == NULL)
