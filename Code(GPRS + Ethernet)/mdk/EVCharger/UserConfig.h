@@ -12,6 +12,13 @@
 
 #define EEPROM_ENABLE 
 
+#define configMAC_ADDR0  00
+#define configMAC_ADDR1  01
+#define configMAC_ADDR2  02
+#define configMAC_ADDR3  03
+#define configMAC_ADDR4  04
+#define configMAC_ADDR5  05
+
 	
 /* ---------------------------------- Socket configure --------------------------------- */
 #define SOCKET_OUT_BUFFER_SIZE 256
@@ -67,8 +74,6 @@ extern bool upDateBinFlag;
 extern int otaBinTotalSize;
 
 extern int gprsPWRTimer;
-
-extern int gprsHeartBeatTimer;
 
 extern bool gprsOpenFlag;
 

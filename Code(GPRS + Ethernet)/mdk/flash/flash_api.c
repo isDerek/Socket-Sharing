@@ -9,7 +9,7 @@ int program_flash(int address,char *data,unsigned int length)
 		uint32_t SECTOR_SIZE = 32768;
 		uint32_t i,status;
 		uint32_t Sector_Num;
-		Sector_Num = (address/SECTOR_SIZE);   // address/32K   added by derek 2017.12.25
+		Sector_Num = (address/SECTOR_SIZE);   // address/32K   
     PRINTF("\r\nWriting flash sector \n Sector_Num = %d length = %d \n\r",Sector_Num, length);	
     /* Generate data to be written to flash */
     for (i = 0; i < length; i++)
@@ -43,7 +43,7 @@ void erase_page(int startaddress,int endaddress)
 	  uint32_t Sector_Num;
 		uint32_t Start_Page_Num;
 	  uint32_t End_Page_Num;
-		Sector_Num = (startaddress/SECTOR_SIZE);   // address/32K   added by derek 2017.12.25
+		Sector_Num = (startaddress/SECTOR_SIZE);   // address/32K   
 	  if((endaddress - startaddress)<=256){
 			Start_Page_Num = startaddress/PAGE_SIZE;
 			End_Page_Num = endaddress/PAGE_SIZE;
@@ -65,7 +65,7 @@ void erase_sector(int address)
 		uint32_t SECTOR_SIZE = 32768;
 		uint32_t status;
 	  uint32_t Sector_Num;
-		Sector_Num = (address/SECTOR_SIZE);   // address/32K   added by derek 2017.12.25
+		Sector_Num = (address/SECTOR_SIZE);   // address/32K   
     PRINTF("\r\nErasing flash sector \n\r Sector_Start_Num = %d",Sector_Num);
     FLASHIAP_PrepareSectorForWrite(Sector_Num, Sector_Num);
     FLASHIAP_EraseSector(Sector_Num, Sector_Num, SystemCoreClock);

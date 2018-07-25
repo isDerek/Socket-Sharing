@@ -952,6 +952,7 @@ Section Cross References
     socket sharing_main.o(i._Z13Internet_initv) refers to netif.o(i.netif_set_up) for netif_set_up
     socket sharing_main.o(i._Z13Internet_initv) refers to dhcp.o(i.dhcp_start) for dhcp_start
     socket sharing_main.o(i._Z13Internet_initv) refers to fsl_debug_console.o(i.DbgConsole_Printf) for DbgConsole_Printf
+    socket sharing_main.o(i._Z13Internet_initv) refers to printfa.o(i.__0sprintf) for __2sprintf
     socket sharing_main.o(i._Z13Internet_initv) refers to memcpya.o(.text) for __aeabi_memcpy
     socket sharing_main.o(i._Z13Internet_initv) refers to socket sharing_main.o(.data) for SERVERADDRESS
     socket sharing_main.o(i._Z13Internet_initv) refers to tcpip.o(i.tcpip_input) for tcpip_input
@@ -1099,7 +1100,6 @@ Section Cross References
     socket sharing_main.o(i._Z9apiHandlev) refers to socket sharing_main.o(i._Z17respondPortSwitchv) for respondPortSwitch()
     socket sharing_main.o(i._Z9apiHandlev) refers to socket sharing_main.o(i._Z10apiRespondv) for apiRespond()
     socket sharing_main.o(i._Z9apiHandlev) refers to socket sharing_main.o(i._Z22setAllPortStatusSwitchv) for setAllPortStatusSwitch()
-    socket sharing_main.o(i._Z9apiHandlev) refers to printfa.o(i.__0printf) for __2printf
     socket sharing_main.o(i._Z9apiHandlev) refers to socket_sharing.o(.bss) for chargerInfo
     socket sharing_main.o(i._Z9apiHandlev) refers to socket sharing_main.o(.data) for respond
     socket sharing_main.o(i._Z9apiHandlev) refers to socket_sharing.o(.data) for respcode
@@ -3029,7 +3029,7 @@ Section Cross References
     socket_sharing.o(i._Z16parseRecvMsgInfoPc) refers to cjson.o(i.cJSON_Delete) for cJSON_Delete
     socket_sharing.o(i._Z16parseRecvMsgInfoPc) refers to socket_sharing.o(.data) for respcode
     socket_sharing.o(i._Z16parseRecvMsgInfoPc) refers to socket_sharing.o(.bss) for chargerInfo
-    socket_sharing.o(i._Z16parseRecvMsgInfoPc) refers to socket sharing_main.o(.data) for gprsHeartBeatTimer
+    socket_sharing.o(i._Z16parseRecvMsgInfoPc) refers to socket sharing_main.o(.data) for respondATConnect
     socket_sharing.o(i._Z16parseRecvMsgInfoPc) refers to socket_sharing.o(.conststring) for .conststring
     socket_sharing.o(i._Z18parseBincodeBufferPc) refers to strncmp.o(.text) for strncmp
     socket_sharing.o(i._Z18parseBincodeBufferPc) refers to printfa.o(i.__0printf) for __2printf
@@ -3085,7 +3085,7 @@ Section Cross References
     socket_sharing.o(.ARM.exidx) refers to socket_sharing.o(i._Z29setDefaultChargerInfoToEEPROMv) for i._Z29setDefaultChargerInfoToEEPROMv
     socket_sharing.o(.ARM.exidx) refers to socket_sharing.o(i._Z25loadChargerInfoFromEEPROMv) for i._Z25loadChargerInfoFromEEPROMv
     ota.o(i._Z10updateCodev) refers to printfa.o(i.__0printf) for __2printf
-    ota.o(i._Z10updateCodev) refers to gprs_api.o(i.PWRCloseToggle) for PWRCloseToggle
+    ota.o(i._Z10updateCodev) refers to ota.o(i._Z16NVIC_SystemResetv) for NVIC_SystemReset()
     ota.o(i._Z7OTAInitv) refers to printfa.o(i.__0printf) for __2printf
     ota.o(i._Z7OTAInitv) refers to flash_api.o(i.erase_sector) for erase_sector
     ota.o(i._Z7OTAInitv) refers to flash_api.o(i.program_flash) for program_flash
@@ -3094,14 +3094,15 @@ Section Cross References
     ota.o(i._Z7OTAInitv) refers to lib_crc16.o(i._Z15calculate_crc16Pcj) for calculate_crc16(char*, unsigned)
     ota.o(i._Z7OTAInitv) refers to memseta.o(.text) for __aeabi_memclr
     ota.o(i._Z7OTAInitv) refers to printfa.o(i.__0sprintf) for __2sprintf
-    ota.o(i._Z7OTAInitv) refers to ota.o(i._Z10updateCodev) for updateCode()
+    ota.o(i._Z7OTAInitv) refers to ota.o(i._Z16NVIC_SystemResetv) for NVIC_SystemReset()
     ota.o(i._Z7OTAInitv) refers to socket_sharing.o(.bss) for otaInfo
     ota.o(i._Z7OTAInitv) refers to socket sharing_main.o(.bss) for tempBuffer
     ota.o(i._Z7OTAInitv) refers to ota.o(.conststring) for .conststring
     ota.o(i._Z7OTAInitv) refers to socket sharing_main.o(.data) for versionSN
     ota.o(.ARM.exidx) refers to ota.o(i._Z16calculateBinSizePci) for i._Z16calculateBinSizePci
-    ota.o(.ARM.exidx) refers to ota.o(i._Z10updateCodev) for i._Z10updateCodev
     ota.o(.ARM.exidx) refers to ota.o(i._Z7OTAInitv) for i._Z7OTAInitv
+    ota.o(.ARM.exidx) refers to ota.o(i._Z10updateCodev) for i._Z10updateCodev
+    ota.o(.ARM.exidx) refers to ota.o(i._Z16NVIC_SystemResetv) for i._Z16NVIC_SystemResetv
     md5std.o(i._Z12md5CalculatePhiS_) refers to md5std.o(i._Z7md5InitP12_md5_std_ctx) for md5Init(_md5_std_ctx*)
     md5std.o(i._Z12md5CalculatePhiS_) refers to md5std.o(i._Z9md5UpdateP12_md5_std_ctxPhj) for md5Update(_md5_std_ctx*, unsigned char*, unsigned)
     md5std.o(i._Z12md5CalculatePhiS_) refers to md5std.o(i._Z8md5FinalP12_md5_std_ctxPh) for md5Final(_md5_std_ctx*, unsigned char*)
@@ -4334,6 +4335,7 @@ Removing Unused input sections from the image.
     Removing ota.o(.ARM.exidx), (8 bytes).
     Removing ota.o(.ARM.exidx), (8 bytes).
     Removing ota.o(.ARM.exidx), (8 bytes).
+    Removing ota.o(.ARM.exidx), (8 bytes).
     Removing md5std.o(.ARM.exidx), (8 bytes).
     Removing md5std.o(.ARM.exidx), (8 bytes).
     Removing md5std.o(.ARM.exidx), (8 bytes).
@@ -4361,7 +4363,7 @@ Removing Unused input sections from the image.
     Removing fepilogue.o(.text), (110 bytes).
     Removing dfltul.o(.text), (24 bytes).
 
-803 unused section(s) (total 58948 bytes) removed from the image.
+804 unused section(s) (total 58956 bytes) removed from the image.
 
 ==============================================================================
 
@@ -4373,14 +4375,13 @@ Image Symbol Table
 
     ../board.c                               0x00000000   Number         0  board.o ABSOLUTE
     ../clib/../cmprslib/zerorunl2.c          0x00000000   Number         0  __dczerorl2.o ABSOLUTE
-    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_c.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isspace_c.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_c.o ABSOLUTE
     ../clib/microlib/ctype/tolower.c         0x00000000   Number         0  tolower.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  ldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  ldiv.o ABSOLUTE
     ../clib/microlib/errno.c                 0x00000000   Number         0  errno.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
@@ -4388,30 +4389,31 @@ Image Symbol Table
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca2.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr2.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc2.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca2.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocra2.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc2.o ABSOLUTE
     ../clib/microlib/malloc/mvars.c          0x00000000   Number         0  mvars.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/string/memcmp.c         0x00000000   Number         0  memcmp.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
@@ -4422,21 +4424,21 @@ Image Symbol Table
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/string/strncmp.c        0x00000000   Number         0  strncmp.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
-    ../clib/scanf.c                          0x00000000   Number         0  _sgetc.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  scanf_fp.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _sgetc.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  strtod.o ABSOLUTE
     ../clock_config.c                        0x00000000   Number         0  clock_config.o ABSOLUTE
     ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
     ../fplib/microlib/f2d.c                  0x00000000   Number         0  f2d.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
-    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixl.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
-    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltul.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltul.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltl.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
@@ -4450,11 +4452,11 @@ Image Symbol Table
     ../mathlib/fpclassify.c                  0x00000000   Number         0  fpclassify.o ABSOLUTE
     ../mathlib/modf.c                        0x00000000   Number         0  modf.o ABSOLUTE
     ../mathlib/poly.c                        0x00000000   Number         0  poly.o ABSOLUTE
-    ../mathlib/pow.c                         0x00000000   Number         0  pow_x.o ABSOLUTE
     ../mathlib/pow.c                         0x00000000   Number         0  pow.o ABSOLUTE
+    ../mathlib/pow.c                         0x00000000   Number         0  pow_x.o ABSOLUTE
     ../mathlib/qnan.c                        0x00000000   Number         0  qnan.o ABSOLUTE
-    ../mathlib/sqrt.c                        0x00000000   Number         0  sqrt.o ABSOLUTE
     ../mathlib/sqrt.c                        0x00000000   Number         0  sqrt_x.o ABSOLUTE
+    ../mathlib/sqrt.c                        0x00000000   Number         0  sqrt.o ABSOLUTE
     ../mathlib/strtod.c                      0x00000000   Number         0  strtod.o ABSOLUTE
     ../pin_mux.c                             0x00000000   Number         0  pin_mux.o ABSOLUTE
     ..\\devices\\LPC54608\\drivers\\fsl_adc.c 0x00000000   Number         0  fsl_adc.o ABSOLUTE
@@ -4914,66 +4916,68 @@ Image Symbol Table
     i._Z10parse_hex4PKc                      0x0000d21c   Section        0  cjson.o(i._Z10parse_hex4PKc)
     parse_hex4(const char*)                  0x0000d21d   Thumb Code   276  cjson.o(i._Z10parse_hex4PKc)
     i._Z10updateCodev                        0x0000d330   Section        0  ota.o(i._Z10updateCodev)
-    i._Z10workHandlePv                       0x0000d398   Section        0  socket sharing_main.o(i._Z10workHandlePv)
-    i._Z11parse_arrayP5cJSONPKcPS2_          0x0000d3ac   Section        0  cjson.o(i._Z11parse_arrayP5cJSONPKcPS2_)
-    parse_array(cJSON*, const char*, const char**) 0x0000d3ad   Thumb Code   174  cjson.o(i._Z11parse_arrayP5cJSONPKcPS2_)
-    i._Z11parse_valueP5cJSONPKcPS2_          0x0000d45c   Section        0  cjson.o(i._Z11parse_valueP5cJSONPKcPS2_)
-    parse_value(cJSON*, const char*, const char**) 0x0000d45d   Thumb Code   166  cjson.o(i._Z11parse_valueP5cJSONPKcPS2_)
-    i._Z12md5CalculatePhiS_                  0x0000d51c   Section        0  md5std.o(i._Z12md5CalculatePhiS_)
-    i._Z12md5TransformPjPh                   0x0000d544   Section        0  md5std.o(i._Z12md5TransformPjPh)
-    i._Z12parse_numberP5cJSONPKc             0x0000dd18   Section        0  cjson.o(i._Z12parse_numberP5cJSONPKc)
-    parse_number(cJSON*, const char*)        0x0000dd19   Thumb Code   424  cjson.o(i._Z12parse_numberP5cJSONPKc)
-    i._Z12parse_objectP5cJSONPKcPS2_         0x0000dee0   Section        0  cjson.o(i._Z12parse_objectP5cJSONPKcPS2_)
-    parse_object(cJSON*, const char*, const char**) 0x0000dee1   Thumb Code   278  cjson.o(i._Z12parse_objectP5cJSONPKcPS2_)
-    i._Z12parse_stringP5cJSONPKcPS2_         0x0000dff8   Section        0  cjson.o(i._Z12parse_stringP5cJSONPKcPS2_)
-    parse_string(cJSON*, const char*, const char**) 0x0000dff9   Thumb Code   516  cjson.o(i._Z12parse_stringP5cJSONPKcPS2_)
-    i._Z13Internet_initv                     0x0000e204   Section        0  socket sharing_main.o(i._Z13Internet_initv)
-    i._Z13netWorkThreadPv                    0x0000e3e4   Section        0  socket sharing_main.o(i._Z13netWorkThreadPv)
-    i._Z13recvMsgHandlev                     0x0000e504   Section        0  socket_sharing.o(i._Z13recvMsgHandlev)
-    i._Z14NVIC_EnableIRQ4IRQn                0x0000e59c   Section        0  socket sharing_main.o(i._Z14NVIC_EnableIRQ4IRQn)
-    NVIC_EnableIRQ(IRQn)                     0x0000e59d   Thumb Code    22  socket sharing_main.o(i._Z14NVIC_EnableIRQ4IRQn)
-    i._Z14cJSON_New_Itemv                    0x0000e5b4   Section        0  cjson.o(i._Z14cJSON_New_Itemv)
-    cJSON_New_Item()                         0x0000e5b5   Thumb Code    26  cjson.o(i._Z14cJSON_New_Itemv)
-    i._Z14openPortSwitchv                    0x0000e5d4   Section        0  socket sharing_main.o(i._Z14openPortSwitchv)
-    i._Z15calculate_crc16Pcj                 0x0000ebf0   Section        0  lib_crc16.o(i._Z15calculate_crc16Pcj)
-    i._Z15closePortSwitchv                   0x0000ec14   Section        0  socket sharing_main.o(i._Z15closePortSwitchv)
-    i._Z15heartbeatThreadPv                  0x0000f22c   Section        0  socket sharing_main.o(i._Z15heartbeatThreadPv)
-    i._Z15initEventHandlev                   0x0000f334   Section        0  socket sharing_main.o(i._Z15initEventHandlev)
-    i._Z16cJSON_strcasecmpPKcS0_             0x0000f340   Section        0  cjson.o(i._Z16cJSON_strcasecmpPKcS0_)
-    cJSON_strcasecmp(const char*, const char*) 0x0000f341   Thumb Code    76  cjson.o(i._Z16cJSON_strcasecmpPKcS0_)
-    i._Z16calculateBinSizePci                0x0000f38c   Section        0  ota.o(i._Z16calculateBinSizePci)
-    i._Z16cmdMsgRespHandle5MSGID             0x0000f3c8   Section        0  socket_sharing.o(i._Z16cmdMsgRespHandle5MSGID)
-    i._Z16parseRecvMsgInfoPc                 0x0000f6b8   Section        0  socket_sharing.o(i._Z16parseRecvMsgInfoPc)
-    i._Z17CLOCK_EnableClock14_clock_ip_name  0x0000fb9c   Section        0  socket sharing_main.o(i._Z17CLOCK_EnableClock14_clock_ip_name)
-    CLOCK_EnableClock(_clock_ip_name)        0x0000fb9d   Thumb Code    32  socket sharing_main.o(i._Z17CLOCK_EnableClock14_clock_ip_name)
-    i._Z17respondPortSwitchv                 0x0000fbc4   Section        0  socket sharing_main.o(i._Z17respondPortSwitchv)
-    i._Z17update_crc16_A001tc                0x0000fd60   Section        0  lib_crc16.o(i._Z17update_crc16_A001tc)
-    i._Z18parseBincodeBufferPc               0x0000fd78   Section        0  socket_sharing.o(i._Z18parseBincodeBufferPc)
-    i._Z19checkChargingFinishv               0x00010028   Section        0  socket sharing_main.o(i._Z19checkChargingFinishv)
-    i._Z19notifyMsgSendHandle5MSGID          0x000104b0   Section        0  socket_sharing.o(i._Z19notifyMsgSendHandle5MSGID)
-    i._Z20timerOneSecondThreadPv             0x000108c0   Section        0  socket sharing_main.o(i._Z20timerOneSecondThreadPv)
-    i._Z21checkNetworkAvailablev             0x00010994   Section        0  socket sharing_main.o(i._Z21checkNetworkAvailablev)
-    i._Z22USART_EnableInterruptsP10USART_Typej 0x00010b80   Section        0  socket sharing_main.o(i._Z22USART_EnableInterruptsP10USART_Typej)
-    USART_EnableInterrupts(USART_Type*, unsigned) 0x00010b81   Thumb Code    10  socket sharing_main.o(i._Z22USART_EnableInterruptsP10USART_Typej)
-    i._Z22setAllPortStatusSwitchv            0x00010b8c   Section        0  socket sharing_main.o(i._Z22setAllPortStatusSwitchv)
-    i._Z22update_crc16_reflectedPKttc        0x00011220   Section        0  lib_crc16.o(i._Z22update_crc16_reflectedPKttc)
-    i._Z4skipPKc                             0x00011236   Section        0  cjson.o(i._Z4skipPKc)
-    skip(const char*)                        0x00011237   Thumb Code    18  cjson.o(i._Z4skipPKc)
-    i._Z7OTAInitv                            0x00011248   Section        0  ota.o(i._Z7OTAInitv)
-    i._Z7md5InitP12_md5_std_ctx              0x000114e4   Section        0  md5std.o(i._Z7md5InitP12_md5_std_ctx)
-    i._Z8md5FinalP12_md5_std_ctxPh           0x00011508   Section        0  md5std.o(i._Z8md5FinalP12_md5_std_ctxPh)
-    i._Z9EnableIRQ4IRQn                      0x0001155c   Section        0  socket sharing_main.o(i._Z9EnableIRQ4IRQn)
-    EnableIRQ(IRQn)                          0x0001155d   Thumb Code    22  socket sharing_main.o(i._Z9EnableIRQ4IRQn)
-    i._Z9apiHandlev                          0x00011574   Section        0  socket sharing_main.o(i._Z9apiHandlev)
-    i._Z9md5DecodePjPhj                      0x00011650   Section        0  md5std.o(i._Z9md5DecodePjPhj)
-    i._Z9md5EncodePhPjj                      0x00011682   Section        0  md5std.o(i._Z9md5EncodePhPjj)
-    i._Z9md5UpdateP12_md5_std_ctxPhj         0x000116c0   Section        0  md5std.o(i._Z9md5UpdateP12_md5_std_ctxPhj)
-    i.__0printf                              0x0001174c   Section        0  printfa.o(i.__0printf)
-    i.__0sprintf                             0x0001176c   Section        0  printfa.o(i.__0sprintf)
-    i.__ARM_fpclassify                       0x00011794   Section        0  fpclassify.o(i.__ARM_fpclassify)
-    i.__aeabi_assert                         0x000117c4   Section        0  fsl_common.o(i.__aeabi_assert)
-    i.__free$2region                         0x00011808   Section        0  malloc2.o(i.__free$2region)
-    i.__hardfp_modf                          0x00011858   Section        0  modf.o(i.__hardfp_modf)
+    i._Z10workHandlePv                       0x0000d370   Section        0  socket sharing_main.o(i._Z10workHandlePv)
+    i._Z11parse_arrayP5cJSONPKcPS2_          0x0000d384   Section        0  cjson.o(i._Z11parse_arrayP5cJSONPKcPS2_)
+    parse_array(cJSON*, const char*, const char**) 0x0000d385   Thumb Code   174  cjson.o(i._Z11parse_arrayP5cJSONPKcPS2_)
+    i._Z11parse_valueP5cJSONPKcPS2_          0x0000d434   Section        0  cjson.o(i._Z11parse_valueP5cJSONPKcPS2_)
+    parse_value(cJSON*, const char*, const char**) 0x0000d435   Thumb Code   166  cjson.o(i._Z11parse_valueP5cJSONPKcPS2_)
+    i._Z12md5CalculatePhiS_                  0x0000d4f4   Section        0  md5std.o(i._Z12md5CalculatePhiS_)
+    i._Z12md5TransformPjPh                   0x0000d51c   Section        0  md5std.o(i._Z12md5TransformPjPh)
+    i._Z12parse_numberP5cJSONPKc             0x0000dcf0   Section        0  cjson.o(i._Z12parse_numberP5cJSONPKc)
+    parse_number(cJSON*, const char*)        0x0000dcf1   Thumb Code   424  cjson.o(i._Z12parse_numberP5cJSONPKc)
+    i._Z12parse_objectP5cJSONPKcPS2_         0x0000deb8   Section        0  cjson.o(i._Z12parse_objectP5cJSONPKcPS2_)
+    parse_object(cJSON*, const char*, const char**) 0x0000deb9   Thumb Code   278  cjson.o(i._Z12parse_objectP5cJSONPKcPS2_)
+    i._Z12parse_stringP5cJSONPKcPS2_         0x0000dfd0   Section        0  cjson.o(i._Z12parse_stringP5cJSONPKcPS2_)
+    parse_string(cJSON*, const char*, const char**) 0x0000dfd1   Thumb Code   516  cjson.o(i._Z12parse_stringP5cJSONPKcPS2_)
+    i._Z13Internet_initv                     0x0000e1dc   Section        0  socket sharing_main.o(i._Z13Internet_initv)
+    i._Z13netWorkThreadPv                    0x0000e3f4   Section        0  socket sharing_main.o(i._Z13netWorkThreadPv)
+    i._Z13recvMsgHandlev                     0x0000e514   Section        0  socket_sharing.o(i._Z13recvMsgHandlev)
+    i._Z14NVIC_EnableIRQ4IRQn                0x0000e5ac   Section        0  socket sharing_main.o(i._Z14NVIC_EnableIRQ4IRQn)
+    NVIC_EnableIRQ(IRQn)                     0x0000e5ad   Thumb Code    22  socket sharing_main.o(i._Z14NVIC_EnableIRQ4IRQn)
+    i._Z14cJSON_New_Itemv                    0x0000e5c4   Section        0  cjson.o(i._Z14cJSON_New_Itemv)
+    cJSON_New_Item()                         0x0000e5c5   Thumb Code    26  cjson.o(i._Z14cJSON_New_Itemv)
+    i._Z14openPortSwitchv                    0x0000e5e4   Section        0  socket sharing_main.o(i._Z14openPortSwitchv)
+    i._Z15calculate_crc16Pcj                 0x0000ec00   Section        0  lib_crc16.o(i._Z15calculate_crc16Pcj)
+    i._Z15closePortSwitchv                   0x0000ec24   Section        0  socket sharing_main.o(i._Z15closePortSwitchv)
+    i._Z15heartbeatThreadPv                  0x0000f23c   Section        0  socket sharing_main.o(i._Z15heartbeatThreadPv)
+    i._Z15initEventHandlev                   0x0000f344   Section        0  socket sharing_main.o(i._Z15initEventHandlev)
+    i._Z16NVIC_SystemResetv                  0x0000f350   Section        0  ota.o(i._Z16NVIC_SystemResetv)
+    NVIC_SystemReset()                       0x0000f351   Thumb Code    30  ota.o(i._Z16NVIC_SystemResetv)
+    i._Z16cJSON_strcasecmpPKcS0_             0x0000f378   Section        0  cjson.o(i._Z16cJSON_strcasecmpPKcS0_)
+    cJSON_strcasecmp(const char*, const char*) 0x0000f379   Thumb Code    76  cjson.o(i._Z16cJSON_strcasecmpPKcS0_)
+    i._Z16calculateBinSizePci                0x0000f3c4   Section        0  ota.o(i._Z16calculateBinSizePci)
+    i._Z16cmdMsgRespHandle5MSGID             0x0000f400   Section        0  socket_sharing.o(i._Z16cmdMsgRespHandle5MSGID)
+    i._Z16parseRecvMsgInfoPc                 0x0000f6f0   Section        0  socket_sharing.o(i._Z16parseRecvMsgInfoPc)
+    i._Z17CLOCK_EnableClock14_clock_ip_name  0x0000fbc8   Section        0  socket sharing_main.o(i._Z17CLOCK_EnableClock14_clock_ip_name)
+    CLOCK_EnableClock(_clock_ip_name)        0x0000fbc9   Thumb Code    32  socket sharing_main.o(i._Z17CLOCK_EnableClock14_clock_ip_name)
+    i._Z17respondPortSwitchv                 0x0000fbf0   Section        0  socket sharing_main.o(i._Z17respondPortSwitchv)
+    i._Z17update_crc16_A001tc                0x0000fd8c   Section        0  lib_crc16.o(i._Z17update_crc16_A001tc)
+    i._Z18parseBincodeBufferPc               0x0000fda4   Section        0  socket_sharing.o(i._Z18parseBincodeBufferPc)
+    i._Z19checkChargingFinishv               0x00010054   Section        0  socket sharing_main.o(i._Z19checkChargingFinishv)
+    i._Z19notifyMsgSendHandle5MSGID          0x000104dc   Section        0  socket_sharing.o(i._Z19notifyMsgSendHandle5MSGID)
+    i._Z20timerOneSecondThreadPv             0x000108d4   Section        0  socket sharing_main.o(i._Z20timerOneSecondThreadPv)
+    i._Z21checkNetworkAvailablev             0x00010978   Section        0  socket sharing_main.o(i._Z21checkNetworkAvailablev)
+    i._Z22USART_EnableInterruptsP10USART_Typej 0x00010b64   Section        0  socket sharing_main.o(i._Z22USART_EnableInterruptsP10USART_Typej)
+    USART_EnableInterrupts(USART_Type*, unsigned) 0x00010b65   Thumb Code    10  socket sharing_main.o(i._Z22USART_EnableInterruptsP10USART_Typej)
+    i._Z22setAllPortStatusSwitchv            0x00010b70   Section        0  socket sharing_main.o(i._Z22setAllPortStatusSwitchv)
+    i._Z22update_crc16_reflectedPKttc        0x00011204   Section        0  lib_crc16.o(i._Z22update_crc16_reflectedPKttc)
+    i._Z4skipPKc                             0x0001121a   Section        0  cjson.o(i._Z4skipPKc)
+    skip(const char*)                        0x0001121b   Thumb Code    18  cjson.o(i._Z4skipPKc)
+    i._Z7OTAInitv                            0x0001122c   Section        0  ota.o(i._Z7OTAInitv)
+    i._Z7md5InitP12_md5_std_ctx              0x00011504   Section        0  md5std.o(i._Z7md5InitP12_md5_std_ctx)
+    i._Z8md5FinalP12_md5_std_ctxPh           0x00011528   Section        0  md5std.o(i._Z8md5FinalP12_md5_std_ctxPh)
+    i._Z9EnableIRQ4IRQn                      0x0001157c   Section        0  socket sharing_main.o(i._Z9EnableIRQ4IRQn)
+    EnableIRQ(IRQn)                          0x0001157d   Thumb Code    22  socket sharing_main.o(i._Z9EnableIRQ4IRQn)
+    i._Z9apiHandlev                          0x00011594   Section        0  socket sharing_main.o(i._Z9apiHandlev)
+    i._Z9md5DecodePjPhj                      0x0001164c   Section        0  md5std.o(i._Z9md5DecodePjPhj)
+    i._Z9md5EncodePhPjj                      0x0001167e   Section        0  md5std.o(i._Z9md5EncodePhPjj)
+    i._Z9md5UpdateP12_md5_std_ctxPhj         0x000116bc   Section        0  md5std.o(i._Z9md5UpdateP12_md5_std_ctxPhj)
+    i.__0printf                              0x00011748   Section        0  printfa.o(i.__0printf)
+    i.__0sprintf                             0x00011768   Section        0  printfa.o(i.__0sprintf)
+    i.__ARM_fpclassify                       0x00011790   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i.__aeabi_assert                         0x000117c0   Section        0  fsl_common.o(i.__aeabi_assert)
+    i.__free$2region                         0x00011804   Section        0  malloc2.o(i.__free$2region)
+    i.__hardfp_modf                          0x00011854   Section        0  modf.o(i.__hardfp_modf)
     i.__hardfp_pow                           0x00011928   Section        0  pow.o(i.__hardfp_pow)
     i.__kernel_poly                          0x00012578   Section        0  poly.o(i.__kernel_poly)
     i.__malloc$2region                       0x00012670   Section        0  malloc2.o(i.__malloc$2region)
@@ -5568,117 +5572,117 @@ Image Symbol Table
     xTimerQueue                              0x20000078   Data           4  timers.o(.data)
     xTimerTaskHandle                         0x2000007c   Data           4  timers.o(.data)
     xLastTime                                0x20000080   Data           4  timers.o(.data)
-    .data                                    0x20000084   Section      120  socket sharing_main.o(.data)
-    .data                                    0x20000100   Section       16  fsl_debug_console.o(.data)
-    fnum                                     0x20000100   Data           8  fsl_debug_console.o(.data)
-    .data                                    0x20000110   Section        1  api_msg.o(.data)
-    .data                                    0x20000114   Section       16  tcpip.o(.data)
-    tcpip_init_done                          0x20000114   Data           4  tcpip.o(.data)
-    tcpip_init_done_arg                      0x20000118   Data           4  tcpip.o(.data)
-    mbox                                     0x2000011c   Data           4  tcpip.o(.data)
-    .data                                    0x20000124   Section       16  mem.o(.data)
-    ram                                      0x20000124   Data           4  mem.o(.data)
-    ram_end                                  0x20000128   Data           4  mem.o(.data)
-    lfree                                    0x2000012c   Data           4  mem.o(.data)
-    mem_mutex                                0x20000130   Data           4  mem.o(.data)
-    .data                                    0x20000134   Section       56  memp.o(.data)
-    memp_tab_RAW_PCB                         0x20000134   Data           4  memp.o(.data)
-    memp_tab_UDP_PCB                         0x20000138   Data           4  memp.o(.data)
-    memp_tab_TCP_PCB                         0x2000013c   Data           4  memp.o(.data)
-    memp_tab_TCP_PCB_LISTEN                  0x20000140   Data           4  memp.o(.data)
-    memp_tab_TCP_SEG                         0x20000144   Data           4  memp.o(.data)
-    memp_tab_REASSDATA                       0x20000148   Data           4  memp.o(.data)
-    memp_tab_FRAG_PBUF                       0x2000014c   Data           4  memp.o(.data)
-    memp_tab_NETBUF                          0x20000150   Data           4  memp.o(.data)
-    memp_tab_NETCONN                         0x20000154   Data           4  memp.o(.data)
-    memp_tab_TCPIP_MSG_API                   0x20000158   Data           4  memp.o(.data)
-    memp_tab_TCPIP_MSG_INPKT                 0x2000015c   Data           4  memp.o(.data)
-    memp_tab_SYS_TIMEOUT                     0x20000160   Data           4  memp.o(.data)
-    memp_tab_PBUF                            0x20000164   Data           4  memp.o(.data)
-    memp_tab_PBUF_POOL                       0x20000168   Data           4  memp.o(.data)
-    .data                                    0x2000016c   Section        9  netif.o(.data)
-    netif_num                                0x20000174   Data           1  netif.o(.data)
-    .data                                    0x20000178   Section        4  raw.o(.data)
-    raw_pcbs                                 0x20000178   Data           4  raw.o(.data)
-    .data                                    0x2000017c   Section       32  tcp.o(.data)
-    tcp_port                                 0x2000017c   Data           2  tcp.o(.data)
-    tcp_timer                                0x20000195   Data           1  tcp.o(.data)
-    tcp_timer_ctr                            0x20000196   Data           1  tcp.o(.data)
-    iss                                      0x20000198   Data           4  tcp.o(.data)
-    .data                                    0x2000019c   Section       40  tcp_in.o(.data)
-    tcphdr                                   0x2000019c   Data           4  tcp_in.o(.data)
-    tcphdr_optlen                            0x200001a0   Data           2  tcp_in.o(.data)
-    tcphdr_opt1len                           0x200001a2   Data           2  tcp_in.o(.data)
-    tcphdr_opt2                              0x200001a4   Data           4  tcp_in.o(.data)
-    tcp_optidx                               0x200001a8   Data           2  tcp_in.o(.data)
-    seqno                                    0x200001ac   Data           4  tcp_in.o(.data)
-    ackno                                    0x200001b0   Data           4  tcp_in.o(.data)
-    recv_acked                               0x200001b4   Data           2  tcp_in.o(.data)
-    tcplen                                   0x200001b6   Data           2  tcp_in.o(.data)
-    flags                                    0x200001b8   Data           1  tcp_in.o(.data)
-    recv_flags                               0x200001b9   Data           1  tcp_in.o(.data)
-    recv_data                                0x200001bc   Data           4  tcp_in.o(.data)
-    .data                                    0x200001c4   Section       12  timeouts.o(.data)
-    next_timeout                             0x200001c4   Data           4  timeouts.o(.data)
-    timeouts_last_time                       0x200001c8   Data           4  timeouts.o(.data)
-    tcpip_tcp_timer_active                   0x200001cc   Data           4  timeouts.o(.data)
-    .data                                    0x200001d0   Section        8  udp.o(.data)
-    udp_port                                 0x200001d0   Data           2  udp.o(.data)
-    .data                                    0x200001d8   Section       16  dhcp.o(.data)
-    dhcp_discover_request_options            0x200001d8   Data           4  dhcp.o(.data)
-    dhcp_pcb                                 0x200001dc   Data           4  dhcp.o(.data)
-    dhcp_pcb_refcount                        0x200001e0   Data           1  dhcp.o(.data)
-    xid                                      0x200001e4   Data           4  dhcp.o(.data)
-    .data                                    0x200001e8   Section        1  etharp.o(.data)
-    etharp_cached_entry                      0x200001e8   Data           1  etharp.o(.data)
-    .data                                    0x200001ea   Section        2  ip4.o(.data)
-    ip_id                                    0x200001ea   Data           2  ip4.o(.data)
-    .data                                    0x200001ec   Section        6  ip4_frag.o(.data)
-    reassdatagrams                           0x200001ec   Data           4  ip4_frag.o(.data)
-    ip_reass_pbufcount                       0x200001f0   Data           2  ip4_frag.o(.data)
-    .data                                    0x200001f4   Section        8  adc_api.o(.data)
-    .data                                    0x200001fc   Section       12  cjson.o(.data)
-    global_ep                                0x200001fc   Data           4  cjson.o(.data)
-    cJSON_malloc                             0x20000200   Data           4  cjson.o(.data)
-    cJSON_free                               0x20000204   Data           4  cjson.o(.data)
-    .data                                    0x20000208   Section       20  socket_sharing.o(.data)
-    .data                                    0x2000021c   Section       64  md5std.o(.data)
-    .data                                    0x2000025c   Section        4  mvars.o(.data)
-    .data                                    0x20000260   Section        4  mvars.o(.data)
-    .data                                    0x20000264   Section        4  errno.o(.data)
-    _errno                                   0x20000264   Data           4  errno.o(.data)
-    .bss                                     0x20000268   Section      460  tasks.o(.bss)
-    pxReadyTasksLists                        0x20000268   Data         360  tasks.o(.bss)
-    xDelayedTaskList1                        0x200003d0   Data          20  tasks.o(.bss)
-    xDelayedTaskList2                        0x200003e4   Data          20  tasks.o(.bss)
-    xPendingReadyList                        0x200003f8   Data          20  tasks.o(.bss)
-    xTasksWaitingTermination                 0x2000040c   Data          20  tasks.o(.bss)
-    xSuspendedTaskList                       0x20000420   Data          20  tasks.o(.bss)
-    .bss                                     0x20000434   Section       80  fsl_flexcomm.o(.bss)
-    s_flexcommIrqHandler                     0x20000434   Data          40  fsl_flexcomm.o(.bss)
-    s_flexcommHandle                         0x2000045c   Data          40  fsl_flexcomm.o(.bss)
-    .bss                                     0x20000484   Section       64  queue.o(.bss)
-    .bss                                     0x200004c4   Section       40  timers.o(.bss)
-    xActiveTimerList1                        0x200004c4   Data          20  timers.o(.bss)
-    xActiveTimerList2                        0x200004d8   Data          20  timers.o(.bss)
-    .bss                                     0x200004ec   Section     9144  socket sharing_main.o(.bss)
-    fsl_netif0                               0x20002870   Data          52  socket sharing_main.o(.bss)
-    .bss                                     0x200028a4   Section       16  fsl_debug_console.o(.bss)
-    s_debugConsole                           0x200028a4   Data          16  fsl_debug_console.o(.bss)
-    .bss                                     0x200028b4   Section    15456  ethernetif.o(.bss)
-    ethernetif_0                             0x200028b4   Data       15456  ethernetif.o(.bss)
-    .bss                                     0x20006514   Section       24  ip.o(.bss)
-    .bss                                     0x2000652c   Section    22547  mem.o(.bss)
-    .bss                                     0x2000bd3f   Section    17646  memp.o(.bss)
-    .bss                                     0x20010230   Section       20  tcp_in.o(.bss)
-    inseg                                    0x20010230   Data          20  tcp_in.o(.bss)
-    .bss                                     0x20010244   Section       50  dhcp.o(.bss)
-    .bss                                     0x20010278   Section      240  etharp.o(.bss)
-    arp_table                                0x20010278   Data         240  etharp.o(.bss)
-    .bss                                     0x20010368   Section       16  adc_api.o(.bss)
-    gAdcResultInfoStruct                     0x20010368   Data          16  adc_api.o(.bss)
-    .bss                                     0x20010378   Section      256  flash_api.o(.bss)
-    .bss                                     0x20010478   Section      648  socket_sharing.o(.bss)
+    .data                                    0x20000084   Section      116  socket sharing_main.o(.data)
+    .data                                    0x200000f8   Section       16  fsl_debug_console.o(.data)
+    fnum                                     0x200000f8   Data           8  fsl_debug_console.o(.data)
+    .data                                    0x20000108   Section        1  api_msg.o(.data)
+    .data                                    0x2000010c   Section       16  tcpip.o(.data)
+    tcpip_init_done                          0x2000010c   Data           4  tcpip.o(.data)
+    tcpip_init_done_arg                      0x20000110   Data           4  tcpip.o(.data)
+    mbox                                     0x20000114   Data           4  tcpip.o(.data)
+    .data                                    0x2000011c   Section       16  mem.o(.data)
+    ram                                      0x2000011c   Data           4  mem.o(.data)
+    ram_end                                  0x20000120   Data           4  mem.o(.data)
+    lfree                                    0x20000124   Data           4  mem.o(.data)
+    mem_mutex                                0x20000128   Data           4  mem.o(.data)
+    .data                                    0x2000012c   Section       56  memp.o(.data)
+    memp_tab_RAW_PCB                         0x2000012c   Data           4  memp.o(.data)
+    memp_tab_UDP_PCB                         0x20000130   Data           4  memp.o(.data)
+    memp_tab_TCP_PCB                         0x20000134   Data           4  memp.o(.data)
+    memp_tab_TCP_PCB_LISTEN                  0x20000138   Data           4  memp.o(.data)
+    memp_tab_TCP_SEG                         0x2000013c   Data           4  memp.o(.data)
+    memp_tab_REASSDATA                       0x20000140   Data           4  memp.o(.data)
+    memp_tab_FRAG_PBUF                       0x20000144   Data           4  memp.o(.data)
+    memp_tab_NETBUF                          0x20000148   Data           4  memp.o(.data)
+    memp_tab_NETCONN                         0x2000014c   Data           4  memp.o(.data)
+    memp_tab_TCPIP_MSG_API                   0x20000150   Data           4  memp.o(.data)
+    memp_tab_TCPIP_MSG_INPKT                 0x20000154   Data           4  memp.o(.data)
+    memp_tab_SYS_TIMEOUT                     0x20000158   Data           4  memp.o(.data)
+    memp_tab_PBUF                            0x2000015c   Data           4  memp.o(.data)
+    memp_tab_PBUF_POOL                       0x20000160   Data           4  memp.o(.data)
+    .data                                    0x20000164   Section        9  netif.o(.data)
+    netif_num                                0x2000016c   Data           1  netif.o(.data)
+    .data                                    0x20000170   Section        4  raw.o(.data)
+    raw_pcbs                                 0x20000170   Data           4  raw.o(.data)
+    .data                                    0x20000174   Section       32  tcp.o(.data)
+    tcp_port                                 0x20000174   Data           2  tcp.o(.data)
+    tcp_timer                                0x2000018d   Data           1  tcp.o(.data)
+    tcp_timer_ctr                            0x2000018e   Data           1  tcp.o(.data)
+    iss                                      0x20000190   Data           4  tcp.o(.data)
+    .data                                    0x20000194   Section       40  tcp_in.o(.data)
+    tcphdr                                   0x20000194   Data           4  tcp_in.o(.data)
+    tcphdr_optlen                            0x20000198   Data           2  tcp_in.o(.data)
+    tcphdr_opt1len                           0x2000019a   Data           2  tcp_in.o(.data)
+    tcphdr_opt2                              0x2000019c   Data           4  tcp_in.o(.data)
+    tcp_optidx                               0x200001a0   Data           2  tcp_in.o(.data)
+    seqno                                    0x200001a4   Data           4  tcp_in.o(.data)
+    ackno                                    0x200001a8   Data           4  tcp_in.o(.data)
+    recv_acked                               0x200001ac   Data           2  tcp_in.o(.data)
+    tcplen                                   0x200001ae   Data           2  tcp_in.o(.data)
+    flags                                    0x200001b0   Data           1  tcp_in.o(.data)
+    recv_flags                               0x200001b1   Data           1  tcp_in.o(.data)
+    recv_data                                0x200001b4   Data           4  tcp_in.o(.data)
+    .data                                    0x200001bc   Section       12  timeouts.o(.data)
+    next_timeout                             0x200001bc   Data           4  timeouts.o(.data)
+    timeouts_last_time                       0x200001c0   Data           4  timeouts.o(.data)
+    tcpip_tcp_timer_active                   0x200001c4   Data           4  timeouts.o(.data)
+    .data                                    0x200001c8   Section        8  udp.o(.data)
+    udp_port                                 0x200001c8   Data           2  udp.o(.data)
+    .data                                    0x200001d0   Section       16  dhcp.o(.data)
+    dhcp_discover_request_options            0x200001d0   Data           4  dhcp.o(.data)
+    dhcp_pcb                                 0x200001d4   Data           4  dhcp.o(.data)
+    dhcp_pcb_refcount                        0x200001d8   Data           1  dhcp.o(.data)
+    xid                                      0x200001dc   Data           4  dhcp.o(.data)
+    .data                                    0x200001e0   Section        1  etharp.o(.data)
+    etharp_cached_entry                      0x200001e0   Data           1  etharp.o(.data)
+    .data                                    0x200001e2   Section        2  ip4.o(.data)
+    ip_id                                    0x200001e2   Data           2  ip4.o(.data)
+    .data                                    0x200001e4   Section        6  ip4_frag.o(.data)
+    reassdatagrams                           0x200001e4   Data           4  ip4_frag.o(.data)
+    ip_reass_pbufcount                       0x200001e8   Data           2  ip4_frag.o(.data)
+    .data                                    0x200001ec   Section        8  adc_api.o(.data)
+    .data                                    0x200001f4   Section       12  cjson.o(.data)
+    global_ep                                0x200001f4   Data           4  cjson.o(.data)
+    cJSON_malloc                             0x200001f8   Data           4  cjson.o(.data)
+    cJSON_free                               0x200001fc   Data           4  cjson.o(.data)
+    .data                                    0x20000200   Section       20  socket_sharing.o(.data)
+    .data                                    0x20000214   Section       64  md5std.o(.data)
+    .data                                    0x20000254   Section        4  mvars.o(.data)
+    .data                                    0x20000258   Section        4  mvars.o(.data)
+    .data                                    0x2000025c   Section        4  errno.o(.data)
+    _errno                                   0x2000025c   Data           4  errno.o(.data)
+    .bss                                     0x20000260   Section      460  tasks.o(.bss)
+    pxReadyTasksLists                        0x20000260   Data         360  tasks.o(.bss)
+    xDelayedTaskList1                        0x200003c8   Data          20  tasks.o(.bss)
+    xDelayedTaskList2                        0x200003dc   Data          20  tasks.o(.bss)
+    xPendingReadyList                        0x200003f0   Data          20  tasks.o(.bss)
+    xTasksWaitingTermination                 0x20000404   Data          20  tasks.o(.bss)
+    xSuspendedTaskList                       0x20000418   Data          20  tasks.o(.bss)
+    .bss                                     0x2000042c   Section       80  fsl_flexcomm.o(.bss)
+    s_flexcommIrqHandler                     0x2000042c   Data          40  fsl_flexcomm.o(.bss)
+    s_flexcommHandle                         0x20000454   Data          40  fsl_flexcomm.o(.bss)
+    .bss                                     0x2000047c   Section       64  queue.o(.bss)
+    .bss                                     0x200004bc   Section       40  timers.o(.bss)
+    xActiveTimerList1                        0x200004bc   Data          20  timers.o(.bss)
+    xActiveTimerList2                        0x200004d0   Data          20  timers.o(.bss)
+    .bss                                     0x200004e4   Section     9144  socket sharing_main.o(.bss)
+    fsl_netif0                               0x20002868   Data          52  socket sharing_main.o(.bss)
+    .bss                                     0x2000289c   Section       16  fsl_debug_console.o(.bss)
+    s_debugConsole                           0x2000289c   Data          16  fsl_debug_console.o(.bss)
+    .bss                                     0x200028ac   Section    15456  ethernetif.o(.bss)
+    ethernetif_0                             0x200028ac   Data       15456  ethernetif.o(.bss)
+    .bss                                     0x2000650c   Section       24  ip.o(.bss)
+    .bss                                     0x20006524   Section    22547  mem.o(.bss)
+    .bss                                     0x2000bd37   Section    17646  memp.o(.bss)
+    .bss                                     0x20010228   Section       20  tcp_in.o(.bss)
+    inseg                                    0x20010228   Data          20  tcp_in.o(.bss)
+    .bss                                     0x2001023c   Section       50  dhcp.o(.bss)
+    .bss                                     0x20010270   Section      240  etharp.o(.bss)
+    arp_table                                0x20010270   Data         240  etharp.o(.bss)
+    .bss                                     0x20010360   Section       16  adc_api.o(.bss)
+    gAdcResultInfoStruct                     0x20010360   Data          16  adc_api.o(.bss)
+    .bss                                     0x20010370   Section      256  flash_api.o(.bss)
+    .bss                                     0x20010470   Section      652  socket_sharing.o(.bss)
 
     Global Symbols
 
@@ -6036,51 +6040,51 @@ Image Symbol Table
     USART_WriteBlocking                      0x0000d041   Thumb Code    90  fsl_usart.o(i.USART_WriteBlocking)
     apiRespond()                             0x0000d0e9   Thumb Code   134  socket sharing_main.o(i._Z10apiRespondv)
     initServer()                             0x0000d179   Thumb Code   104  socket sharing_main.o(i._Z10initServerv)
-    updateCode()                             0x0000d331   Thumb Code    44  ota.o(i._Z10updateCodev)
-    workHandle(void*)                        0x0000d399   Thumb Code    20  socket sharing_main.o(i._Z10workHandlePv)
-    md5Calculate(unsigned char*, int, unsigned char*) 0x0000d51d   Thumb Code    38  md5std.o(i._Z12md5CalculatePhiS_)
-    md5Transform(unsigned*, unsigned char*)  0x0000d545   Thumb Code  1898  md5std.o(i._Z12md5TransformPjPh)
-    Internet_init()                          0x0000e205   Thumb Code   200  socket sharing_main.o(i._Z13Internet_initv)
-    netWorkThread(void*)                     0x0000e3e5   Thumb Code   172  socket sharing_main.o(i._Z13netWorkThreadPv)
-    recvMsgHandle()                          0x0000e505   Thumb Code   102  socket_sharing.o(i._Z13recvMsgHandlev)
-    openPortSwitch()                         0x0000e5d5   Thumb Code  1550  socket sharing_main.o(i._Z14openPortSwitchv)
-    calculate_crc16(char*, unsigned)         0x0000ebf1   Thumb Code    34  lib_crc16.o(i._Z15calculate_crc16Pcj)
-    closePortSwitch()                        0x0000ec15   Thumb Code  1548  socket sharing_main.o(i._Z15closePortSwitchv)
-    heartbeatThread(void*)                   0x0000f22d   Thumb Code   120  socket sharing_main.o(i._Z15heartbeatThreadPv)
-    initEventHandle()                        0x0000f335   Thumb Code     8  socket sharing_main.o(i._Z15initEventHandlev)
-    calculateBinSize(char*, int)             0x0000f38d   Thumb Code    60  ota.o(i._Z16calculateBinSizePci)
-    cmdMsgRespHandle(MSGID)                  0x0000f3c9   Thumb Code   520  socket_sharing.o(i._Z16cmdMsgRespHandle5MSGID)
-    parseRecvMsgInfo(char*)                  0x0000f6b9   Thumb Code   886  socket_sharing.o(i._Z16parseRecvMsgInfoPc)
-    respondPortSwitch()                      0x0000fbc5   Thumb Code   398  socket sharing_main.o(i._Z17respondPortSwitchv)
-    update_crc16_A001(unsigned short, char)  0x0000fd61   Thumb Code    18  lib_crc16.o(i._Z17update_crc16_A001tc)
-    parseBincodeBuffer(char*)                0x0000fd79   Thumb Code   426  socket_sharing.o(i._Z18parseBincodeBufferPc)
-    checkChargingFinish()                    0x00010029   Thumb Code  1152  socket sharing_main.o(i._Z19checkChargingFinishv)
-    notifyMsgSendHandle(MSGID)               0x000104b1   Thumb Code   748  socket_sharing.o(i._Z19notifyMsgSendHandle5MSGID)
-    timerOneSecondThread(void*)              0x000108c1   Thumb Code   172  socket sharing_main.o(i._Z20timerOneSecondThreadPv)
-    checkNetworkAvailable()                  0x00010995   Thumb Code   304  socket sharing_main.o(i._Z21checkNetworkAvailablev)
-    setAllPortStatusSwitch()                 0x00010b8d   Thumb Code  1676  socket sharing_main.o(i._Z22setAllPortStatusSwitchv)
-    update_crc16_reflected(const unsigned short*, unsigned short, char) 0x00011221   Thumb Code    22  lib_crc16.o(i._Z22update_crc16_reflectedPKttc)
-    OTAInit()                                0x00011249   Thumb Code   572  ota.o(i._Z7OTAInitv)
-    md5Init(_md5_std_ctx*)                   0x000114e5   Thumb Code    26  md5std.o(i._Z7md5InitP12_md5_std_ctx)
-    md5Final(_md5_std_ctx*, unsigned char*)  0x00011509   Thumb Code    80  md5std.o(i._Z8md5FinalP12_md5_std_ctxPh)
-    apiHandle()                              0x00011575   Thumb Code   178  socket sharing_main.o(i._Z9apiHandlev)
-    md5Decode(unsigned*, unsigned char*, unsigned) 0x00011651   Thumb Code    50  md5std.o(i._Z9md5DecodePjPhj)
-    md5Encode(unsigned char*, unsigned*, unsigned) 0x00011683   Thumb Code    62  md5std.o(i._Z9md5EncodePhPjj)
-    md5Update(_md5_std_ctx*, unsigned char*, unsigned) 0x000116c1   Thumb Code   140  md5std.o(i._Z9md5UpdateP12_md5_std_ctxPhj)
-    __0printf                                0x0001174d   Thumb Code    22  printfa.o(i.__0printf)
-    __1printf                                0x0001174d   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x0001174d   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x0001174d   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x0001174d   Thumb Code     0  printfa.o(i.__0printf)
-    __0sprintf                               0x0001176d   Thumb Code    34  printfa.o(i.__0sprintf)
-    __1sprintf                               0x0001176d   Thumb Code     0  printfa.o(i.__0sprintf)
-    __2sprintf                               0x0001176d   Thumb Code     0  printfa.o(i.__0sprintf)
-    __c89sprintf                             0x0001176d   Thumb Code     0  printfa.o(i.__0sprintf)
-    sprintf                                  0x0001176d   Thumb Code     0  printfa.o(i.__0sprintf)
-    __ARM_fpclassify                         0x00011795   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
-    __aeabi_assert                           0x000117c5   Thumb Code    24  fsl_common.o(i.__aeabi_assert)
-    free                                     0x00011809   Thumb Code    76  malloc2.o(i.__free$2region)
-    __hardfp_modf                            0x00011859   Thumb Code   202  modf.o(i.__hardfp_modf)
+    updateCode()                             0x0000d331   Thumb Code    10  ota.o(i._Z10updateCodev)
+    workHandle(void*)                        0x0000d371   Thumb Code    20  socket sharing_main.o(i._Z10workHandlePv)
+    md5Calculate(unsigned char*, int, unsigned char*) 0x0000d4f5   Thumb Code    38  md5std.o(i._Z12md5CalculatePhiS_)
+    md5Transform(unsigned*, unsigned char*)  0x0000d51d   Thumb Code  1898  md5std.o(i._Z12md5TransformPjPh)
+    Internet_init()                          0x0000e1dd   Thumb Code   228  socket sharing_main.o(i._Z13Internet_initv)
+    netWorkThread(void*)                     0x0000e3f5   Thumb Code   172  socket sharing_main.o(i._Z13netWorkThreadPv)
+    recvMsgHandle()                          0x0000e515   Thumb Code   102  socket_sharing.o(i._Z13recvMsgHandlev)
+    openPortSwitch()                         0x0000e5e5   Thumb Code  1550  socket sharing_main.o(i._Z14openPortSwitchv)
+    calculate_crc16(char*, unsigned)         0x0000ec01   Thumb Code    34  lib_crc16.o(i._Z15calculate_crc16Pcj)
+    closePortSwitch()                        0x0000ec25   Thumb Code  1548  socket sharing_main.o(i._Z15closePortSwitchv)
+    heartbeatThread(void*)                   0x0000f23d   Thumb Code   120  socket sharing_main.o(i._Z15heartbeatThreadPv)
+    initEventHandle()                        0x0000f345   Thumb Code     8  socket sharing_main.o(i._Z15initEventHandlev)
+    calculateBinSize(char*, int)             0x0000f3c5   Thumb Code    60  ota.o(i._Z16calculateBinSizePci)
+    cmdMsgRespHandle(MSGID)                  0x0000f401   Thumb Code   520  socket_sharing.o(i._Z16cmdMsgRespHandle5MSGID)
+    parseRecvMsgInfo(char*)                  0x0000f6f1   Thumb Code   880  socket_sharing.o(i._Z16parseRecvMsgInfoPc)
+    respondPortSwitch()                      0x0000fbf1   Thumb Code   398  socket sharing_main.o(i._Z17respondPortSwitchv)
+    update_crc16_A001(unsigned short, char)  0x0000fd8d   Thumb Code    18  lib_crc16.o(i._Z17update_crc16_A001tc)
+    parseBincodeBuffer(char*)                0x0000fda5   Thumb Code   426  socket_sharing.o(i._Z18parseBincodeBufferPc)
+    checkChargingFinish()                    0x00010055   Thumb Code  1152  socket sharing_main.o(i._Z19checkChargingFinishv)
+    notifyMsgSendHandle(MSGID)               0x000104dd   Thumb Code   722  socket_sharing.o(i._Z19notifyMsgSendHandle5MSGID)
+    timerOneSecondThread(void*)              0x000108d5   Thumb Code   136  socket sharing_main.o(i._Z20timerOneSecondThreadPv)
+    checkNetworkAvailable()                  0x00010979   Thumb Code   304  socket sharing_main.o(i._Z21checkNetworkAvailablev)
+    setAllPortStatusSwitch()                 0x00010b71   Thumb Code  1676  socket sharing_main.o(i._Z22setAllPortStatusSwitchv)
+    update_crc16_reflected(const unsigned short*, unsigned short, char) 0x00011205   Thumb Code    22  lib_crc16.o(i._Z22update_crc16_reflectedPKttc)
+    OTAInit()                                0x0001122d   Thumb Code   578  ota.o(i._Z7OTAInitv)
+    md5Init(_md5_std_ctx*)                   0x00011505   Thumb Code    26  md5std.o(i._Z7md5InitP12_md5_std_ctx)
+    md5Final(_md5_std_ctx*, unsigned char*)  0x00011529   Thumb Code    80  md5std.o(i._Z8md5FinalP12_md5_std_ctxPh)
+    apiHandle()                              0x00011595   Thumb Code   162  socket sharing_main.o(i._Z9apiHandlev)
+    md5Decode(unsigned*, unsigned char*, unsigned) 0x0001164d   Thumb Code    50  md5std.o(i._Z9md5DecodePjPhj)
+    md5Encode(unsigned char*, unsigned*, unsigned) 0x0001167f   Thumb Code    62  md5std.o(i._Z9md5EncodePhPjj)
+    md5Update(_md5_std_ctx*, unsigned char*, unsigned) 0x000116bd   Thumb Code   140  md5std.o(i._Z9md5UpdateP12_md5_std_ctxPhj)
+    __0printf                                0x00011749   Thumb Code    22  printfa.o(i.__0printf)
+    __1printf                                0x00011749   Thumb Code     0  printfa.o(i.__0printf)
+    __2printf                                0x00011749   Thumb Code     0  printfa.o(i.__0printf)
+    __c89printf                              0x00011749   Thumb Code     0  printfa.o(i.__0printf)
+    printf                                   0x00011749   Thumb Code     0  printfa.o(i.__0printf)
+    __0sprintf                               0x00011769   Thumb Code    34  printfa.o(i.__0sprintf)
+    __1sprintf                               0x00011769   Thumb Code     0  printfa.o(i.__0sprintf)
+    __2sprintf                               0x00011769   Thumb Code     0  printfa.o(i.__0sprintf)
+    __c89sprintf                             0x00011769   Thumb Code     0  printfa.o(i.__0sprintf)
+    sprintf                                  0x00011769   Thumb Code     0  printfa.o(i.__0sprintf)
+    __ARM_fpclassify                         0x00011791   Thumb Code    48  fpclassify.o(i.__ARM_fpclassify)
+    __aeabi_assert                           0x000117c1   Thumb Code    24  fsl_common.o(i.__aeabi_assert)
+    free                                     0x00011805   Thumb Code    76  malloc2.o(i.__free$2region)
+    __hardfp_modf                            0x00011855   Thumb Code   202  modf.o(i.__hardfp_modf)
     __hardfp_pow                             0x00011929   Thumb Code  3072  pow.o(i.__hardfp_pow)
     __kernel_poly                            0x00012579   Thumb Code   248  poly.o(i.__kernel_poly)
     malloc                                   0x00012671   Thumb Code    92  malloc2.o(i.__malloc$2region)
@@ -6369,100 +6373,99 @@ Image Symbol Table
     resetTimer                               0x20000090   Data           4  socket sharing_main.o(.data)
     gprsConnectServerTimer                   0x20000094   Data           4  socket sharing_main.o(.data)
     gprsPWRTimer                             0x20000098   Data           4  socket sharing_main.o(.data)
-    gprsHeartBeatTimer                       0x2000009c   Data           4  socket sharing_main.o(.data)
-    gprsOpenFlag                             0x200000a0   Data           1  socket sharing_main.o(.data)
-    gprsCloseFlag                            0x200000a1   Data           1  socket sharing_main.o(.data)
-    gprsOTAReceiveSingleBufferFlag           0x200000a2   Data           1  socket sharing_main.o(.data)
-    respondATConnect                         0x200000a3   Data           1  socket sharing_main.o(.data)
-    selectATCommand                          0x200000a4   Data           1  socket sharing_main.o(.data)
-    tcpsocket                                0x200000a8   Data           4  socket sharing_main.o(.data)
-    txIndex                                  0x200000ac   Data           2  socket sharing_main.o(.data)
-    i                                        0x200000ae   Data           2  socket sharing_main.o(.data)
-    BufferFullFlag                           0x200000b0   Data           1  socket sharing_main.o(.data)
-    DEFAULT_SERVER_ADDRESS                   0x200000b4   Data           4  socket sharing_main.o(.data)
-    ECHO_SERVER_PORT                         0x200000b8   Data           4  socket sharing_main.o(.data)
-    SERVERADDRESS                            0x200000bc   Data           4  socket sharing_main.o(.data)
-    respond                                  0x200000c0   Data           4  socket sharing_main.o(.data)
-    switchAllPortStatusFlag                  0x200000c4   Data           1  socket sharing_main.o(.data)
-    gprsOTAFlag                              0x200000c5   Data           1  socket sharing_main.o(.data)
-    versionSN                                0x200000c6   Data          33  socket sharing_main.o(.data)
-    getLatestFWFromServerFlag                0x200000e7   Data           1  socket sharing_main.o(.data)
-    oValidFlag                               0x200000e8   Data           1  socket sharing_main.o(.data)
-    kValidFlag                               0x200000e9   Data           1  socket sharing_main.o(.data)
-    cValidFlag                               0x200000ea   Data           1  socket sharing_main.o(.data)
-    nValidFlag                               0x200000eb   Data           1  socket sharing_main.o(.data)
-    eValidFlag                               0x200000ec   Data           1  socket sharing_main.o(.data)
-    tValidFlag                               0x200000ed   Data           1  socket sharing_main.o(.data)
-    lValidFlag                               0x200000ee   Data           1  socket sharing_main.o(.data)
-    sValidFlag                               0x200000ef   Data           1  socket sharing_main.o(.data)
-    dValidFlag                               0x200000f0   Data           1  socket sharing_main.o(.data)
-    changeTCPMode                            0x200000f1   Data           1  socket sharing_main.o(.data)
-    connectServerClose                       0x200000f2   Data           1  socket sharing_main.o(.data)
-    bufferStart                              0x200000f3   Data           1  socket sharing_main.o(.data)
-    gprsConnectServerFlag                    0x200000f4   Data           1  socket sharing_main.o(.data)
-    respondATCommand                         0x200000f5   Data           1  socket sharing_main.o(.data)
-    buffer                                   0x200000f6   Data           1  socket sharing_main.o(.data)
-    jsonSize                                 0x200000f8   Data           4  socket sharing_main.o(.data)
-    __stdout                                 0x20000108   Data           4  fsl_debug_console.o(.data)
-    __stdin                                  0x2000010c   Data           4  fsl_debug_console.o(.data)
-    netconn_aborted                          0x20000110   Data           1  api_msg.o(.data)
-    lock_tcpip_core                          0x20000120   Data           4  tcpip.o(.data)
-    netif_list                               0x2000016c   Data           4  netif.o(.data)
-    netif_default                            0x20000170   Data           4  netif.o(.data)
-    tcp_ticks                                0x20000180   Data           4  tcp.o(.data)
-    tcp_bound_pcbs                           0x20000184   Data           4  tcp.o(.data)
-    tcp_listen_pcbs                          0x20000188   Data           4  tcp.o(.data)
-    tcp_active_pcbs                          0x2000018c   Data           4  tcp.o(.data)
-    tcp_tw_pcbs                              0x20000190   Data           4  tcp.o(.data)
-    tcp_active_pcbs_changed                  0x20000194   Data           1  tcp.o(.data)
-    tcp_input_pcb                            0x200001c0   Data           4  tcp_in.o(.data)
-    udp_pcbs                                 0x200001d4   Data           4  udp.o(.data)
-    gAdcConvSeqAIntFlag                      0x200001f4   Data           1  adc_api.o(.data)
-    gAdcResultInfoPtr                        0x200001f8   Data           4  adc_api.o(.data)
-    msgID                                    0x20000208   Data           1  socket_sharing.o(.data)
-    notifySendID                             0x20000209   Data           1  socket_sharing.o(.data)
-    notifySendCounter                        0x2000020c   Data           4  socket_sharing.o(.data)
-    respcode                                 0x20000210   Data           4  socket_sharing.o(.data)
-    chargerException                         0x20000214   Data           1  socket_sharing.o(.data)
-    len1                                     0x20000216   Data           2  socket_sharing.o(.data)
-    otaBinTotalSize                          0x20000218   Data           4  socket_sharing.o(.data)
-    PADDING                                  0x2000021c   Data          64  md5std.o(.data)
-    __microlib_freelist                      0x2000025c   Data           4  mvars.o(.data)
-    __microlib_freelist_initialised          0x20000260   Data           4  mvars.o(.data)
-    xQueueRegistry                           0x20000484   Data          64  queue.o(.bss)
-    socketInfo                               0x200004ec   Data        4608  socket sharing_main.o(.bss)
-    tempBuffer                               0x200016ec   Data         256  socket sharing_main.o(.bss)
-    usart2Buffer                             0x200017ec   Data          20  socket sharing_main.o(.bss)
-    regvalue                                 0x20001800   Data          20  socket sharing_main.o(.bss)
-    demoRingBuffer                           0x20001814   Data          20  socket sharing_main.o(.bss)
-    ECHO_SERVER_ADDRESS                      0x20001828   Data          20  socket sharing_main.o(.bss)
-    fsl_netif0                               0x2000183c   Data          52  socket sharing_main.o(.bss)
-    uart2Buffer                              0x20001870   Data        4096  socket sharing_main.o(.bss)
-    ip_data                                  0x20006514   Data          24  ip.o(.bss)
-    ram_heap                                 0x2000652c   Data       22547  mem.o(.bss)
-    memp_memory_RAW_PCB_base                 0x2000bd3f   Data         115  memp.o(.bss)
-    memp_memory_UDP_PCB_base                 0x2000bdb2   Data         195  memp.o(.bss)
-    memp_memory_TCP_PCB_base                 0x2000be75   Data        1483  memp.o(.bss)
-    memp_memory_TCP_PCB_LISTEN_base          0x2000c440   Data         195  memp.o(.bss)
-    memp_memory_TCP_SEG_base                 0x2000c503   Data         443  memp.o(.bss)
-    memp_memory_REASSDATA_base               0x2000c6be   Data         163  memp.o(.bss)
-    memp_memory_FRAG_PBUF_base               0x2000c761   Data         363  memp.o(.bss)
-    memp_memory_NETBUF_base                  0x2000c8cc   Data          35  memp.o(.bss)
-    memp_memory_NETCONN_base                 0x2000c8ef   Data         195  memp.o(.bss)
-    memp_memory_TCPIP_MSG_API_base           0x2000c9b2   Data         131  memp.o(.bss)
-    memp_memory_TCPIP_MSG_INPKT_base         0x2000ca35   Data         131  memp.o(.bss)
-    memp_memory_SYS_TIMEOUT_base             0x2000cab8   Data         163  memp.o(.bss)
-    memp_memory_PBUF_base                    0x2000cb5b   Data         243  memp.o(.bss)
-    memp_memory_PBUF_POOL_base               0x2000cc4e   Data       13791  memp.o(.bss)
-    dhcp_rx_options_val                      0x20010244   Data          40  dhcp.o(.bss)
-    dhcp_rx_options_given                    0x2001026c   Data          10  dhcp.o(.bss)
-    page_buf                                 0x20010378   Data         256  flash_api.o(.bss)
-    msgIdstr                                 0x20010478   Data          10  socket_sharing.o(.bss)
-    jsonBuffer                               0x20010482   Data         256  socket_sharing.o(.bss)
-    chargerInfo                              0x20010584   Data         328  socket_sharing.o(.bss)
-    otaInfo                                  0x200106cc   Data          52  socket_sharing.o(.bss)
-    Image$$ARM_LIB_HEAP$$ZI$$Base            0x20010700   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ARM_LIB_HEAP$$ZI$$Limit           0x20016b00   Number         0  anon$$obj.o ABSOLUTE
+    gprsOpenFlag                             0x2000009c   Data           1  socket sharing_main.o(.data)
+    gprsCloseFlag                            0x2000009d   Data           1  socket sharing_main.o(.data)
+    gprsOTAReceiveSingleBufferFlag           0x2000009e   Data           1  socket sharing_main.o(.data)
+    respondATConnect                         0x2000009f   Data           1  socket sharing_main.o(.data)
+    selectATCommand                          0x200000a0   Data           1  socket sharing_main.o(.data)
+    tcpsocket                                0x200000a4   Data           4  socket sharing_main.o(.data)
+    txIndex                                  0x200000a8   Data           2  socket sharing_main.o(.data)
+    i                                        0x200000aa   Data           2  socket sharing_main.o(.data)
+    BufferFullFlag                           0x200000ac   Data           1  socket sharing_main.o(.data)
+    DEFAULT_SERVER_ADDRESS                   0x200000b0   Data           4  socket sharing_main.o(.data)
+    ECHO_SERVER_PORT                         0x200000b4   Data           4  socket sharing_main.o(.data)
+    SERVERADDRESS                            0x200000b8   Data           4  socket sharing_main.o(.data)
+    respond                                  0x200000bc   Data           4  socket sharing_main.o(.data)
+    switchAllPortStatusFlag                  0x200000c0   Data           1  socket sharing_main.o(.data)
+    gprsOTAFlag                              0x200000c1   Data           1  socket sharing_main.o(.data)
+    versionSN                                0x200000c2   Data          33  socket sharing_main.o(.data)
+    getLatestFWFromServerFlag                0x200000e3   Data           1  socket sharing_main.o(.data)
+    oValidFlag                               0x200000e4   Data           1  socket sharing_main.o(.data)
+    kValidFlag                               0x200000e5   Data           1  socket sharing_main.o(.data)
+    cValidFlag                               0x200000e6   Data           1  socket sharing_main.o(.data)
+    nValidFlag                               0x200000e7   Data           1  socket sharing_main.o(.data)
+    eValidFlag                               0x200000e8   Data           1  socket sharing_main.o(.data)
+    tValidFlag                               0x200000e9   Data           1  socket sharing_main.o(.data)
+    lValidFlag                               0x200000ea   Data           1  socket sharing_main.o(.data)
+    sValidFlag                               0x200000eb   Data           1  socket sharing_main.o(.data)
+    dValidFlag                               0x200000ec   Data           1  socket sharing_main.o(.data)
+    changeTCPMode                            0x200000ed   Data           1  socket sharing_main.o(.data)
+    connectServerClose                       0x200000ee   Data           1  socket sharing_main.o(.data)
+    bufferStart                              0x200000ef   Data           1  socket sharing_main.o(.data)
+    gprsConnectServerFlag                    0x200000f0   Data           1  socket sharing_main.o(.data)
+    respondATCommand                         0x200000f1   Data           1  socket sharing_main.o(.data)
+    buffer                                   0x200000f2   Data           1  socket sharing_main.o(.data)
+    jsonSize                                 0x200000f4   Data           4  socket sharing_main.o(.data)
+    __stdout                                 0x20000100   Data           4  fsl_debug_console.o(.data)
+    __stdin                                  0x20000104   Data           4  fsl_debug_console.o(.data)
+    netconn_aborted                          0x20000108   Data           1  api_msg.o(.data)
+    lock_tcpip_core                          0x20000118   Data           4  tcpip.o(.data)
+    netif_list                               0x20000164   Data           4  netif.o(.data)
+    netif_default                            0x20000168   Data           4  netif.o(.data)
+    tcp_ticks                                0x20000178   Data           4  tcp.o(.data)
+    tcp_bound_pcbs                           0x2000017c   Data           4  tcp.o(.data)
+    tcp_listen_pcbs                          0x20000180   Data           4  tcp.o(.data)
+    tcp_active_pcbs                          0x20000184   Data           4  tcp.o(.data)
+    tcp_tw_pcbs                              0x20000188   Data           4  tcp.o(.data)
+    tcp_active_pcbs_changed                  0x2000018c   Data           1  tcp.o(.data)
+    tcp_input_pcb                            0x200001b8   Data           4  tcp_in.o(.data)
+    udp_pcbs                                 0x200001cc   Data           4  udp.o(.data)
+    gAdcConvSeqAIntFlag                      0x200001ec   Data           1  adc_api.o(.data)
+    gAdcResultInfoPtr                        0x200001f0   Data           4  adc_api.o(.data)
+    msgID                                    0x20000200   Data           1  socket_sharing.o(.data)
+    notifySendID                             0x20000201   Data           1  socket_sharing.o(.data)
+    notifySendCounter                        0x20000204   Data           4  socket_sharing.o(.data)
+    respcode                                 0x20000208   Data           4  socket_sharing.o(.data)
+    chargerException                         0x2000020c   Data           1  socket_sharing.o(.data)
+    len1                                     0x2000020e   Data           2  socket_sharing.o(.data)
+    otaBinTotalSize                          0x20000210   Data           4  socket_sharing.o(.data)
+    PADDING                                  0x20000214   Data          64  md5std.o(.data)
+    __microlib_freelist                      0x20000254   Data           4  mvars.o(.data)
+    __microlib_freelist_initialised          0x20000258   Data           4  mvars.o(.data)
+    xQueueRegistry                           0x2000047c   Data          64  queue.o(.bss)
+    socketInfo                               0x200004e4   Data        4608  socket sharing_main.o(.bss)
+    tempBuffer                               0x200016e4   Data         256  socket sharing_main.o(.bss)
+    usart2Buffer                             0x200017e4   Data          20  socket sharing_main.o(.bss)
+    regvalue                                 0x200017f8   Data          20  socket sharing_main.o(.bss)
+    demoRingBuffer                           0x2000180c   Data          20  socket sharing_main.o(.bss)
+    ECHO_SERVER_ADDRESS                      0x20001820   Data          20  socket sharing_main.o(.bss)
+    fsl_netif0                               0x20001834   Data          52  socket sharing_main.o(.bss)
+    uart2Buffer                              0x20001868   Data        4096  socket sharing_main.o(.bss)
+    ip_data                                  0x2000650c   Data          24  ip.o(.bss)
+    ram_heap                                 0x20006524   Data       22547  mem.o(.bss)
+    memp_memory_RAW_PCB_base                 0x2000bd37   Data         115  memp.o(.bss)
+    memp_memory_UDP_PCB_base                 0x2000bdaa   Data         195  memp.o(.bss)
+    memp_memory_TCP_PCB_base                 0x2000be6d   Data        1483  memp.o(.bss)
+    memp_memory_TCP_PCB_LISTEN_base          0x2000c438   Data         195  memp.o(.bss)
+    memp_memory_TCP_SEG_base                 0x2000c4fb   Data         443  memp.o(.bss)
+    memp_memory_REASSDATA_base               0x2000c6b6   Data         163  memp.o(.bss)
+    memp_memory_FRAG_PBUF_base               0x2000c759   Data         363  memp.o(.bss)
+    memp_memory_NETBUF_base                  0x2000c8c4   Data          35  memp.o(.bss)
+    memp_memory_NETCONN_base                 0x2000c8e7   Data         195  memp.o(.bss)
+    memp_memory_TCPIP_MSG_API_base           0x2000c9aa   Data         131  memp.o(.bss)
+    memp_memory_TCPIP_MSG_INPKT_base         0x2000ca2d   Data         131  memp.o(.bss)
+    memp_memory_SYS_TIMEOUT_base             0x2000cab0   Data         163  memp.o(.bss)
+    memp_memory_PBUF_base                    0x2000cb53   Data         243  memp.o(.bss)
+    memp_memory_PBUF_POOL_base               0x2000cc46   Data       13791  memp.o(.bss)
+    dhcp_rx_options_val                      0x2001023c   Data          40  dhcp.o(.bss)
+    dhcp_rx_options_given                    0x20010264   Data          10  dhcp.o(.bss)
+    page_buf                                 0x20010370   Data         256  flash_api.o(.bss)
+    msgIdstr                                 0x20010470   Data          10  socket_sharing.o(.bss)
+    jsonBuffer                               0x2001047a   Data         256  socket_sharing.o(.bss)
+    chargerInfo                              0x2001057c   Data         332  socket_sharing.o(.bss)
+    otaInfo                                  0x200106c8   Data          52  socket_sharing.o(.bss)
+    Image$$ARM_LIB_HEAP$$ZI$$Base            0x200106fc   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ARM_LIB_HEAP$$ZI$$Limit           0x20016afc   Number         0  anon$$obj.o ABSOLUTE
     Image$$ARM_LIB_STACK$$ZI$$Limit          0x20028000   Number         0  anon$$obj.o ABSOLUTE
 
 
@@ -6473,7 +6476,7 @@ Memory Map of the image
 
   Image Entry point : 0x00008401
 
-  Load Region LR_m_text (Base: 0x00008000, Size: 0x0001a6e4, Max: 0x00020400, ABSOLUTE, COMPRESSED[0x0001a4b8])
+  Load Region LR_m_text (Base: 0x00008000, Size: 0x0001a6dc, Max: 0x00020400, ABSOLUTE, COMPRESSED[0x0001a4b8])
 
     Execution Region VECTOR_ROM (Exec base: 0x00008000, Load base: 0x00008000, Size: 0x00000124, Max: 0x00000400, ABSOLUTE)
 
@@ -6493,50 +6496,50 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00008400   0x00008400   0x00000000   Code   RO         8786  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00008400   0x00008400   0x00000004   Code   RO         9157    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
-    0x00008404   0x00008404   0x00000004   Code   RO         9160    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x00008408   0x00008408   0x00000000   Code   RO         9162    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x00008408   0x00008408   0x00000000   Code   RO         9164    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x00008408   0x00008408   0x00000008   Code   RO         9165    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00008410   0x00008410   0x00000000   Code   RO         9167    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00008410   0x00008410   0x00000000   Code   RO         9169    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00008410   0x00008410   0x00000004   Code   RO         9158    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x00008400   0x00008400   0x00000000   Code   RO         8792  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00008400   0x00008400   0x00000004   Code   RO         9163    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x00008404   0x00008404   0x00000004   Code   RO         9166    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00008408   0x00008408   0x00000000   Code   RO         9168    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00008408   0x00008408   0x00000000   Code   RO         9170    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00008408   0x00008408   0x00000008   Code   RO         9171    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00008410   0x00008410   0x00000000   Code   RO         9173    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00008410   0x00008410   0x00000000   Code   RO         9175    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00008410   0x00008410   0x00000004   Code   RO         9164    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
     0x00008414   0x00008414   0x000000b6   Code   RO          514    .emb_text           port.o
     0x000084ca   0x000084ca   0x00000002   PAD
     0x000084cc   0x000084cc   0x00000004   Code   RO         1599    .rev16_text         fsl_enet.o
     0x000084d0   0x000084d0   0x000001ec   Code   RO          510    .text               startup_lpc54608.o
-    0x000086bc   0x000086bc   0x00000062   Code   RO         8789    .text               mc_w.l(uldiv.o)
-    0x0000871e   0x0000871e   0x00000062   Code   RO         8791    .text               mc_w.l(ldiv.o)
-    0x00008780   0x00008780   0x0000000c   Code   RO         8793    .text               mc_w.l(tolower.o)
-    0x0000878c   0x0000878c   0x00000024   Code   RO         8795    .text               mc_w.l(memcpya.o)
-    0x000087b0   0x000087b0   0x00000024   Code   RO         8797    .text               mc_w.l(memseta.o)
-    0x000087d4   0x000087d4   0x0000000e   Code   RO         8801    .text               mc_w.l(strlen.o)
-    0x000087e2   0x000087e2   0x0000001a   Code   RO         8803    .text               mc_w.l(memcmp.o)
-    0x000087fc   0x000087fc   0x00000012   Code   RO         8805    .text               mc_w.l(strcpy.o)
-    0x0000880e   0x0000880e   0x0000001e   Code   RO         8807    .text               mc_w.l(strncmp.o)
-    0x0000882c   0x0000882c   0x0000014e   Code   RO         9100    .text               mf_w.l(dadd.o)
-    0x0000897a   0x0000897a   0x000000e4   Code   RO         9102    .text               mf_w.l(dmul.o)
-    0x00008a5e   0x00008a5e   0x000000de   Code   RO         9104    .text               mf_w.l(ddiv.o)
-    0x00008b3c   0x00008b3c   0x00000022   Code   RO         9108    .text               mf_w.l(dflti.o)
-    0x00008b5e   0x00008b5e   0x0000001a   Code   RO         9110    .text               mf_w.l(dfltui.o)
-    0x00008b78   0x00008b78   0x00000028   Code   RO         9112    .text               mf_w.l(dfltl.o)
-    0x00008ba0   0x00008ba0   0x0000003e   Code   RO         9114    .text               mf_w.l(dfixi.o)
-    0x00008bde   0x00008bde   0x0000004a   Code   RO         9116    .text               mf_w.l(dfixl.o)
-    0x00008c28   0x00008c28   0x00000030   Code   RO         9120    .text               mf_w.l(cdcmple.o)
-    0x00008c58   0x00008c58   0x00000030   Code   RO         9122    .text               mf_w.l(cdrcmple.o)
-    0x00008c88   0x00008c88   0x0000002c   Code   RO         9171    .text               mc_w.l(uidiv.o)
-    0x00008cb4   0x00008cb4   0x0000001e   Code   RO         9173    .text               mc_w.l(llshl.o)
-    0x00008cd2   0x00008cd2   0x00000020   Code   RO         9175    .text               mc_w.l(llushr.o)
-    0x00008cf2   0x00008cf2   0x00000024   Code   RO         9177    .text               mc_w.l(llsshr.o)
-    0x00008d16   0x00008d16   0x00000000   Code   RO         9190    .text               mc_w.l(iusefp.o)
-    0x00008d16   0x00008d16   0x000000ba   Code   RO         9193    .text               mf_w.l(depilogue.o)
-    0x00008dd0   0x00008dd0   0x0000002e   Code   RO         9195    .text               mf_w.l(dscalb.o)
-    0x00008dfe   0x00008dfe   0x00000030   Code   RO         9197    .text               mf_w.l(dfixul.o)
+    0x000086bc   0x000086bc   0x00000062   Code   RO         8795    .text               mc_w.l(uldiv.o)
+    0x0000871e   0x0000871e   0x00000062   Code   RO         8797    .text               mc_w.l(ldiv.o)
+    0x00008780   0x00008780   0x0000000c   Code   RO         8799    .text               mc_w.l(tolower.o)
+    0x0000878c   0x0000878c   0x00000024   Code   RO         8801    .text               mc_w.l(memcpya.o)
+    0x000087b0   0x000087b0   0x00000024   Code   RO         8803    .text               mc_w.l(memseta.o)
+    0x000087d4   0x000087d4   0x0000000e   Code   RO         8807    .text               mc_w.l(strlen.o)
+    0x000087e2   0x000087e2   0x0000001a   Code   RO         8809    .text               mc_w.l(memcmp.o)
+    0x000087fc   0x000087fc   0x00000012   Code   RO         8811    .text               mc_w.l(strcpy.o)
+    0x0000880e   0x0000880e   0x0000001e   Code   RO         8813    .text               mc_w.l(strncmp.o)
+    0x0000882c   0x0000882c   0x0000014e   Code   RO         9106    .text               mf_w.l(dadd.o)
+    0x0000897a   0x0000897a   0x000000e4   Code   RO         9108    .text               mf_w.l(dmul.o)
+    0x00008a5e   0x00008a5e   0x000000de   Code   RO         9110    .text               mf_w.l(ddiv.o)
+    0x00008b3c   0x00008b3c   0x00000022   Code   RO         9114    .text               mf_w.l(dflti.o)
+    0x00008b5e   0x00008b5e   0x0000001a   Code   RO         9116    .text               mf_w.l(dfltui.o)
+    0x00008b78   0x00008b78   0x00000028   Code   RO         9118    .text               mf_w.l(dfltl.o)
+    0x00008ba0   0x00008ba0   0x0000003e   Code   RO         9120    .text               mf_w.l(dfixi.o)
+    0x00008bde   0x00008bde   0x0000004a   Code   RO         9122    .text               mf_w.l(dfixl.o)
+    0x00008c28   0x00008c28   0x00000030   Code   RO         9126    .text               mf_w.l(cdcmple.o)
+    0x00008c58   0x00008c58   0x00000030   Code   RO         9128    .text               mf_w.l(cdrcmple.o)
+    0x00008c88   0x00008c88   0x0000002c   Code   RO         9177    .text               mc_w.l(uidiv.o)
+    0x00008cb4   0x00008cb4   0x0000001e   Code   RO         9179    .text               mc_w.l(llshl.o)
+    0x00008cd2   0x00008cd2   0x00000020   Code   RO         9181    .text               mc_w.l(llushr.o)
+    0x00008cf2   0x00008cf2   0x00000024   Code   RO         9183    .text               mc_w.l(llsshr.o)
+    0x00008d16   0x00008d16   0x00000000   Code   RO         9196    .text               mc_w.l(iusefp.o)
+    0x00008d16   0x00008d16   0x000000ba   Code   RO         9199    .text               mf_w.l(depilogue.o)
+    0x00008dd0   0x00008dd0   0x0000002e   Code   RO         9201    .text               mf_w.l(dscalb.o)
+    0x00008dfe   0x00008dfe   0x00000030   Code   RO         9203    .text               mf_w.l(dfixul.o)
     0x00008e2e   0x00008e2e   0x00000002   PAD
-    0x00008e30   0x00008e30   0x00000024   Code   RO         9199    .text               mc_w.l(init.o)
-    0x00008e54   0x00008e54   0x000000a2   Code   RO         9209    .text               mf_w.l(dsqrt.o)
-    0x00008ef6   0x00008ef6   0x00000056   Code   RO         9224    .text               mc_w.l(__dczerorl2.o)
+    0x00008e30   0x00008e30   0x00000024   Code   RO         9205    .text               mc_w.l(init.o)
+    0x00008e54   0x00008e54   0x000000a2   Code   RO         9215    .text               mf_w.l(dsqrt.o)
+    0x00008ef6   0x00008ef6   0x00000056   Code   RO         9230    .text               mc_w.l(__dczerorl2.o)
     0x00008f4c   0x00008f4c   0x0000003c   Code   RO         7388    i.ADC0_SEQA_IRQHandler  adc_api.o
     0x00008f88   0x00008f88   0x000000b4   Code   RO         1905    i.ADC_GetChannelConversionResult  fsl_adc.o
     0x0000903c   0x0000903c   0x00000048   Code   RO          774    i.BOARD_BootClockFROHF48M  clock_config.o
@@ -6672,8 +6675,8 @@ Memory Map of the image
     0x0000c844   0x0000c844   0x00000020   Code   RO         7580    i.PIO1_30_ON        gpio_api.o
     0x0000c864   0x0000c864   0x00000014   Code   RO          777    i.POWER_DisablePD   clock_config.o
     0x0000c878   0x0000c878   0x00000014   Code   RO         1221    i.POWER_DisablePD   fsl_clock.o
-    0x0000c88c   0x0000c88c   0x00000074   Code   RO         8729    i.POWER_SetVoltageForFreq  keil_lib_power.lib(fsl_power_lib.o)
-    0x0000c900   0x0000c900   0x00000014   Code   RO         8731    i.POWER_setVdLevel  keil_lib_power.lib(fsl_power_lib.o)
+    0x0000c88c   0x0000c88c   0x00000074   Code   RO         8735    i.POWER_SetVoltageForFreq  keil_lib_power.lib(fsl_power_lib.o)
+    0x0000c900   0x0000c900   0x00000014   Code   RO         8737    i.POWER_setVdLevel  keil_lib_power.lib(fsl_power_lib.o)
     0x0000c914   0x0000c914   0x00000020   Code   RO         7581    i.PWM_OFF           gpio_api.o
     0x0000c934   0x0000c934   0x00000020   Code   RO         7582    i.PWM_ON            gpio_api.o
     0x0000c954   0x0000c954   0x00000044   Code   RO         7963    i.PWRCloseToggle    gprs_api.o
@@ -6702,82 +6705,84 @@ Memory Map of the image
     0x0000d0e8   0x0000d0e8   0x00000090   Code   RO         2998    i._Z10apiRespondv   socket sharing_main.o
     0x0000d178   0x0000d178   0x000000a4   Code   RO         2999    i._Z10initServerv   socket sharing_main.o
     0x0000d21c   0x0000d21c   0x00000114   Code   RO         8000    i._Z10parse_hex4PKc  cjson.o
-    0x0000d330   0x0000d330   0x00000068   Code   RO         8588    i._Z10updateCodev   ota.o
-    0x0000d398   0x0000d398   0x00000014   Code   RO         3000    i._Z10workHandlePv  socket sharing_main.o
-    0x0000d3ac   0x0000d3ac   0x000000ae   Code   RO         8001    i._Z11parse_arrayP5cJSONPKcPS2_  cjson.o
-    0x0000d45a   0x0000d45a   0x00000002   PAD
-    0x0000d45c   0x0000d45c   0x000000c0   Code   RO         8002    i._Z11parse_valueP5cJSONPKcPS2_  cjson.o
-    0x0000d51c   0x0000d51c   0x00000026   Code   RO         8656    i._Z12md5CalculatePhiS_  md5std.o
-    0x0000d542   0x0000d542   0x00000002   PAD
-    0x0000d544   0x0000d544   0x000007d4   Code   RO         8657    i._Z12md5TransformPjPh  md5std.o
-    0x0000dd18   0x0000dd18   0x000001c8   Code   RO         8006    i._Z12parse_numberP5cJSONPKc  cjson.o
-    0x0000dee0   0x0000dee0   0x00000116   Code   RO         8007    i._Z12parse_objectP5cJSONPKcPS2_  cjson.o
-    0x0000dff6   0x0000dff6   0x00000002   PAD
-    0x0000dff8   0x0000dff8   0x0000020c   Code   RO         8008    i._Z12parse_stringP5cJSONPKcPS2_  cjson.o
-    0x0000e204   0x0000e204   0x000001e0   Code   RO         3001    i._Z13Internet_initv  socket sharing_main.o
-    0x0000e3e4   0x0000e3e4   0x00000120   Code   RO         3002    i._Z13netWorkThreadPv  socket sharing_main.o
-    0x0000e504   0x0000e504   0x00000098   Code   RO         8460    i._Z13recvMsgHandlev  socket_sharing.o
-    0x0000e59c   0x0000e59c   0x00000016   Code   RO         3003    i._Z14NVIC_EnableIRQ4IRQn  socket sharing_main.o
-    0x0000e5b2   0x0000e5b2   0x00000002   PAD
-    0x0000e5b4   0x0000e5b4   0x00000020   Code   RO         8013    i._Z14cJSON_New_Itemv  cjson.o
-    0x0000e5d4   0x0000e5d4   0x0000061c   Code   RO         3004    i._Z14openPortSwitchv  socket sharing_main.o
-    0x0000ebf0   0x0000ebf0   0x00000022   Code   RO         8416    i._Z15calculate_crc16Pcj  lib_crc16.o
-    0x0000ec12   0x0000ec12   0x00000002   PAD
-    0x0000ec14   0x0000ec14   0x00000618   Code   RO         3005    i._Z15closePortSwitchv  socket sharing_main.o
-    0x0000f22c   0x0000f22c   0x00000108   Code   RO         3006    i._Z15heartbeatThreadPv  socket sharing_main.o
-    0x0000f334   0x0000f334   0x0000000c   Code   RO         3007    i._Z15initEventHandlev  socket sharing_main.o
-    0x0000f340   0x0000f340   0x0000004c   Code   RO         8014    i._Z16cJSON_strcasecmpPKcS0_  cjson.o
-    0x0000f38c   0x0000f38c   0x0000003c   Code   RO         8589    i._Z16calculateBinSizePci  ota.o
-    0x0000f3c8   0x0000f3c8   0x000002f0   Code   RO         8461    i._Z16cmdMsgRespHandle5MSGID  socket_sharing.o
-    0x0000f6b8   0x0000f6b8   0x000004e4   Code   RO         8462    i._Z16parseRecvMsgInfoPc  socket_sharing.o
-    0x0000fb9c   0x0000fb9c   0x00000028   Code   RO         3008    i._Z17CLOCK_EnableClock14_clock_ip_name  socket sharing_main.o
-    0x0000fbc4   0x0000fbc4   0x0000019c   Code   RO         3009    i._Z17respondPortSwitchv  socket sharing_main.o
-    0x0000fd60   0x0000fd60   0x00000018   Code   RO         8417    i._Z17update_crc16_A001tc  lib_crc16.o
-    0x0000fd78   0x0000fd78   0x000002b0   Code   RO         8463    i._Z18parseBincodeBufferPc  socket_sharing.o
-    0x00010028   0x00010028   0x00000488   Code   RO         3010    i._Z19checkChargingFinishv  socket sharing_main.o
-    0x000104b0   0x000104b0   0x00000410   Code   RO         8464    i._Z19notifyMsgSendHandle5MSGID  socket_sharing.o
-    0x000108c0   0x000108c0   0x000000d4   Code   RO         3011    i._Z20timerOneSecondThreadPv  socket sharing_main.o
-    0x00010994   0x00010994   0x000001ec   Code   RO         3012    i._Z21checkNetworkAvailablev  socket sharing_main.o
-    0x00010b80   0x00010b80   0x0000000a   Code   RO         3013    i._Z22USART_EnableInterruptsP10USART_Typej  socket sharing_main.o
-    0x00010b8a   0x00010b8a   0x00000002   PAD
-    0x00010b8c   0x00010b8c   0x00000694   Code   RO         3014    i._Z22setAllPortStatusSwitchv  socket sharing_main.o
-    0x00011220   0x00011220   0x00000016   Code   RO         8419    i._Z22update_crc16_reflectedPKttc  lib_crc16.o
-    0x00011236   0x00011236   0x00000012   Code   RO         8017    i._Z4skipPKc        cjson.o
-    0x00011248   0x00011248   0x0000029c   Code   RO         8590    i._Z7OTAInitv       ota.o
-    0x000114e4   0x000114e4   0x00000024   Code   RO         8658    i._Z7md5InitP12_md5_std_ctx  md5std.o
-    0x00011508   0x00011508   0x00000054   Code   RO         8659    i._Z8md5FinalP12_md5_std_ctxPh  md5std.o
-    0x0001155c   0x0001155c   0x00000016   Code   RO         3015    i._Z9EnableIRQ4IRQn  socket sharing_main.o
-    0x00011572   0x00011572   0x00000002   PAD
-    0x00011574   0x00011574   0x000000dc   Code   RO         3016    i._Z9apiHandlev     socket sharing_main.o
-    0x00011650   0x00011650   0x00000032   Code   RO         8660    i._Z9md5DecodePjPhj  md5std.o
-    0x00011682   0x00011682   0x0000003e   Code   RO         8661    i._Z9md5EncodePhPjj  md5std.o
-    0x000116c0   0x000116c0   0x0000008c   Code   RO         8662    i._Z9md5UpdateP12_md5_std_ctxPhj  md5std.o
-    0x0001174c   0x0001174c   0x00000020   Code   RO         9044    i.__0printf         mc_w.l(printfa.o)
-    0x0001176c   0x0001176c   0x00000028   Code   RO         9046    i.__0sprintf        mc_w.l(printfa.o)
-    0x00011794   0x00011794   0x00000030   Code   RO         9140    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
-    0x000117c4   0x000117c4   0x00000044   Code   RO         1815    i.__aeabi_assert    fsl_common.o
-    0x00011808   0x00011808   0x00000050   Code   RO         9072    i.__free$2region    mc_w.l(malloc2.o)
-    0x00011858   0x00011858   0x000000d0   Code   RO         8760    i.__hardfp_modf     m_wm.l(modf.o)
-    0x00011928   0x00011928   0x00000c50   Code   RO         8766    i.__hardfp_pow      m_wm.l(pow.o)
-    0x00012578   0x00012578   0x000000f8   Code   RO         9142    i.__kernel_poly     m_wm.l(poly.o)
-    0x00012670   0x00012670   0x0000006c   Code   RO         9073    i.__malloc$2region  mc_w.l(malloc2.o)
+    0x0000d330   0x0000d330   0x00000040   Code   RO         8588    i._Z10updateCodev   ota.o
+    0x0000d370   0x0000d370   0x00000014   Code   RO         3000    i._Z10workHandlePv  socket sharing_main.o
+    0x0000d384   0x0000d384   0x000000ae   Code   RO         8001    i._Z11parse_arrayP5cJSONPKcPS2_  cjson.o
+    0x0000d432   0x0000d432   0x00000002   PAD
+    0x0000d434   0x0000d434   0x000000c0   Code   RO         8002    i._Z11parse_valueP5cJSONPKcPS2_  cjson.o
+    0x0000d4f4   0x0000d4f4   0x00000026   Code   RO         8662    i._Z12md5CalculatePhiS_  md5std.o
+    0x0000d51a   0x0000d51a   0x00000002   PAD
+    0x0000d51c   0x0000d51c   0x000007d4   Code   RO         8663    i._Z12md5TransformPjPh  md5std.o
+    0x0000dcf0   0x0000dcf0   0x000001c8   Code   RO         8006    i._Z12parse_numberP5cJSONPKc  cjson.o
+    0x0000deb8   0x0000deb8   0x00000116   Code   RO         8007    i._Z12parse_objectP5cJSONPKcPS2_  cjson.o
+    0x0000dfce   0x0000dfce   0x00000002   PAD
+    0x0000dfd0   0x0000dfd0   0x0000020c   Code   RO         8008    i._Z12parse_stringP5cJSONPKcPS2_  cjson.o
+    0x0000e1dc   0x0000e1dc   0x00000218   Code   RO         3001    i._Z13Internet_initv  socket sharing_main.o
+    0x0000e3f4   0x0000e3f4   0x00000120   Code   RO         3002    i._Z13netWorkThreadPv  socket sharing_main.o
+    0x0000e514   0x0000e514   0x00000098   Code   RO         8460    i._Z13recvMsgHandlev  socket_sharing.o
+    0x0000e5ac   0x0000e5ac   0x00000016   Code   RO         3003    i._Z14NVIC_EnableIRQ4IRQn  socket sharing_main.o
+    0x0000e5c2   0x0000e5c2   0x00000002   PAD
+    0x0000e5c4   0x0000e5c4   0x00000020   Code   RO         8013    i._Z14cJSON_New_Itemv  cjson.o
+    0x0000e5e4   0x0000e5e4   0x0000061c   Code   RO         3004    i._Z14openPortSwitchv  socket sharing_main.o
+    0x0000ec00   0x0000ec00   0x00000022   Code   RO         8416    i._Z15calculate_crc16Pcj  lib_crc16.o
+    0x0000ec22   0x0000ec22   0x00000002   PAD
+    0x0000ec24   0x0000ec24   0x00000618   Code   RO         3005    i._Z15closePortSwitchv  socket sharing_main.o
+    0x0000f23c   0x0000f23c   0x00000108   Code   RO         3006    i._Z15heartbeatThreadPv  socket sharing_main.o
+    0x0000f344   0x0000f344   0x0000000c   Code   RO         3007    i._Z15initEventHandlev  socket sharing_main.o
+    0x0000f350   0x0000f350   0x00000028   Code   RO         8589    i._Z16NVIC_SystemResetv  ota.o
+    0x0000f378   0x0000f378   0x0000004c   Code   RO         8014    i._Z16cJSON_strcasecmpPKcS0_  cjson.o
+    0x0000f3c4   0x0000f3c4   0x0000003c   Code   RO         8590    i._Z16calculateBinSizePci  ota.o
+    0x0000f400   0x0000f400   0x000002f0   Code   RO         8461    i._Z16cmdMsgRespHandle5MSGID  socket_sharing.o
+    0x0000f6f0   0x0000f6f0   0x000004d8   Code   RO         8462    i._Z16parseRecvMsgInfoPc  socket_sharing.o
+    0x0000fbc8   0x0000fbc8   0x00000028   Code   RO         3008    i._Z17CLOCK_EnableClock14_clock_ip_name  socket sharing_main.o
+    0x0000fbf0   0x0000fbf0   0x0000019c   Code   RO         3009    i._Z17respondPortSwitchv  socket sharing_main.o
+    0x0000fd8c   0x0000fd8c   0x00000018   Code   RO         8417    i._Z17update_crc16_A001tc  lib_crc16.o
+    0x0000fda4   0x0000fda4   0x000002b0   Code   RO         8463    i._Z18parseBincodeBufferPc  socket_sharing.o
+    0x00010054   0x00010054   0x00000488   Code   RO         3010    i._Z19checkChargingFinishv  socket sharing_main.o
+    0x000104dc   0x000104dc   0x000003f8   Code   RO         8464    i._Z19notifyMsgSendHandle5MSGID  socket_sharing.o
+    0x000108d4   0x000108d4   0x000000a4   Code   RO         3011    i._Z20timerOneSecondThreadPv  socket sharing_main.o
+    0x00010978   0x00010978   0x000001ec   Code   RO         3012    i._Z21checkNetworkAvailablev  socket sharing_main.o
+    0x00010b64   0x00010b64   0x0000000a   Code   RO         3013    i._Z22USART_EnableInterruptsP10USART_Typej  socket sharing_main.o
+    0x00010b6e   0x00010b6e   0x00000002   PAD
+    0x00010b70   0x00010b70   0x00000694   Code   RO         3014    i._Z22setAllPortStatusSwitchv  socket sharing_main.o
+    0x00011204   0x00011204   0x00000016   Code   RO         8419    i._Z22update_crc16_reflectedPKttc  lib_crc16.o
+    0x0001121a   0x0001121a   0x00000012   Code   RO         8017    i._Z4skipPKc        cjson.o
+    0x0001122c   0x0001122c   0x000002d8   Code   RO         8591    i._Z7OTAInitv       ota.o
+    0x00011504   0x00011504   0x00000024   Code   RO         8664    i._Z7md5InitP12_md5_std_ctx  md5std.o
+    0x00011528   0x00011528   0x00000054   Code   RO         8665    i._Z8md5FinalP12_md5_std_ctxPh  md5std.o
+    0x0001157c   0x0001157c   0x00000016   Code   RO         3015    i._Z9EnableIRQ4IRQn  socket sharing_main.o
+    0x00011592   0x00011592   0x00000002   PAD
+    0x00011594   0x00011594   0x000000b8   Code   RO         3016    i._Z9apiHandlev     socket sharing_main.o
+    0x0001164c   0x0001164c   0x00000032   Code   RO         8666    i._Z9md5DecodePjPhj  md5std.o
+    0x0001167e   0x0001167e   0x0000003e   Code   RO         8667    i._Z9md5EncodePhPjj  md5std.o
+    0x000116bc   0x000116bc   0x0000008c   Code   RO         8668    i._Z9md5UpdateP12_md5_std_ctxPhj  md5std.o
+    0x00011748   0x00011748   0x00000020   Code   RO         9050    i.__0printf         mc_w.l(printfa.o)
+    0x00011768   0x00011768   0x00000028   Code   RO         9052    i.__0sprintf        mc_w.l(printfa.o)
+    0x00011790   0x00011790   0x00000030   Code   RO         9146    i.__ARM_fpclassify  m_wm.l(fpclassify.o)
+    0x000117c0   0x000117c0   0x00000044   Code   RO         1815    i.__aeabi_assert    fsl_common.o
+    0x00011804   0x00011804   0x00000050   Code   RO         9078    i.__free$2region    mc_w.l(malloc2.o)
+    0x00011854   0x00011854   0x000000d0   Code   RO         8766    i.__hardfp_modf     m_wm.l(modf.o)
+    0x00011924   0x00011924   0x00000004   PAD
+    0x00011928   0x00011928   0x00000c50   Code   RO         8772    i.__hardfp_pow      m_wm.l(pow.o)
+    0x00012578   0x00012578   0x000000f8   Code   RO         9148    i.__kernel_poly     m_wm.l(poly.o)
+    0x00012670   0x00012670   0x0000006c   Code   RO         9079    i.__malloc$2region  mc_w.l(malloc2.o)
     0x000126dc   0x000126dc   0x00000004   PAD
-    0x000126e0   0x000126e0   0x00000030   Code   RO         9126    i.__mathlib_dbl_divzero  m_wm.l(dunder.o)
-    0x00012710   0x00012710   0x00000014   Code   RO         9128    i.__mathlib_dbl_infnan2  m_wm.l(dunder.o)
+    0x000126e0   0x000126e0   0x00000030   Code   RO         9132    i.__mathlib_dbl_divzero  m_wm.l(dunder.o)
+    0x00012710   0x00012710   0x00000014   Code   RO         9134    i.__mathlib_dbl_infnan2  m_wm.l(dunder.o)
     0x00012724   0x00012724   0x00000004   PAD
-    0x00012728   0x00012728   0x00000020   Code   RO         9129    i.__mathlib_dbl_invalid  m_wm.l(dunder.o)
-    0x00012748   0x00012748   0x00000020   Code   RO         9130    i.__mathlib_dbl_overflow  m_wm.l(dunder.o)
-    0x00012768   0x00012768   0x00000020   Code   RO         9132    i.__mathlib_dbl_underflow  m_wm.l(dunder.o)
-    0x00012788   0x00012788   0x0000000e   Code   RO         9218    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00012796   0x00012796   0x00000002   Code   RO         9219    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00012798   0x00012798   0x0000000e   Code   RO         9220    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00012728   0x00012728   0x00000020   Code   RO         9135    i.__mathlib_dbl_invalid  m_wm.l(dunder.o)
+    0x00012748   0x00012748   0x00000020   Code   RO         9136    i.__mathlib_dbl_overflow  m_wm.l(dunder.o)
+    0x00012768   0x00012768   0x00000020   Code   RO         9138    i.__mathlib_dbl_underflow  m_wm.l(dunder.o)
+    0x00012788   0x00012788   0x0000000e   Code   RO         9224    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00012796   0x00012796   0x00000002   Code   RO         9225    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00012798   0x00012798   0x0000000e   Code   RO         9226    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x000127a6   0x000127a6   0x00000002   PAD
-    0x000127a8   0x000127a8   0x0000000c   Code   RO         9183    i.__set_errno       mc_w.l(errno.o)
-    0x000127b4   0x000127b4   0x00000184   Code   RO         9051    i._fp_digits        mc_w.l(printfa.o)
-    0x00012938   0x00012938   0x000006dc   Code   RO         9052    i._printf_core      mc_w.l(printfa.o)
-    0x00013014   0x00013014   0x00000024   Code   RO         9053    i._printf_post_padding  mc_w.l(printfa.o)
-    0x00013038   0x00013038   0x0000002e   Code   RO         9054    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x00013066   0x00013066   0x0000000a   Code   RO         9056    i._sputc            mc_w.l(printfa.o)
+    0x000127a8   0x000127a8   0x0000000c   Code   RO         9189    i.__set_errno       mc_w.l(errno.o)
+    0x000127b4   0x000127b4   0x00000184   Code   RO         9057    i._fp_digits        mc_w.l(printfa.o)
+    0x00012938   0x00012938   0x000006dc   Code   RO         9058    i._printf_core      mc_w.l(printfa.o)
+    0x00013014   0x00013014   0x00000024   Code   RO         9059    i._printf_post_padding  mc_w.l(printfa.o)
+    0x00013038   0x00013038   0x0000002e   Code   RO         9060    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x00013066   0x00013066   0x0000000a   Code   RO         9062    i._sputc            mc_w.l(printfa.o)
     0x00013070   0x00013070   0x00000058   Code   RO         8038    i.cJSON_Delete      cjson.o
     0x000130c8   0x000130c8   0x0000001a   Code   RO         8044    i.cJSON_GetArrayItem  cjson.o
     0x000130e2   0x000130e2   0x00000012   Code   RO         8045    i.cJSON_GetArraySize  cjson.o
@@ -6849,7 +6854,7 @@ Memory Map of the image
     0x00015e0c   0x00015e0c   0x000000a0   Code   RO         6894    i.ethernet_output   ethernet.o
     0x00015eac   0x00015eac   0x0000005c   Code   RO         3613    i.ethernetif_init   ethernetif.o
     0x00015f08   0x00015f08   0x00000044   Code   RO         3614    i.ethernetif_input  ethernetif.o
-    0x00015f4c   0x00015f4c   0x00000018   Code   RO         8750    i.fabs              m_wm.l(fabs.o)
+    0x00015f4c   0x00015f4c   0x00000018   Code   RO         8756    i.fabs              m_wm.l(fabs.o)
     0x00015f64   0x00015f64   0x00000024   Code   RO         3510    i.fputc             fsl_debug_console.o
     0x00015f88   0x00015f88   0x00000012   Code   RO         3615    i.get_rx_desc       ethernetif.o
     0x00015f9a   0x00015f9a   0x00000012   Code   RO         3616    i.get_tx_desc       ethernetif.o
@@ -6998,7 +7003,7 @@ Memory Map of the image
     0x0001b17c   0x0001b17c   0x00000110   Code   RO         4169    i.recv_udp          api_msg.o
     0x0001b28c   0x0001b28c   0x00000084   Code   RO         4170    i.sent_tcp          api_msg.o
     0x0001b310   0x0001b310   0x00000044   Code   RO         4171    i.setup_tcp         api_msg.o
-    0x0001b354   0x0001b354   0x0000006e   Code   RO         9147    i.sqrt              m_wm.l(sqrt.o)
+    0x0001b354   0x0001b354   0x0000006e   Code   RO         9153    i.sqrt              m_wm.l(sqrt.o)
     0x0001b3c2   0x0001b3c2   0x0000006e   Code   RO         3815    i.sys_arch_mbox_fetch  sys_arch.o
     0x0001b430   0x0001b430   0x00000026   Code   RO         3816    i.sys_arch_mbox_tryfetch  sys_arch.o
     0x0001b456   0x0001b456   0x00000030   Code   RO         3817    i.sys_arch_protect  sys_arch.o
@@ -7196,8 +7201,8 @@ Memory Map of the image
     0x00021b68   0x00021b68   0x00000007   Data   RO         8118    .constdata          cjson.o
     0x00021b6f   0x00021b6f   0x00000001   PAD
     0x00021b70   0x00021b70   0x00000200   Data   RO         8424    .constdata          lib_crc16.o
-    0x00021d70   0x00021d70   0x00000088   Data   RO         8769    .constdata          m_wm.l(pow.o)
-    0x00021df8   0x00021df8   0x00000008   Data   RO         9144    .constdata          m_wm.l(qnan.o)
+    0x00021d70   0x00021d70   0x00000088   Data   RO         8775    .constdata          m_wm.l(pow.o)
+    0x00021df8   0x00021df8   0x00000008   Data   RO         9150    .constdata          m_wm.l(qnan.o)
     0x00021e00   0x00021e00   0x000000bb   Data   RO         3057    .conststring        socket sharing_main.o
     0x00021ebb   0x00021ebb   0x00000001   PAD
     0x00021ebc   0x00021ebc   0x000000a0   Data   RO         5071    .conststring        memp.o
@@ -7213,12 +7218,12 @@ Memory Map of the image
     0x00022140   0x00022140   0x0000005c   Data   RO         7878    .conststring        flash_api.o
     0x0002219c   0x0002219c   0x00000213   Data   RO         8477    .conststring        socket_sharing.o
     0x000223af   0x000223af   0x00000001   PAD
-    0x000223b0   0x000223b0   0x000000a9   Data   RO         8594    .conststring        ota.o
+    0x000223b0   0x000223b0   0x000000a9   Data   RO         8596    .conststring        ota.o
     0x00022459   0x00022459   0x00000003   PAD
-    0x0002245c   0x0002245c   0x00000020   Data   RO         9216    Region$$Table       anon$$obj.o
+    0x0002245c   0x0002245c   0x00000020   Data   RO         9222    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_m_data (Exec base: 0x20000000, Load base: 0x0002247c, Size: 0x00010700, Max: 0x00021818, ABSOLUTE, COMPRESSED[0x0000003c])
+    Execution Region RW_m_data (Exec base: 0x20000000, Load base: 0x0002247c, Size: 0x000106fc, Max: 0x00021818, ABSOLUTE, COMPRESSED[0x0000003c])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -7229,59 +7234,58 @@ Memory Map of the image
     0x20000058   COMPRESSED   0x00000008   Data   RW         1634    .data               fsl_enet.o
     0x20000060   COMPRESSED   0x00000010   Data   RW         2064    .data               fsl_sctimer.o
     0x20000070   COMPRESSED   0x00000014   Data   RW         2785    .data               timers.o
-    0x20000084   COMPRESSED   0x00000078   Data   RW         3058    .data               socket sharing_main.o
-    0x200000fc   COMPRESSED   0x00000004   PAD
-    0x20000100   COMPRESSED   0x00000010   Data   RW         3512    .data               fsl_debug_console.o
-    0x20000110   COMPRESSED   0x00000001   Data   RW         4172    .data               api_msg.o
-    0x20000111   COMPRESSED   0x00000003   PAD
-    0x20000114   COMPRESSED   0x00000010   Data   RW         4712    .data               tcpip.o
-    0x20000124   COMPRESSED   0x00000010   Data   RW         5012    .data               mem.o
-    0x20000134   COMPRESSED   0x00000038   Data   RW         5072    .data               memp.o
-    0x2000016c   COMPRESSED   0x00000009   Data   RW         5164    .data               netif.o
-    0x20000175   COMPRESSED   0x00000003   PAD
-    0x20000178   COMPRESSED   0x00000004   Data   RW         5442    .data               raw.o
-    0x2000017c   COMPRESSED   0x00000020   Data   RW         5593    .data               tcp.o
-    0x2000019c   COMPRESSED   0x00000028   Data   RW         5842    .data               tcp_in.o
-    0x200001c4   COMPRESSED   0x0000000c   Data   RW         6017    .data               timeouts.o
-    0x200001d0   COMPRESSED   0x00000008   Data   RW         6102    .data               udp.o
-    0x200001d8   COMPRESSED   0x00000010   Data   RW         6256    .data               dhcp.o
-    0x200001e8   COMPRESSED   0x00000001   Data   RW         6455    .data               etharp.o
-    0x200001e9   COMPRESSED   0x00000001   PAD
-    0x200001ea   COMPRESSED   0x00000002   Data   RW         6591    .data               ip4.o
-    0x200001ec   COMPRESSED   0x00000006   Data   RW         6704    .data               ip4_frag.o
-    0x200001f2   COMPRESSED   0x00000002   PAD
-    0x200001f4   COMPRESSED   0x00000008   Data   RW         7394    .data               adc_api.o
-    0x200001fc   COMPRESSED   0x0000000c   Data   RW         8119    .data               cjson.o
-    0x20000208   COMPRESSED   0x00000014   Data   RW         8478    .data               socket_sharing.o
-    0x2000021c   COMPRESSED   0x00000040   Data   RW         8670    .data               md5std.o
-    0x2000025c   COMPRESSED   0x00000004   Data   RW         9179    .data               mc_w.l(mvars.o)
-    0x20000260   COMPRESSED   0x00000004   Data   RW         9180    .data               mc_w.l(mvars.o)
-    0x20000264   COMPRESSED   0x00000004   Data   RW         9184    .data               mc_w.l(errno.o)
-    0x20000268        -       0x000001cc   Zero   RW           64    .bss                tasks.o
-    0x20000434        -       0x00000050   Zero   RW          980    .bss                fsl_flexcomm.o
-    0x20000484        -       0x00000040   Zero   RW         2597    .bss                queue.o
-    0x200004c4        -       0x00000028   Zero   RW         2784    .bss                timers.o
-    0x200004ec        -       0x000023b8   Zero   RW         3055    .bss                socket sharing_main.o
-    0x200028a4        -       0x00000010   Zero   RW         3511    .bss                fsl_debug_console.o
-    0x200028b4        -       0x00003c60   Zero   RW         3620    .bss                ethernetif.o
-    0x20006514        -       0x00000018   Zero   RW         4985    .bss                ip.o
-    0x2000652c        -       0x00005813   Zero   RW         5011    .bss                mem.o
-    0x2000bd3f        -       0x000044ee   Zero   RW         5069    .bss                memp.o
-    0x2001022d   COMPRESSED   0x00000003   PAD
-    0x20010230        -       0x00000014   Zero   RW         5841    .bss                tcp_in.o
-    0x20010244        -       0x00000032   Zero   RW         6254    .bss                dhcp.o
-    0x20010276   COMPRESSED   0x00000002   PAD
-    0x20010278        -       0x000000f0   Zero   RW         6453    .bss                etharp.o
-    0x20010368        -       0x00000010   Zero   RW         7393    .bss                adc_api.o
-    0x20010378        -       0x00000100   Zero   RW         7877    .bss                flash_api.o
-    0x20010478        -       0x00000288   Zero   RW         8476    .bss                socket_sharing.o
+    0x20000084   COMPRESSED   0x00000074   Data   RW         3058    .data               socket sharing_main.o
+    0x200000f8   COMPRESSED   0x00000010   Data   RW         3512    .data               fsl_debug_console.o
+    0x20000108   COMPRESSED   0x00000001   Data   RW         4172    .data               api_msg.o
+    0x20000109   COMPRESSED   0x00000003   PAD
+    0x2000010c   COMPRESSED   0x00000010   Data   RW         4712    .data               tcpip.o
+    0x2000011c   COMPRESSED   0x00000010   Data   RW         5012    .data               mem.o
+    0x2000012c   COMPRESSED   0x00000038   Data   RW         5072    .data               memp.o
+    0x20000164   COMPRESSED   0x00000009   Data   RW         5164    .data               netif.o
+    0x2000016d   COMPRESSED   0x00000003   PAD
+    0x20000170   COMPRESSED   0x00000004   Data   RW         5442    .data               raw.o
+    0x20000174   COMPRESSED   0x00000020   Data   RW         5593    .data               tcp.o
+    0x20000194   COMPRESSED   0x00000028   Data   RW         5842    .data               tcp_in.o
+    0x200001bc   COMPRESSED   0x0000000c   Data   RW         6017    .data               timeouts.o
+    0x200001c8   COMPRESSED   0x00000008   Data   RW         6102    .data               udp.o
+    0x200001d0   COMPRESSED   0x00000010   Data   RW         6256    .data               dhcp.o
+    0x200001e0   COMPRESSED   0x00000001   Data   RW         6455    .data               etharp.o
+    0x200001e1   COMPRESSED   0x00000001   PAD
+    0x200001e2   COMPRESSED   0x00000002   Data   RW         6591    .data               ip4.o
+    0x200001e4   COMPRESSED   0x00000006   Data   RW         6704    .data               ip4_frag.o
+    0x200001ea   COMPRESSED   0x00000002   PAD
+    0x200001ec   COMPRESSED   0x00000008   Data   RW         7394    .data               adc_api.o
+    0x200001f4   COMPRESSED   0x0000000c   Data   RW         8119    .data               cjson.o
+    0x20000200   COMPRESSED   0x00000014   Data   RW         8478    .data               socket_sharing.o
+    0x20000214   COMPRESSED   0x00000040   Data   RW         8676    .data               md5std.o
+    0x20000254   COMPRESSED   0x00000004   Data   RW         9185    .data               mc_w.l(mvars.o)
+    0x20000258   COMPRESSED   0x00000004   Data   RW         9186    .data               mc_w.l(mvars.o)
+    0x2000025c   COMPRESSED   0x00000004   Data   RW         9190    .data               mc_w.l(errno.o)
+    0x20000260        -       0x000001cc   Zero   RW           64    .bss                tasks.o
+    0x2000042c        -       0x00000050   Zero   RW          980    .bss                fsl_flexcomm.o
+    0x2000047c        -       0x00000040   Zero   RW         2597    .bss                queue.o
+    0x200004bc        -       0x00000028   Zero   RW         2784    .bss                timers.o
+    0x200004e4        -       0x000023b8   Zero   RW         3055    .bss                socket sharing_main.o
+    0x2000289c        -       0x00000010   Zero   RW         3511    .bss                fsl_debug_console.o
+    0x200028ac        -       0x00003c60   Zero   RW         3620    .bss                ethernetif.o
+    0x2000650c        -       0x00000018   Zero   RW         4985    .bss                ip.o
+    0x20006524        -       0x00005813   Zero   RW         5011    .bss                mem.o
+    0x2000bd37        -       0x000044ee   Zero   RW         5069    .bss                memp.o
+    0x20010225   COMPRESSED   0x00000003   PAD
+    0x20010228        -       0x00000014   Zero   RW         5841    .bss                tcp_in.o
+    0x2001023c        -       0x00000032   Zero   RW         6254    .bss                dhcp.o
+    0x2001026e   COMPRESSED   0x00000002   PAD
+    0x20010270        -       0x000000f0   Zero   RW         6453    .bss                etharp.o
+    0x20010360        -       0x00000010   Zero   RW         7393    .bss                adc_api.o
+    0x20010370        -       0x00000100   Zero   RW         7877    .bss                flash_api.o
+    0x20010470        -       0x0000028c   Zero   RW         8476    .bss                socket_sharing.o
 
 
-    Execution Region ARM_LIB_HEAP (Exec base: 0x20010700, Load base: 0x000224b8, Size: 0x00006400, Max: 0x00006400, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Exec base: 0x200106fc, Load base: 0x000224b8, Size: 0x00006400, Max: 0x00006400, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20010700        -       0x00006400   Zero   RW            2    ARM_LIB_HEAP.bss    anon$$obj.o
+    0x200106fc        -       0x00006400   Zero   RW            2    ARM_LIB_HEAP.bss    anon$$obj.o
 
 
     Execution Region ARM_LIB_STACK (Exec base: 0x20027c18, Load base: 0x000224b8, Size: 0x000003e8, Max: 0x000003e8, ABSOLUTE)
@@ -7360,14 +7364,14 @@ Image component sizes
        412        148        440         56      17646      10426   memp.o
        208         88          0          0          0       9614   netbuf.o
        474         42          0          9          0       8854   netif.o
-       832        156        169          0          0     569261   ota.o
+       892        214        169          0          0     569713   ota.o
       2882       1004          0          0          0      11359   pbuf.o
        596          4          0          0          0       5493   pin_mux.o
        922         86          0         12          0      10848   port.o
       2110         26          0          0         64      20500   queue.o
        394         36         73          4          0       5252   raw.o
-     10658       1654        193        120       9144     652864   socket sharing_main.o
-      3884       1202        531         20        648      47038   socket_sharing.o
+     10630       1650        193        116       9144     652913   socket sharing_main.o
+      3848       1198        531         20        652      46978   socket_sharing.o
        492        236        292          0          0       3624   startup_lpc54608.o
        778         12          0          0          0      14050   sys_arch.o
         48         12          0          4          0     540619   system_lpc54608.o
@@ -7382,9 +7386,9 @@ Image component sizes
        156         34          0          0          0       4943   usart_api.o
 
     ----------------------------------------------------------------------
-     94818      17758       3100        604      93312    2584499   Object Totals
+     94814      17808       3100        596      93316    2584940   Object Totals
          0          0         32          0      26600          0   (incl. Generated)
-       104          0         25         13          5          0   (incl. Padding)
+       104          0         25          9          5          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -7444,8 +7448,8 @@ Image component sizes
        162          0          0          0          0        100   dsqrt.o
 
     ----------------------------------------------------------------------
-      8850        500        144         12          0       5116   Library Totals
-        12          4          0          0          0          0   (incl. Padding)
+      8854        504        144         12          0       5116   Library Totals
+        16          8          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -7457,7 +7461,7 @@ Image component sizes
       1558          0          0          0          0       1296   mf_w.l
 
     ----------------------------------------------------------------------
-      8850        500        144         12          0       5116   Library Totals
+      8854        504        144         12          0       5116   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -7466,14 +7470,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-    103668      18258       3244        616      93312    2531031   Grand Totals
-    103668      18258       3244         60      93312    2531031   ELF Image Totals (compressed)
-    103668      18258       3244         60          0          0   ROM Totals
+    103668      18312       3244        608      93316    2531372   Grand Totals
+    103668      18312       3244         60      93316    2531372   ELF Image Totals (compressed)
+    103668      18312       3244         60          0          0   ROM Totals
 
 ==============================================================================
 
     Total RO  Size (Code + RO Data)               106912 ( 104.41kB)
-    Total RW  Size (RW Data + ZI Data)             93928 (  91.73kB)
+    Total RW  Size (RW Data + ZI Data)             93924 (  91.72kB)
     Total ROM Size (Code + RO Data + RW Data)     106972 ( 104.46kB)
 
 ==============================================================================

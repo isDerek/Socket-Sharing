@@ -164,7 +164,6 @@ int resetTimer = 0;
 int gprsConnectServerTimer = 0;
 /*************gprs parm****************/
 int gprsPWRTimer = 0;
-int gprsHeartBeatTimer = 0;
 bool gprsOpenFlag = true;
 bool gprsCloseFlag = false;
 bool gprsOTAReceiveSingleBufferFlag = false;
@@ -512,8 +511,8 @@ void checkNetworkAvailable(void)
 			} 
 		else 
 			{
-			  netconn_delete(tcpsocket);              //added by derek 2017.11.15
-				tcpsocket = netconn_new(NETCONN_TCP);   // added by derek 2017.11.15 
+			  netconn_delete(tcpsocket);             
+				tcpsocket = netconn_new(NETCONN_TCP);   
         if(netconn_connect(tcpsocket,&SERVERADDRESS, ECHO_SERVER_PORT) != ERR_OK) 
 				{
 /********************************gprs mode*******************************************************************/
@@ -588,15 +587,10 @@ void timerOneSecondThread(void *arg)
             resetTimer++;
 					}
         vTaskDelay(1000);
-			  gprsHeartBeatTimer++;
         systemTimer++;  // retry msg parm
 				if(systemTimer % 30== 0){
 //					printf("clear data!\n\r");
 					clearDataValid(); // gprs clear dataValid
-				}
-				if(gprsHeartBeatTimer % 60 == 0){
-					connectServerClose = true;
-				  selectATCommand = true;
 				}
 			/******************** calculate time for gpio*****************************/
 				for(portIndex = 0;portIndex < 16;portIndex ++)
@@ -611,6 +605,7 @@ void timerOneSecondThread(void *arg)
 						}
 					}
 			/*************************************************************************/
+			/*******************softwart open GPRS TIMER******************************/
 				if(gprsOpenFlag == true || gprsCloseFlag == true){
 					gprsPWRTimer++;
 				}										
@@ -631,7 +626,6 @@ void heartbeatThread(void *arg)
 			{ 	
 				printf("send heartbeat packet error!\r\n");
 				USART_WriteBlocking(DEMO_USART2, (uint8_t*)heartbeatBuffer, strlen(heartbeatBuffer)); 
-//				chargerException.serverConnectedFlag = false;    to test
 			} 
 			else 
 			{
@@ -1742,7 +1736,7 @@ void apiHandle()
 					switchAllPortStatusFlag = false;
 					setAllPortStatusSwitch();
 				}
-				printf("relay0 = [%d][%d]\n\r",chargerInfo.portStatus[0][0],chargerInfo.portStatus[0][1]);		
+//				printf("relay0 = [%d][%d]\n\r",chargerInfo.portStatus[0][0],chargerInfo.portStatus[0][1]);		
 			}
 			chargerInfo.apiId = 51;
 			respcode = RESP_OK;	
@@ -1842,8 +1836,7 @@ void netWorkThread(void *arg)
 						recvMsgHandle();
         }
 						vTaskDelay(20);
-			}
-//				    netconn_disconnect(tcpsocket);   	
+			}  	
 }
 
 /*******************************************************************************
@@ -1860,6 +1853,7 @@ void netWorkThread(void *arg)
 
 void Internet_init()
 {	
+	 char MAC_ADDRESS[] ={"000000000000"}; 
 	 static struct netif fsl_netif0;
     ip4_addr_t fsl_netif0_ipaddr, fsl_netif0_netmask, fsl_netif0_gw;
 		IP4_ADDR(&fsl_netif0_ipaddr, 0U, 0U, 0U, 0U);
@@ -1881,8 +1875,10 @@ void Internet_init()
     PRINTF(" IPv4 Gateway     : %u.%u.%u.%u\r\n", ((u8_t *)&fsl_netif0_gw)[0], ((u8_t *)&fsl_netif0_gw)[1],
            ((u8_t *)&fsl_netif0_gw)[2], ((u8_t *)&fsl_netif0_gw)[3]);
     PRINTF("************************************************\r\n");
-		char MAC_ADDRESS[] ={"001213101511"};  
-		memcpy(chargerInfo.mac,MAC_ADDRESS,sizeof(MAC_ADDRESS)); 
+		sprintf(MAC_ADDRESS,"%02x%02x%02x%02x%02x%02x",configMAC_ADDR0,configMAC_ADDR1,configMAC_ADDR2,configMAC_ADDR3,configMAC_ADDR4,configMAC_ADDR5);
+//    PRINTF("MAC ADDRESS = %s size = %d\n\r",MAC_ADDRESS,sizeof(MAC_ADDRESS));		
+		memcpy(chargerInfo.mac,MAC_ADDRESS,sizeof(MAC_ADDRESS));
+//		PRINTF("MAC ADDRESS = %s\n\r",chargerInfo.mac);
 		memcpy(otaInfo.versionSN,versionSN,sizeof(versionSN));
 }
 
@@ -1896,9 +1892,9 @@ int main(void)
 		CLOCK_EnableClock(kCLOCK_Iocon);   
 	  CLOCK_EnableClock(kCLOCK_Gpio0);
     CLOCK_EnableClock(kCLOCK_Gpio1);
-		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH2);  //added by derek 2018.7.19 for GPRS
-		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH4);  //added by derek 2018.1.29 for bluetooth 
-		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH7);  //added by derek 2018.1.29 for debug uart
+		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH2);  //GPRS UART
+		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH4);  //bluetooth UART
+		CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH7);  //debug uart
 	    /* attach 12 MHz clock to FLEXCOMM0 (I2C in EEPROM) */
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM0);
     /* attach 12 MHz clock to FLEXCOMM1 (I2C in NFC) */

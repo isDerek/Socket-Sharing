@@ -20,13 +20,13 @@ typedef enum {
     setPortEnd,    
 	  getPortStatus,
 	  notifyUpdateVersion,  
-	  notifyNewDevice,       //added by derek 2018.1.11
-		notifyStartCharing,    //added by derek 2018.1.11
-	  notifyEndCharging,     //added by derek 2018.1.11 
-	  notifygetPortStatus,   //added by derek 2018.1.11
-		notifysetAllPortStatus,//added by derek 2018.1.11 
+	  notifyNewDevice,       
+		notifyStartCharing,    
+	  notifyEndCharging,    
+	  notifygetPortStatus,   
+		notifysetAllPortStatus, 
 		notifyOTAUpdate,
-		notifyOTAResult,       //added by derek 2018.1.11
+		notifyOTAResult,      
     unknownMsgID
 		
 } MSGID;
@@ -35,14 +35,14 @@ typedef enum {
 typedef struct {   
     int   setDuration[16]; 
     int   duration[16]; 
-		int   apiId;           // added by derek for socket sharing
-		int   index;           // added by derek for socket sharing
-		int   deviceStatus;    // added by derek for socket sharing
+		int   apiId;           
+		int   index;          
+		int   deviceStatus;    
 	  int		portStatus[16][2]; 
-		char  allPortStatus[20];  // added by derek for socket sharing 
+		char  allPortStatus[20];  
 	  char  allPortStatusBuffer[20];
-		char  msgId[10];       // added by derek for socket sharing		
-	  char  mac[10];         // added by derek for socket sharing
+		char  msgId[10];       	
+	  char  mac[12];
 } ChargerInfo;
 
 
@@ -51,11 +51,11 @@ typedef struct{
 } ChargerException;
 
 typedef struct _OTAInfo {
-	  int blockOffset;      //added by derek for socket sharing
-		int blockSize;        //added by derek for socket sharing
-		int versionSize;      //added by derek for socket sharing
-		int checkSum ;   //added by derek for socket sharing
-		char versionSN[33];   //added by derek for socket sharing
+	  int blockOffset;      
+		int blockSize;        
+		int versionSize;      
+		int checkSum ;   
+		char versionSN[33];   
 } OTAInfo;
 
 
@@ -64,7 +64,7 @@ typedef struct _OTAInfo {
 #ifdef  EEPROM_ENABLE
 	#define  EEPROM_ADDRESS_WRITE      0xA0         
 	#define  EEPROM_ADDRESS_READ       0xA1
-	#define  EEPROM_PAGE_SIZE           32  // added by derek 2017.10.31
+	#define  EEPROM_PAGE_SIZE           32  
 #endif
 
 extern ChargerInfo chargerInfo;
@@ -90,7 +90,7 @@ void saveChargerInfoToFlash(void);
 #endif
 
 #define	NOTIFY_REQ_otaDeviceStatus	 "{\"apiId\":%d,\"deviceStatus\":%d}"		
-#define NOTIFY_REQ_newDevice         "{\"apiId\":%d,\"versionSN\":\"%s\",\"mac\":\"%s\",\"reconnect\":%d,\"portStatus\":[%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d]}"  // for new api
+#define NOTIFY_REQ_newDevice         "{\"apiId\":%d,\"versionSN\":\"%s\",\"mac\":\"%s\",\"reconnect\":%d,\"portStatus\":[%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d]}"  
 #define NOTIFY_REQ_heartPackage      "{\"apiId\":%d}"
 #define NOTIFY_REQ_deviceStatus      "{\"apiId\":%d,\"deviceStatus\":%d,\"portStatus\":[%d,%d]}"
 #define NOTIFY_REQ_updateVersion     "{\"apiId\":%d,\"versionSN\":\"%s\",\"blockOffset\":%d,\"blockSize\":%d}"

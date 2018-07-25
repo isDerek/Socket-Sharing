@@ -5,7 +5,7 @@
 #include "fsl_power.h"
 
 #define DEMO_ADC_BASE ADC0
-#define DEMO_ADC_SAMPLE_CHANNEL_NUMBER 0U  // added by derek 2017.10.20
+#define DEMO_ADC_SAMPLE_CHANNEL_NUMBER 0U  
 #define DEMO_ADC_IRQ_ID ADC0_SEQA_IRQn
 #define DEMO_ADC_IRQ_HANDLER_FUNC ADC0_SEQA_IRQHandler
 volatile bool gAdcConvSeqAIntFlag;
@@ -45,7 +45,7 @@ void ADC_Configuration(void)
     ADC_EnableTemperatureSensor(DEMO_ADC_BASE, true);
 
     /* Enable channel 0's conversion in Sequence A. */
-    adcConvSeqConfigStruct.channelMask = (1U << 0); /* Includes channel 4. */   /*added by derek 2017.10.19*/
+    adcConvSeqConfigStruct.channelMask = (1U << 0); /* Includes channel 4. */   
     adcConvSeqConfigStruct.triggerMask = 0U;
     adcConvSeqConfigStruct.triggerPolarity = kADC_TriggerPolarityNegativeEdge;
     adcConvSeqConfigStruct.enableSingleStep = false;

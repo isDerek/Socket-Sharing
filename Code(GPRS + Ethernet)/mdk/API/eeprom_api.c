@@ -153,27 +153,6 @@ uint8_t writeToEEPROM(uint8_t addr,char* data,uint8_t size)
 		PRINTF("not enough storage!\r\n");
 		return ret;
 	}
-	
-//	if(addr%EEPROM_PAGE_SIZE == 0){
-//		firstPageSize = EEPROM_PAGE_SIZE;
-//  }else{
-//		firstPageSize = EEPROM_PAGE_SIZE - addr%EEPROM_PAGE_SIZE;
-//	}
-//	
-//	if(size <= firstPageSize){
-//		pageNum = 1;
-//    lastPageSize = firstPageSize;		
-//	}
-//	else{
-//		if((size-firstPageSize)%EEPROM_PAGE_SIZE == 0){
-//			pageNum = (size-firstPageSize)/EEPROM_PAGE_SIZE + 1;
-//			lastPageSize = EEPROM_PAGE_SIZE;
-//		}else{
-//			pageNum = (size-firstPageSize)/EEPROM_PAGE_SIZE + 2;
-//			lastPageSize = (size-firstPageSize)%EEPROM_PAGE_SIZE;
-//		}
-//	}
-//	PRINTF("pageNum=%d\tfirstPageSize=%d\tlastPageSize=%d\r\n",pageNum,firstPageSize,lastPageSize);
 /****************************designed by derek 2017.11.1*********************************************/
 if(size<=EEPROM_PAGE_SIZE)
 	{
@@ -226,8 +205,6 @@ if(size<=EEPROM_PAGE_SIZE)
 
 void readFromEEPROM(uint8_t addr,char* data,uint8_t size)
 {
-//	uint32_t tmp = addr;
-//	EEPROM_WritePage(EXAMPLE_EEPROM, 1, &tmp);
 
 	for (int j = 0; j < size; j++)
   {

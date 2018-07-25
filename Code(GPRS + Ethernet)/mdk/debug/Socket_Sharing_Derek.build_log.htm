@@ -29,11 +29,35 @@ Project File Date:  07/12/2018
 *** Warning: Using Microlib and C++ file(s) might cause the linker to fail !
   
 Build target 'Socket Sharing'
+compiling Socket Sharing_main.cpp...
+.\API\lpc54608_api.h(49): warning:  #9-D: nested comment is not allowed
+  /************************************/
+.\API\lpc54608_api.h(56): warning:  #9-D: nested comment is not allowed
+  /************************************/
+.\API\lpc54608_api.h(63): warning:  #9-D: nested comment is not allowed
+  /************************************/
+.\API\lpc54608_api.h(73): warning:  #9-D: nested comment is not allowed
+  /************************************/
+.\EVCharger\UserConfig.h(15): warning:  #47-D: incompatible redefinition of macro "configMAC_ADDR0"  (declared at line 92 of "..\lwip_2.0.0\port\ethernetif.h")
+  #define configMAC_ADDR0  00
+.\EVCharger\UserConfig.h(16): warning:  #47-D: incompatible redefinition of macro "configMAC_ADDR1"  (declared at line 95 of "..\lwip_2.0.0\port\ethernetif.h")
+  #define configMAC_ADDR1  01
+.\EVCharger\UserConfig.h(17): warning:  #47-D: incompatible redefinition of macro "configMAC_ADDR2"  (declared at line 98 of "..\lwip_2.0.0\port\ethernetif.h")
+  #define configMAC_ADDR2  02
+.\EVCharger\UserConfig.h(18): warning:  #47-D: incompatible redefinition of macro "configMAC_ADDR3"  (declared at line 101 of "..\lwip_2.0.0\port\ethernetif.h")
+  #define configMAC_ADDR3  03
+.\EVCharger\UserConfig.h(19): warning:  #47-D: incompatible redefinition of macro "configMAC_ADDR4"  (declared at line 104 of "..\lwip_2.0.0\port\ethernetif.h")
+  #define configMAC_ADDR4  04
+.\EVCharger\UserConfig.h(20): warning:  #47-D: incompatible redefinition of macro "configMAC_ADDR5"  (declared at line 107 of "..\lwip_2.0.0\port\ethernetif.h")
+  #define configMAC_ADDR5  05
+Socket Sharing_main.cpp(216): warning:  #1215-D: #warning directive: "debug mode! server port is :44441"
+  	#warning  "debug mode! server port is :44441"
+Socket Sharing_main.cpp: 11 warnings, 0 errors
 linking...
-Program Size: Code=103668 RO-data=3244 RW-data=616 ZI-data=93312  
+Program Size: Code=103668 RO-data=3244 RW-data=608 ZI-data=93316  
 FromELF: creating hex file...
 After Build - User command #1: C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o .\debug\Socket_Sharing_Derek.bin .\debug\Socket_Sharing_Derek.axf
-".\debug\Socket_Sharing_Derek.axf" - 0 Error(s), 0 Warning(s).
+".\debug\Socket_Sharing_Derek.axf" - 0 Error(s), 11 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -47,7 +71,7 @@ Package Vendor: Keil
   C:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.2.0\LPCOpen\lpc5460x\chip_5460x\inc
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

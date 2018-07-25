@@ -14,7 +14,7 @@ extern "C"
 
 
 }
-#define DEMO_USART2 USART2	//added by derek 2018.6.29
+#define DEMO_USART2 USART2	
 #define SECTOR_SIZE 32768
 MSGID msgID = invalidID;
 MSGID notifySendID = invalidID;  // send notify to server flag
@@ -29,13 +29,12 @@ OTAInfo otaInfo;
 u16_t len1;
 int otaBinTotalSize;
 /********************************************recvMsgHandle()*****************************/
-void recvMsgHandle(void)   //designed by derek 2017.11.17
+void recvMsgHandle(void)   
 {
     int len;
 		
 	void *data;
 	struct netbuf *buf ;
-    // int n = tcpsocket.receive_all(socketInfo.inBuffer, len);
 	if(( netconn_recv(tcpsocket, &buf)) == ERR_OK)
 	{
 		len = sizeof(socketInfo.inBuffer);
@@ -142,13 +141,11 @@ void notifyMsgSendHandle(MSGID msgid)
 		else if(msgid == notifyUpdateVersion) 
 		{
 			uint16_t upDateBinCounter;
-			uint16_t timeout = 10000;
 			int upDateCount;
 			int otacrc16,codecrc16;			
 			char* cdata = (char*)VERSION_STR_ADDRESS;
 			int appBinTotalSize;
 			upDateCount = (otaInfo.versionSize / 512) + 1;//512
-//			upDateCount = 1;//test
 			PRINTF("UPdateCount = %d ¡\\r\n",upDateCount);
 			gprsOTAFlag = true; // GPRS MODE
 		for(upDateBinCounter = 0;upDateBinCounter<upDateCount;upDateBinCounter++)
@@ -160,16 +157,15 @@ void notifyMsgSendHandle(MSGID msgid)
       len = strlen(socketInfo.outBuffer);
 			printf("notifyMsgSendHandle,send %d bytes: %s\r\n",len,socketInfo.outBuffer);
 			netconn_write(tcpsocket,socketInfo.outBuffer,len,NETCONN_COPY);
-		  USART_WriteBlocking(DEMO_USART2, (uint8_t*)socketInfo.outBuffer, len); // GPRS MODE 
+//		  USART_WriteBlocking(DEMO_USART2, (uint8_t*)socketInfo.outBuffer, len); // GPRS MODE 
 			/******************* waiting gprs notify end***********************/
 //			while(gprsOTAReceiveSingleBufferFlag != true){
 //			}
 //			gprsOTAReceiveSingleBufferFlag = false;
 			/************************************************************/
-			while(timeout--){
-			}
     	recvMsgHandle();	
 			}
+			recvMsgHandle();	// if network slower than receive, this can receive otabin
 			gprsOTAFlag = false;
 		  appBinTotalSize = (cdata[7]<<16)|(cdata[8]<<8)|(cdata[9]);
 			codecrc16 = calculate_crc16((char*)(CODE_START_ADDRESS), appBinTotalSize);
@@ -209,17 +205,13 @@ void notifyMsgSendHandle(MSGID msgid)
     }  
 		else if(msgid == notifygetPortStatus)
 		{
-//				int gprsTimeOut = 5000000; // gprs uart interval time
         chargerInfo.apiId = 3;			
 				chargerInfo.deviceStatus = 1;
 				sprintf(socketInfo.outBuffer,NOTIFY_REQ_deviceStatus,chargerInfo.apiId,chargerInfo.deviceStatus,chargerInfo.portStatus[chargerInfo.index][0],chargerInfo.portStatus[chargerInfo.index][1]);
 				len = strlen(socketInfo.outBuffer);
 				printf("notifyMsgSendHandle,send %d bytes: %s\r\n",len,socketInfo.outBuffer);
 				netconn_write(tcpsocket,socketInfo.outBuffer,len,NETCONN_COPY);
-				USART_WriteBlocking(DEMO_USART2, (uint8_t*)socketInfo.outBuffer, len); // GPRS MODE
-//			  while(gprsTimeOut != 0){
-//					gprsTimeOut --;
-//				}		
+				USART_WriteBlocking(DEMO_USART2, (uint8_t*)socketInfo.outBuffer, len); // GPRS MODE	
 		}
 		else if(msgid == notifyOTAResult)
 		{
@@ -273,7 +265,6 @@ void parseRecvMsgInfo(char *text)
 					if( respcode == 100)
 					{
 						notifySendID = invalidID;
-						gprsHeartBeatTimer = 0;
 						/********gprs at command turn to normal uart Data*************/
 						respondATConnect = false;
 						chargerException.serverConnectedFlag = true;	

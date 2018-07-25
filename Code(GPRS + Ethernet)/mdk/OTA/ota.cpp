@@ -58,8 +58,8 @@ void OTAInit(void)
             erase_sector(VERSION_STR_ADDRESS);
             program_flash(VERSION_STR_ADDRESS,tempBuffer, 256);
         }
-				
-				updateCode(); 
+				printf("update, system will be reset now, please wait...\r\n");
+				NVIC_SystemReset();  
     } else {		
 						binTotalSize = calculateBinSize(codePartition,20);
 						md5Calculate(appStartAddress,binTotalSize,(unsigned char*)otaInfo.versionSN);
@@ -76,7 +76,6 @@ void OTAInit(void)
 void updateCode(void)
 {
     printf("update, system will be reset now, please wait...\r\n");
-		PWRCloseToggle(); //Close Gprs
     NVIC_SystemReset();  
 }
 
