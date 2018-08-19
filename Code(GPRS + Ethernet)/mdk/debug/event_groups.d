@@ -1,8 +1,8 @@
 .\debug\event_groups.o: rtos\freertos_9.0.0\Source\event_groups.c
-.\debug\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\debug\event_groups.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
 .\debug\event_groups.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
-.\debug\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\debug\event_groups.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stddef.h
+.\debug\event_groups.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 .\debug\event_groups.o: ..\..\Code(GPRS + Ethernet)\FreeRTOSConfig.h
 .\debug\event_groups.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\event_groups.o: .\rtos\freertos_9.0.0\Source\include\portable.h

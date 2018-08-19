@@ -1,0 +1,9 @@
+--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\lwip_2.0.0\src\include\lwip -I ..\mdk -I ..\lwip_2.0.0\port -I ..\lwip_2.0.0\src\include\lwip -I ..\devices\LPC54608\utilities -I ..\devices\LPC54608\drivers -I ..\devices\LPC54608 -I .\rtos\freertos_9.0.0\Source\include -I ..\..\Ev_Charger_Net -I .\rtos\freertos_9.0.0\Source\portable\GCC\ARM_CM4F -I ..\lwip_2.0.0\contrib\apps\tcpecho -I ..\lwip_2.0.0\src\include\lwip -I ..\lwip_2.0.0\src\include\lwip\priv -I ..\lwip_2.0.0\src\include\netif -I ..\lwip_2.0.0\src\include\lwip\prot -I ..\lwip_2.0.0\src\netif\ppp -I ..\devices\LPC54608\arm -I ..\lwip_2.0.0\contrib\apps\ping -I .\API -I .\cJSON -I .\crc16 -I .\EVCharger -I .\FreeScaleIAP -I .\OTA -I .\rtos\freertos_9.0.0\Source\include -I ..\mdk -I ".\Socket Sharing" -I .\output -I "..\..\Code(GPRS + Ethernet)" -I .\MD5 -I ..\..\SDK_2.2_LPCXpresso54608\middleware\lwip_2.0.0\src\include\netif\ppp\polarss --library_interface=armcc 
+--library_type=standardlib 
+--diag_suppress=66,1296,186 
+ 
+-I.\RTE\_Socket_Sharing
+-IC:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.2.0\LPCOpen\lpc5460x\chip_5460x\inc
+-IC:\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="523" -DCHIP_LPC5460X -DDEBUG -DCPU_LPC54608 -DCPU_LPC54608J512ET180="1" -DUSE_RTOS="1" -DPRINTF_ADVANCED_ENABLE="1" -DFSL_RTOS_FREE_RTOS -DCORE_M4
+-o .\debug\server_api.o --omf_browse .\debug\server_api.crf --depend .\debug\server_api.d "API\server_api.c"

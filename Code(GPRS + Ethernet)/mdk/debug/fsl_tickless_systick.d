@@ -1,7 +1,7 @@
 .\debug\fsl_tickless_systick.o: rtos\freertos_9.0.0\Source\portable\RVDS\ARM_CM4F\fsl_tickless_systick.c
 .\debug\fsl_tickless_systick.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
-.\debug\fsl_tickless_systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\fsl_tickless_systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\debug\fsl_tickless_systick.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stddef.h
+.\debug\fsl_tickless_systick.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 .\debug\fsl_tickless_systick.o: ..\..\Code(GPRS + Ethernet)\FreeRTOSConfig.h
 .\debug\fsl_tickless_systick.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\fsl_tickless_systick.o: .\rtos\freertos_9.0.0\Source\include\portable.h

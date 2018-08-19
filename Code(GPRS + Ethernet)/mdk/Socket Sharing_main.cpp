@@ -151,7 +151,6 @@ extern "C"
 #define sourceClock         			CLOCK_GetFreq(kCLOCK_CoreSysClk)
 
 
-
  /*--DEFINES-----------------------------------------------------------------------------*/
 #define RESET_TIMER 120
 
@@ -179,15 +178,10 @@ char tempBuffer[256];//need to be fixed, save data flash use this buffer;
 ******************************************************************************/
 
 struct netconn  *tcpsocket;
-#define configSERVER_ADDR0    112   //10  //112
-#define configSERVER_ADDR1    74   //86   //74
-#define configSERVER_ADDR2    170  //136  //170
-#define configSERVER_ADDR3    197  //2  //197
-
-//#define configSERVER_ADDR0    10   //10  //112
-//#define configSERVER_ADDR1    86   //86   //74
-//#define configSERVER_ADDR2    136  //136  //170
-//#define configSERVER_ADDR3    27  //14  //197
+#define configSERVER_ADDR0    119  //119   //10  //112
+#define configSERVER_ADDR1    23   //23   //86   //74
+#define configSERVER_ADDR2    18  //18  //136  //170
+#define configSERVER_ADDR3    135  //135  //2  //197
 
 /*******************************************************************************
 * Variables
@@ -210,7 +204,7 @@ volatile uint16_t i; /* Index of the memory to save new arrived data. */
 volatile bool BufferFullFlag = false;
 /*--CONSTANTS---------------------------------------------------------------------------*/
 
-const char* DEFAULT_SERVER_ADDRESS = "112.74.170.197";
+const char* DEFAULT_SERVER_ADDRESS = "119.23.18.135";
 
 #if  DEBUG_MODE 
 	#warning  "debug mode! server port is :44441"
@@ -495,7 +489,8 @@ void usart_interrupt_init(void)
 void checkNetworkAvailable(void)
 {
 		uint8_t tcpMode[] = "AT+CIPMODE=1\n\r";	
-		uint8_t connectServer[] = "AT+CIPSTART=\"TCP\",\"112.74.170.197\",\"44441\"\r\n";		
+//		uint8_t connectServer[] = "AT+CIPSTART=\"TCP\",\"112.74.170.197\",\"44441\"\r\n";
+		uint8_t connectServer[] = "AT+CIPSTART=\"TCP\",\"119.23.18.135\",\"44441\"\r\n";		
     bool resendFlag = false;
 	  int timeout = 100000;
 	/**********************gprs connect Server******************/
@@ -921,7 +916,7 @@ void openPortSwitch()
 					if(chargerInfo.allPortStatus[chargerInfo.index] == 1)
 					{
 						respcode = RESP_ILLEGAL_REQUEST;
-						apiRespond();	
+					apiRespond();	
 						notifyMsgSendHandle(notifygetPortStatus);
 					}
 					else
@@ -1760,26 +1755,6 @@ void workHandle(void *arg)
 	}
 	
 }
-
-#define EXAMPLE_ENET ENET
-
-/* IP address configuration. */
-#define configIP_ADDR0 10
-#define configIP_ADDR1 86
-#define configIP_ADDR2 136  
-#define configIP_ADDR3 200
-
-/* Netmask configuration. */
-#define configNET_MASK0 255
-#define configNET_MASK1 255
-#define configNET_MASK2 255
-#define configNET_MASK3 0
-
-/* Gateway address configuration. */
-#define configGW_ADDR0 10
-#define configGW_ADDR1 86
-#define configGW_ADDR2 136
-#define configGW_ADDR3 1
 
 
 

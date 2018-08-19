@@ -1139,9 +1139,9 @@ ARM Macro Assembler    Page 18
               00000000 
 Command Line: --debug --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=interwork 
 --depend=.\debug\startup_lpc54608.d -o.\debug\startup_lpc54608.o -I.. -I../../.
-./../.. -I.\RTE\_Socket_Sharing -IC:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.2.0\L
-PCOpen\lpc5460x\chip_5460x\inc -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__MI
-CROLIB SETA 1" --predefine="__UVISION_VERSION SETA 524" --predefine="CHIP_LPC54
-60X SETA 1" --predefine="CPU_LPC54114J256_M4 SETA 1" --predefine="DEBUG SETA 1"
- --predefine="__CC_ARM SETA 1" --predefine="KEIL SETA 1" --list=.\output\startu
-p_lpc54608.lst ..\devices\LPC54608\arm\startup_LPC54608.s
+./../.. -I.\RTE\_Socket_Sharing -IE:\KEIL\ARM\PACK\Keil\LPC54000_DFP\2.2.0\LPCO
+pen\lpc5460x\chip_5460x\inc -IE:\KEIL\ARM\CMSIS\Include --predefine="__MICROLIB
+ SETA 1" --predefine="__UVISION_VERSION SETA 524" --predefine="CHIP_LPC5460X SE
+TA 1" --predefine="CPU_LPC54114J256_M4 SETA 1" --predefine="DEBUG SETA 1" --pre
+define="__CC_ARM SETA 1" --predefine="KEIL SETA 1" --list=.\output\startup_lpc5
+4608.lst ..\devices\LPC54608\arm\startup_LPC54608.s

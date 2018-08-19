@@ -5,11 +5,11 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ¦ÌVision V5.24.2.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Derek Derek, Derek, LIC=03CTG-VG6U3-8FNIE-51547-G99M9-BXGGF
+License Information: A Derek, A, LIC=IK156-DURBD-CWG2K-Z48RC-NN00X-J0AUA
  
 Tool Versions:
 Toolchain:       MDK-ARM Plus  Version: 5.24.1
-Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+Toolchain Path:  E:\KEIL\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 5 (build 528)
 Assembler:       Armasm.exe V5.06 update 5 (build 528)
 Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
@@ -22,13 +22,23 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Users\Derek\Desktop\Code(GPRS + Ethernet)\mdk\SocketSharing_Derek.uvprojx
-Project File Date:  07/12/2018
+Project File Date:  08/19/2018
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'E:\KEIL\ARM\ARMCC\Bin'
 *** Warning: Using Microlib and C++ file(s) might cause the linker to fail !
   
 Build target 'Socket Sharing'
+compiling Socket_Sharing.cpp...
+.\API\lpc54608_api.h(49): warning:  #9-D: nested comment is not allowed
+  /************************************/
+.\API\lpc54608_api.h(56): warning:  #9-D: nested comment is not allowed
+  /************************************/
+.\API\lpc54608_api.h(63): warning:  #9-D: nested comment is not allowed
+  /************************************/
+.\API\lpc54608_api.h(73): warning:  #9-D: nested comment is not allowed
+  /************************************/
+Socket Sharing\Socket_Sharing.cpp: 4 warnings, 0 errors
 compiling Socket Sharing_main.cpp...
 .\API\lpc54608_api.h(49): warning:  #9-D: nested comment is not allowed
   /************************************/
@@ -50,14 +60,14 @@ compiling Socket Sharing_main.cpp...
   #define configMAC_ADDR4  04
 .\EVCharger\UserConfig.h(20): warning:  #47-D: incompatible redefinition of macro "configMAC_ADDR5"  (declared at line 107 of "..\lwip_2.0.0\port\ethernetif.h")
   #define configMAC_ADDR5  05
-Socket Sharing_main.cpp(216): warning:  #1215-D: #warning directive: "debug mode! server port is :44441"
+Socket Sharing_main.cpp(210): warning:  #1215-D: #warning directive: "debug mode! server port is :44441"
   	#warning  "debug mode! server port is :44441"
 Socket Sharing_main.cpp: 11 warnings, 0 errors
 linking...
-Program Size: Code=103668 RO-data=3244 RW-data=608 ZI-data=93316  
+Program Size: Code=103660 RO-data=3244 RW-data=608 ZI-data=93316  
 FromELF: creating hex file...
 After Build - User command #1: C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin -o .\debug\Socket_Sharing_Derek.bin .\debug\Socket_Sharing_Derek.axf
-".\debug\Socket_Sharing_Derek.axf" - 0 Error(s), 11 Warning(s).
+".\debug\Socket_Sharing_Derek.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -68,10 +78,10 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Socket_Sharing
-  C:\Keil_v5\ARM\PACK\Keil\LPC54000_DFP\2.2.0\LPCOpen\lpc5460x\chip_5460x\inc
+  E:\KEIL\ARM\PACK\Keil\LPC54000_DFP\2.2.0\LPCOpen\lpc5460x\chip_5460x\inc
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

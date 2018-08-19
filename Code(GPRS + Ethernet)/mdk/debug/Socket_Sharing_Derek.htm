@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\debug\Socket_Sharing_Derek.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\debug\Socket_Sharing_Derek.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Wed Jul 25 10:24:05 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sun Aug 19 15:45:48 2018
 <BR><P>
 <H3>Maximum Stack Usage =       2384 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -2198,7 +2198,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[96]"></a>netWorkThread(void*)</STRONG> (Thumb, 172 bytes, Stack size 0 bytes, socket sharing_main.o(i._Z13netWorkThreadPv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1008<LI>Call Chain = netWorkThread(void*) &rArr; checkNetworkAvailable() &rArr; notifyMsgSendHandle(MSGID) &rArr;  notifyMsgSendHandle(MSGID) (Cycle)
+<BR><BR>[Stack]<UL><LI>Max Depth = 1000<LI>Call Chain = netWorkThread(void*) &rArr; checkNetworkAvailable() &rArr; notifyMsgSendHandle(MSGID) &rArr;  notifyMsgSendHandle(MSGID) (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;notifyMsgSendHandle(MSGID)
@@ -2433,8 +2433,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> socket sharing_main.o(i.main)
 </UL>
-<P><STRONG><a name="[17a]"></a>checkNetworkAvailable()</STRONG> (Thumb, 304 bytes, Stack size 80 bytes, socket sharing_main.o(i._Z21checkNetworkAvailablev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1008<LI>Call Chain = checkNetworkAvailable() &rArr; notifyMsgSendHandle(MSGID) &rArr;  notifyMsgSendHandle(MSGID) (Cycle)
+<P><STRONG><a name="[17a]"></a>checkNetworkAvailable()</STRONG> (Thumb, 304 bytes, Stack size 72 bytes, socket sharing_main.o(i._Z21checkNetworkAvailablev))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1000<LI>Call Chain = checkNetworkAvailable() &rArr; notifyMsgSendHandle(MSGID) &rArr;  notifyMsgSendHandle(MSGID) (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_WriteBlocking
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;netconn_new_with_proto_and_callback

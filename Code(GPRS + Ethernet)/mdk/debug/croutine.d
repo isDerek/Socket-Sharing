@@ -1,7 +1,7 @@
 .\debug\croutine.o: rtos\freertos_9.0.0\Source\croutine.c
 .\debug\croutine.o: .\rtos\freertos_9.0.0\Source\include\FreeRTOS.h
-.\debug\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\croutine.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\debug\croutine.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stddef.h
+.\debug\croutine.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 .\debug\croutine.o: ..\..\Code(GPRS + Ethernet)\FreeRTOSConfig.h
 .\debug\croutine.o: .\rtos\freertos_9.0.0\Source\include\projdefs.h
 .\debug\croutine.o: .\rtos\freertos_9.0.0\Source\include\portable.h

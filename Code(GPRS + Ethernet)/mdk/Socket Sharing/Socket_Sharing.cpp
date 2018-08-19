@@ -56,7 +56,7 @@ void recvMsgHandle(void)
 }
 void cmdMsgRespHandle(MSGID msgid)
 {
-		int gprsTimeOut = 5000000; // gprs uart interval time
+		int gprsTimeOut = 7000000; // gprs uart interval time
     int len;
     if((msgid == invalidID)||(msgid >= unknownMsgID))
         return;
@@ -133,7 +133,7 @@ void notifyMsgSendHandle(MSGID msgid)
 			chargerInfo.apiId = 1;				
 //			printf(" MAC = %s\n\r VersionSN = %s\n\r",chargerInfo.mac,otaInfo.versionSN);
 			sprintf(socketInfo.outBuffer,NOTIFY_REQ_newDevice,chargerInfo.apiId,otaInfo.versionSN,chargerInfo.mac,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false);
-			len = strlen(socketInfo.outBuffer);     
+			len = strlen(socketInfo.outBuffer);
 			USART_WriteBlocking(DEMO_USART2, (uint8_t*)socketInfo.outBuffer, len); // GPRS MODE 
 //		  printf("notifyMsgSendHandle,send %d bytes: %s\r\n",len,(uint8_t*)socketInfo.outBuffer);
 			netconn_write(tcpsocket,socketInfo.outBuffer,len,NETCONN_COPY);  
@@ -286,14 +286,13 @@ void parseRecvMsgInfo(char *text)
 					chargerInfo.index = cJSON_GetObjectItem(json,"index")->valueint;
 					chargerInfo.setDuration[chargerInfo.index] = cJSON_GetObjectItem(json,"setDuration")->valueint;
 					sprintf(chargerInfo.msgId,"%s",cJSON_GetObjectItem(json,"msgId")->valuestring);
-					printf("msgId = %s, apiId = %d, index = %d, setDuration = %d \n\r",chargerInfo.msgId,chargerInfo.apiId,chargerInfo.index,chargerInfo.setDuration[chargerInfo.index]);
-          					
+					printf("msgId = %s, apiId = %d, index = %d, setDuration = %d \n\r",chargerInfo.msgId,chargerInfo.apiId,chargerInfo.index,chargerInfo.setDuration[chargerInfo.index]);			
 				}
 				else if(chargerInfo.apiId == 22)
 				{
 					chargerInfo.index = cJSON_GetObjectItem(json,"index")->valueint;
 					sprintf(chargerInfo.msgId,"%s",cJSON_GetObjectItem(json,"msgId")->valuestring);
-					printf("msgId = %s, apiId = %d, index = %d\n\r",chargerInfo.msgId,chargerInfo.apiId,chargerInfo.index);		
+					printf("msgId = %s, apiId = %d, index = %d\n\r",chargerInfo.msgId,chargerInfo.apiId,chargerInfo.index);				
 				}
 				else if(chargerInfo.apiId == 23)
 				{
@@ -366,7 +365,6 @@ void parseBincodeBuffer(char *text)
 							{
                 notifySendID = invalidID;
 							}
-//						len1 = 256+14; // gprs mode
             memcpy(buf,text+BINDATA_POS,blockSize);
 						crc16 = calculate_crc16(buf, len1-BINDATA_POS);
             printf("crc16 = %x checkSum = %x\r\n",crc16,checksum);
