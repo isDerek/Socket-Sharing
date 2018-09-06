@@ -53,7 +53,7 @@
 .\debug\socket_sharing.o: ..\lwip_2.0.0\src\include\lwip\sys.h
 .\debug\socket_sharing.o: Socket Sharing\Socket_Sharing.h
 .\debug\socket_sharing.o: .\EVCharger\flashLayout.h
-.\debug\socket_sharing.o: .\API\lpc54608_api.h
+.\debug\socket_sharing.o: .\DriverAPI\lpc54608_api.h
 .\debug\socket_sharing.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
 .\debug\socket_sharing.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stdlib.h
 .\debug\socket_sharing.o: ..\devices\LPC54608\drivers\fsl_usart.h

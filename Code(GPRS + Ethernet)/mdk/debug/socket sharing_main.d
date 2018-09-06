@@ -64,7 +64,7 @@
 .\debug\socket sharing_main.o: ..\..\Code(GPRS + Ethernet)\clock_config.h
 .\debug\socket sharing_main.o: ..\devices\LPC54608\drivers\fsl_gpio.h
 .\debug\socket sharing_main.o: ..\..\Code(GPRS + Ethernet)\pin_mux.h
-.\debug\socket sharing_main.o: .\API\lpc54608_api.h
+.\debug\socket sharing_main.o: .\DriverAPI\lpc54608_api.h
 .\debug\socket sharing_main.o: ..\devices\LPC54608\drivers\fsl_adc.h
 .\debug\socket sharing_main.o: ..\devices\LPC54608\drivers\fsl_power.h
 .\debug\socket sharing_main.o: ..\devices\LPC54608\drivers\fsl_usart.h

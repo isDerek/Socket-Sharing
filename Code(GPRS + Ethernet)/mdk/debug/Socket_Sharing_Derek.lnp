@@ -102,8 +102,6 @@
 ".\debug\upap.o"
 ".\debug\utils.o"
 ".\debug\vj.o"
-".\debug\ping.o"
-".\debug\tcpecho.o"
 ".\debug\adc_api.o"
 ".\debug\eeprom_api.o"
 ".\debug\gpio_api.o"

@@ -8,7 +8,7 @@
 .\debug\ota.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
 .\debug\ota.o: E:\KEIL\ARM\ARMCC\Bin\..\include\string.h
 .\debug\ota.o: .\MD5\md5Std.h
-.\debug\ota.o: .\API\lpc54608_api.h
+.\debug\ota.o: .\DriverAPI\lpc54608_api.h
 .\debug\ota.o: ..\devices\LPC54608\LPC54608.h
 .\debug\ota.o: E:\KEIL\ARM\PACK\Keil\LPC54000_DFP\2.2.0\LPCOpen\lpc5460x\chip_5460x\inc\core_cm4.h
 .\debug\ota.o: E:\KEIL\ARM\PACK\Keil\LPC54000_DFP\2.2.0\LPCOpen\lpc5460x\chip_5460x\inc\core_cmInstr.h

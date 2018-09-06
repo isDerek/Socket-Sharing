@@ -6,18 +6,18 @@
 #define USERCONFIG_H
 
 
-#define DEBUG_MODE  1       //when in debug mode,the device connect to another server port:22222 
+#define DEBUG_MODE  1       //when in debug mode,the device connect to another server port:44441 
 
 
 
 #define EEPROM_ENABLE 
 
-#define configMAC_ADDR0  00
-#define configMAC_ADDR1  01
-#define configMAC_ADDR2  02
-#define configMAC_ADDR3  03
-#define configMAC_ADDR4  04
-#define configMAC_ADDR5  05
+#define configMyMAC_ADDR0  00
+#define configMyMAC_ADDR1  01
+#define configMyMAC_ADDR2  02
+#define configMyMAC_ADDR3  03
+#define configMyMAC_ADDR4  04
+#define configMyMAC_ADDR5  05
 
 	
 /* ---------------------------------- Socket configure --------------------------------- */

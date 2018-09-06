@@ -14,16 +14,16 @@
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>LPC54608J512BD208:M4</Device>
+          <Device>LPC54608J512ET180:M4</Device>
           <Vendor>NXP</Vendor>
           <PackID>Keil.LPC54000_DFP.2.2.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00028000) IRAM2(0x04000000,0x00008000) IROM(0x00000000,0x00080000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0LPC5460x_512 -FS00 -FL080000 -FP0($$Device:LPC54608J512BD208$Flash\LPC5460x_512.FLM))</FlashDriverDll>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0LPC5460x_512 -FS00 -FL080000 -FP0($$Device:LPC54608J512ET180$Flash\LPC5460x_512.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:LPC54608J512BD208$LPCOpen\lpc5460x\chip_5460x\inc\chip.h</RegisterFile>
+          <RegisterFile>$$Device:LPC54608J512ET180$LPCOpen\lpc5460x\chip_5460x\inc\chip.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -33,7 +33,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:LPC54608J512BD208$SVD\LPC54608.svd</SFDFile>
+          <SFDFile>$$Device:LPC54608J512ET180$SVD\LPC54608.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -273,7 +273,7 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x8000</StartAddress>
+                <StartAddress>0x0</StartAddress>
                 <Size>0x80000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
@@ -340,7 +340,7 @@
 </MiscControls>
               <Define>DEBUG, CPU_LPC54608, CPU_LPC54608J512ET180=1, USE_RTOS=1, PRINTF_ADVANCED_ENABLE=1, FSL_RTOS_FREE_RTOS</Define>
               <Undefine></Undefine>
-              <IncludePath>..\lwip_2.0.0\src\include\lwip;..\mdk;..\lwip_2.0.0\port;..\lwip_2.0.0\src\include\lwip;..\devices\LPC54608\utilities;..\devices\LPC54608\drivers;..\devices\LPC54608;.\rtos\freertos_9.0.0\Source\include;..\..\Ev_Charger_Net;.\rtos\freertos_9.0.0\Source\portable\GCC\ARM_CM4F;..\lwip_2.0.0\contrib\apps\tcpecho;..\lwip_2.0.0\src\include\lwip;..\lwip_2.0.0\src\include\lwip\priv;..\lwip_2.0.0\src\include\netif;..\lwip_2.0.0\src\include\lwip\prot;..\lwip_2.0.0\src\netif\ppp;..\devices\LPC54608\arm;..\lwip_2.0.0\contrib\apps\ping;.\API;.\cJSON;.\crc16;.\EVCharger;.\FreeScaleIAP;.\OTA;.\rtos\freertos_9.0.0\Source\include;..\mdk;.\Socket Sharing;.\output;..\..\Code(GPRS + Ethernet);.\MD5;..\..\SDK_2.2_LPCXpresso54608\middleware\lwip_2.0.0\src\include\netif\ppp\polarss</IncludePath>
+              <IncludePath>..\lwip_2.0.0\src\include\lwip;..\mdk;..\lwip_2.0.0\port;..\lwip_2.0.0\src\include\lwip;..\devices\LPC54608\utilities;..\devices\LPC54608\drivers;..\devices\LPC54608;.\rtos\freertos_9.0.0\Source\include;..\..\Ev_Charger_Net;.\rtos\freertos_9.0.0\Source\portable\GCC\ARM_CM4F;..\lwip_2.0.0\contrib\apps\tcpecho;..\lwip_2.0.0\src\include\lwip;..\lwip_2.0.0\src\include\lwip\priv;..\lwip_2.0.0\src\include\netif;..\lwip_2.0.0\src\include\lwip\prot;..\lwip_2.0.0\src\netif\ppp;..\devices\LPC54608\arm;..\lwip_2.0.0\contrib\apps\ping;.\cJSON;.\crc16;.\EVCharger;.\FreeScaleIAP;.\OTA;.\rtos\freertos_9.0.0\Source\include;..\mdk;.\Socket Sharing;.\output;..\..\Code(GPRS + Ethernet);.\MD5;..\..\SDK_2.2_LPCXpresso54608\middleware\lwip_2.0.0\src\include\netif\ppp\polarss;.\DriverAPI</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1855,6 +1855,74 @@
         </Group>
         <Group>
           <GroupName>Socket API</GroupName>
+          <GroupOption>
+            <CommonProperty>
+              <UseCPPCompiler>0</UseCPPCompiler>
+              <RVCTCodeConst>0</RVCTCodeConst>
+              <RVCTZI>0</RVCTZI>
+              <RVCTOtherData>0</RVCTOtherData>
+              <ModuleSelection>0</ModuleSelection>
+              <IncludeInBuild>0</IncludeInBuild>
+              <AlwaysBuild>2</AlwaysBuild>
+              <GenerateAssemblyFile>2</GenerateAssemblyFile>
+              <AssembleAssemblyFile>2</AssembleAssemblyFile>
+              <PublicsOnly>2</PublicsOnly>
+              <StopOnExitCode>11</StopOnExitCode>
+              <CustomArgument></CustomArgument>
+              <IncludeLibraryModules></IncludeLibraryModules>
+              <ComprImg>1</ComprImg>
+            </CommonProperty>
+            <GroupArmAds>
+              <Cads>
+                <interw>2</interw>
+                <Optim>0</Optim>
+                <oTime>2</oTime>
+                <SplitLS>2</SplitLS>
+                <OneElfS>2</OneElfS>
+                <Strict>2</Strict>
+                <EnumInt>2</EnumInt>
+                <PlainCh>2</PlainCh>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <wLevel>0</wLevel>
+                <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
+                <uC99>2</uC99>
+                <useXO>2</useXO>
+                <v6Lang>0</v6Lang>
+                <v6LangP>0</v6LangP>
+                <vShortEn>2</vShortEn>
+                <vShortWch>2</vShortWch>
+                <v6Lto>2</v6Lto>
+                <v6WtE>2</v6WtE>
+                <v6Rtti>2</v6Rtti>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Cads>
+              <Aads>
+                <interw>2</interw>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <thumb>2</thumb>
+                <SplitLS>2</SplitLS>
+                <SwStkChk>2</SwStkChk>
+                <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
+                <useXO>2</useXO>
+                <uClangAs>2</uClangAs>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Aads>
+            </GroupArmAds>
+          </GroupOption>
           <Files>
             <File>
               <FileName>ping.c</FileName>
@@ -1879,7 +1947,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>API</GroupName>
+          <GroupName>DriverAPI</GroupName>
           <GroupOption>
             <CommonProperty>
               <UseCPPCompiler>0</UseCPPCompiler>
@@ -1952,32 +2020,32 @@
             <File>
               <FileName>adc_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\adc_api.c</FilePath>
+              <FilePath>.\DriverAPI\adc_api.c</FilePath>
             </File>
             <File>
               <FileName>eeprom_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\eeprom_api.c</FilePath>
+              <FilePath>.\DriverAPI\eeprom_api.c</FilePath>
             </File>
             <File>
               <FileName>gpio_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\gpio_api.c</FilePath>
+              <FilePath>.\DriverAPI\gpio_api.c</FilePath>
             </File>
             <File>
               <FileName>sctimer_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\sctimer_api.c</FilePath>
+              <FilePath>.\DriverAPI\sctimer_api.c</FilePath>
             </File>
             <File>
               <FileName>usart_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\usart_api.c</FilePath>
+              <FilePath>.\DriverAPI\usart_api.c</FilePath>
             </File>
             <File>
               <FileName>lpc54608_api.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\API\lpc54608_api.h</FilePath>
+              <FilePath>.\DriverAPI\lpc54608_api.h</FilePath>
             </File>
             <File>
               <FileName>flash_api.c</FileName>
@@ -1992,7 +2060,7 @@
             <File>
               <FileName>gprs_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\gprs_api.c</FilePath>
+              <FilePath>.\DriverAPI\gprs_api.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -3991,37 +4059,37 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>API</GroupName>
+          <GroupName>DriverAPI</GroupName>
           <Files>
             <File>
               <FileName>adc_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\adc_api.c</FilePath>
+              <FilePath>.\DriverAPI\adc_api.c</FilePath>
             </File>
             <File>
               <FileName>eeprom_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\eeprom_api.c</FilePath>
+              <FilePath>.\DriverAPI\eeprom_api.c</FilePath>
             </File>
             <File>
               <FileName>gpio_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\gpio_api.c</FilePath>
+              <FilePath>.\DriverAPI\gpio_api.c</FilePath>
             </File>
             <File>
               <FileName>sctimer_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\sctimer_api.c</FilePath>
+              <FilePath>.\DriverAPI\sctimer_api.c</FilePath>
             </File>
             <File>
               <FileName>usart_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\usart_api.c</FilePath>
+              <FilePath>.\DriverAPI\usart_api.c</FilePath>
             </File>
             <File>
               <FileName>lpc54608_api.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\API\lpc54608_api.h</FilePath>
+              <FilePath>.\DriverAPI\lpc54608_api.h</FilePath>
             </File>
             <File>
               <FileName>flash_api.c</FileName>
@@ -4036,7 +4104,7 @@
             <File>
               <FileName>gprs_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\API\gprs_api.c</FilePath>
+              <FilePath>.\DriverAPI\gprs_api.c</FilePath>
             </File>
           </Files>
         </Group>

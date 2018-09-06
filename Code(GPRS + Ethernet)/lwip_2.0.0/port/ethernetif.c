@@ -83,6 +83,7 @@
 #include "fsl_enet.h"
 #include "fsl_phy.h"
 
+#include "UserConfig.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -438,12 +439,12 @@ static void low_level_init(struct netif *netif)
     netif->hwaddr_len = ETHARP_HWADDR_LEN;
 
     /* set MAC hardware address */
-    netif->hwaddr[0] = configMAC_ADDR0;
-    netif->hwaddr[1] = configMAC_ADDR1;
-    netif->hwaddr[2] = configMAC_ADDR2;
-    netif->hwaddr[3] = configMAC_ADDR3;
-    netif->hwaddr[4] = configMAC_ADDR4;
-    netif->hwaddr[5] = configMAC_ADDR5;
+    netif->hwaddr[0] = configMyMAC_ADDR0;
+    netif->hwaddr[1] = configMyMAC_ADDR1;
+    netif->hwaddr[2] = configMyMAC_ADDR2;
+    netif->hwaddr[3] = configMyMAC_ADDR3;
+    netif->hwaddr[4] = configMyMAC_ADDR4;
+    netif->hwaddr[5] = configMyMAC_ADDR5;
 
     /* maximum transfer unit */
     netif->mtu = 1500; /* TODO: define a config */

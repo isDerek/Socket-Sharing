@@ -44,23 +44,18 @@ int CP_OFF(void);
 
 
 
-/************************************/
-/*adc api 
-/************************************/
+/**************adc api**************/
 void ADC_Configuration(void);
 void ADC_ClockPower_Configuration(void);
 float adc_read_result(void);
 
-/************************************/
-/*sctimer api 
-/************************************/
+/***********sctimer api******************/
+
 void sctimer_pwm_init(void);
 void enableCPPWM(float cycle);
 void disableCPPWM(void);
 
-/************************************/
-/*eeprom api 
-/************************************/
+/*************eeprom api*************/
 void write_EEPROM(EEPROM_Type *base, uint32_t pageNum, uint32_t *data);
 void read_EEPROM(uint32_t base,uint32_t pageNum,uint8_t size,char *data);
 void readFromEEPROM(uint8_t addr,char* data,uint8_t size);
@@ -68,9 +63,7 @@ uint8_t writeToEEPROM(uint8_t addr,char* data,uint8_t size);
 void eeprom_init(void);
 
 
-/************************************/
-/*flash api 
-/************************************/
+/****************flash api**************/
 
 /** Erase a flash sector
  *

@@ -23,5 +23,5 @@
 .\debug\i2c_api.o: ..\devices\LPC54608\utilities\fsl_debug_console.h
 .\debug\i2c_api.o: ..\devices\LPC54608\drivers\fsl_i2c.h
 .\debug\i2c_api.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stddef.h
-.\debug\i2c_api.o: .\API\lpc54608_api.h
+.\debug\i2c_api.o: .\DriverAPI\lpc54608_api.h
 .\debug\i2c_api.o: ..\..\Code(GPRS + Ethernet)\pin_mux.h

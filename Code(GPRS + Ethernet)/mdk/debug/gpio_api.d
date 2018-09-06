@@ -1,5 +1,5 @@
-.\debug\gpio_api.o: API\gpio_api.c
-.\debug\gpio_api.o: .\API\lpc54608_api.h
+.\debug\gpio_api.o: DriverAPI\gpio_api.c
+.\debug\gpio_api.o: .\DriverAPI\lpc54608_api.h
 .\debug\gpio_api.o: ..\devices\LPC54608\LPC54608.h
 .\debug\gpio_api.o: E:\KEIL\ARM\PACK\Keil\LPC54000_DFP\2.2.0\LPCOpen\lpc5460x\chip_5460x\inc\core_cm4.h
 .\debug\gpio_api.o: E:\KEIL\ARM\ARMCC\Bin\..\include\stdint.h

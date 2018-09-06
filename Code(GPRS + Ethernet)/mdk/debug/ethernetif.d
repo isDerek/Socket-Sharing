@@ -68,3 +68,4 @@
 .\debug\ethernetif.o: ..\lwip_2.0.0\port\ethernetif.h
 .\debug\ethernetif.o: ..\devices\LPC54608\drivers\fsl_enet.h
 .\debug\ethernetif.o: ..\..\Code(GPRS + Ethernet)\fsl_phy.h
+.\debug\ethernetif.o: .\EVCharger\UserConfig.h

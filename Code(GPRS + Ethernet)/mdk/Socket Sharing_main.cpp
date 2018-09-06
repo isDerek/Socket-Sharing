@@ -1850,7 +1850,7 @@ void Internet_init()
     PRINTF(" IPv4 Gateway     : %u.%u.%u.%u\r\n", ((u8_t *)&fsl_netif0_gw)[0], ((u8_t *)&fsl_netif0_gw)[1],
            ((u8_t *)&fsl_netif0_gw)[2], ((u8_t *)&fsl_netif0_gw)[3]);
     PRINTF("************************************************\r\n");
-		sprintf(MAC_ADDRESS,"%02x%02x%02x%02x%02x%02x",configMAC_ADDR0,configMAC_ADDR1,configMAC_ADDR2,configMAC_ADDR3,configMAC_ADDR4,configMAC_ADDR5);
+		sprintf(MAC_ADDRESS,"%02x%02x%02x%02x%02x%02x",configMyMAC_ADDR0,configMyMAC_ADDR1,configMyMAC_ADDR2,configMyMAC_ADDR3,configMyMAC_ADDR4,configMyMAC_ADDR5);
 //    PRINTF("MAC ADDRESS = %s size = %d\n\r",MAC_ADDRESS,sizeof(MAC_ADDRESS));		
 		memcpy(chargerInfo.mac,MAC_ADDRESS,sizeof(MAC_ADDRESS));
 //		PRINTF("MAC ADDRESS = %s\n\r",chargerInfo.mac);

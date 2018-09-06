@@ -118,7 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>UL2CM3</Key>
-          <Name>UL2CM3(-S0 -C0 -P0 ) -FN1 -FC1000 -FD20000000 -FF0LPC5460x_512 -FL080000 -FS00 -FP0($$Device:LPC54608J512BD208$Flash\LPC5460x_512.FLM)</Name>
+          <Name>UL2CM3(-S0 -C0 -P0 )  -FN1 -FC1000 -FD20000000 -FF0LPC5460x_512 -FL080000 -FS00 -FP0($$Device:LPC54608J512ET180$Flash\LPC5460x_512.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -367,7 +367,7 @@
 
   <Group>
     <GroupName>startup</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1187,7 +1187,7 @@
 
   <Group>
     <GroupName>source</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1251,7 +1251,7 @@
 
   <Group>
     <GroupName>lwip-port</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -3594,7 +3594,7 @@
   </Group>
 
   <Group>
-    <GroupName>API</GroupName>
+    <GroupName>DriverAPI</GroupName>
     <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
@@ -3606,7 +3606,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\API\adc_api.c</PathWithFileName>
+      <PathWithFileName>.\DriverAPI\adc_api.c</PathWithFileName>
       <FilenameWithoutPath>adc_api.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -3618,7 +3618,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\API\eeprom_api.c</PathWithFileName>
+      <PathWithFileName>.\DriverAPI\eeprom_api.c</PathWithFileName>
       <FilenameWithoutPath>eeprom_api.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -3630,7 +3630,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\API\gpio_api.c</PathWithFileName>
+      <PathWithFileName>.\DriverAPI\gpio_api.c</PathWithFileName>
       <FilenameWithoutPath>gpio_api.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -3642,7 +3642,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\API\sctimer_api.c</PathWithFileName>
+      <PathWithFileName>.\DriverAPI\sctimer_api.c</PathWithFileName>
       <FilenameWithoutPath>sctimer_api.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -3654,7 +3654,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\API\usart_api.c</PathWithFileName>
+      <PathWithFileName>.\DriverAPI\usart_api.c</PathWithFileName>
       <FilenameWithoutPath>usart_api.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -3666,7 +3666,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\API\lpc54608_api.h</PathWithFileName>
+      <PathWithFileName>.\DriverAPI\lpc54608_api.h</PathWithFileName>
       <FilenameWithoutPath>lpc54608_api.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -3702,7 +3702,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\API\gprs_api.c</PathWithFileName>
+      <PathWithFileName>.\DriverAPI\gprs_api.c</PathWithFileName>
       <FilenameWithoutPath>gprs_api.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -3711,7 +3711,7 @@
 
   <Group>
     <GroupName>cJSON</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -3775,7 +3775,7 @@
 
   <Group>
     <GroupName>Socket_Sharing</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
